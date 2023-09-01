@@ -9,6 +9,9 @@
         "php": ">=8.2.9",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/doctrine-bundle": "^2.10",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.16",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
         "symfony/flex": "^2",
@@ -51,6 +54,13 @@
         "post-install-cmd": [
             "@auto-scripts"
         ],
+        "db": [
+            "Composer\\Config::disableProcessTimeout",
+            "php bin/console doctrine:database:drop --force",
+            "php bin/console doctrine:database:create",
+            "php bin/console doctrine:schema:create",
+            "php bin/console doctrine:fixtures:load --no-interaction"
+        ],
         "post-update-cmd": [
             "@auto-scripts"
         ]
@@ -64,5 +74,9 @@
             "require": "6.3.*",
             "docker": true
         }
+    },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "symfony/maker-bundle": "^1.50"
     }
 }
