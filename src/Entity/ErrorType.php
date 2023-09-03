@@ -21,6 +21,10 @@ class ErrorType
     #[ORM\OneToMany(mappedBy: 'ErrorType', targetEntity: ItTicket::class)]
     private Collection $itTickets;
 
+    #[ORM\ManyToOne(inversedBy: 'errorTypes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Prestataire $heldby = null;
+
     public function __construct()
     {
         $this->itTickets = new ArrayCollection();
@@ -69,6 +73,18 @@ class ErrorType
                 $itTicket->setErrorType(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getHeldby(): ?Prestataire
+    {
+        return $this->heldby;
+    }
+
+    public function setHeldby(?Prestataire $heldby): static
+    {
+        $this->heldby = $heldby;
 
         return $this;
     }
