@@ -25,5 +25,11 @@
     },
     {
         "name":"VPN"
+    },
+    {
+        "name":"MAC"
+    },
+    {
+        "name":"Eudonet"
     }
 ]

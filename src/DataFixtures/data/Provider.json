@@ -34,5 +34,13 @@
         "email":"rpage@eudonet.com",
         "phoneNumber":"",
         "societyName":"Eudonet"
+    },
+    {
+        "name":"Tom",
+        "LastName":"Raineri",
+        "email":"assistance.informatique@cnac.fr",
+        "phoneNumber":"0760271746",
+        "societyName":"CNAC"
     }
+    
 ]
