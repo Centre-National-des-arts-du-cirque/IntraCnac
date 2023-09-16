@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[InheritanceType('SINGLE_TABLE')]
 #[ORM\Table(name: '`user`')]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
-#[DiscriminatorMap(['admin' => Admin::class])]
+#[DiscriminatorMap(['admin' => Admin::class ,'user' => User::class])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
