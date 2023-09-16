@@ -1,0 +1,46 @@
+[
+    {
+        "name":"Olivier",
+        "LastName":"Pigeonnot",
+        "email":"support@ops-services.fr",
+        "phoneNumber":"0326632632",
+        "societyName":"OPS"
+
+    },
+    {
+        "name":"Dominique",
+        "LastName":"Vachet",
+        "email":"dominique.vachet@inter-actif.net",
+        "phoneNumber":"0614704198",
+        "societyName":"Inter-Actif"
+    },
+    {
+        "name":"Ceydric",
+        "LastName":"plusse",
+        "email":"ceydric@plusse.com",
+        "phoneNumber":"0672926974",
+        "societyName":"Plusse"
+    },
+    {
+        "name":"Florence",
+        "LastName":"Pussault",
+        "email":"florence.p@regiespectacle.com",
+        "phoneNumber":"0582880133",
+        "societyName":"Régie Spectacle"
+    },
+    {
+        "name":"Renaud",
+        "LastName":"Page",
+        "email":"rpage@eudonet.com",
+        "phoneNumber":"",
+        "societyName":"Eudonet"
+    },
+    {
+        "name":"Tom",
+        "LastName":"Raineri",
+        "email":"assistance.informatique@cnac.fr",
+        "phoneNumber":"0760271746",
+        "societyName":"CNAC"
+    }
+    
+]
