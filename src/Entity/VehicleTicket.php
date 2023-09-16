@@ -6,12 +6,8 @@ use App\Repository\VehicleTicketRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: VehicleTicketRepository::class)]
-class VehicleTicket
+class VehicleTicket extends Ticket
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
 
     #[ORM\Column(length: 10)]
     private ?string $immatriculation = null;

@@ -29,6 +29,10 @@ class Ticket
     #[ORM\Column]
     private ?bool $solved = null;
 
+    #[ORM\ManyToOne(inversedBy: 'tickets')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $createBy = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -78,6 +82,18 @@ class Ticket
     public function setSolved(bool $solved): static
     {
         $this->solved = $solved;
+
+        return $this;
+    }
+
+    public function getCreateBy(): ?User
+    {
+        return $this->createBy;
+    }
+
+    public function setCreateBy(?User $createBy): static
+    {
+        $this->createBy = $createBy;
 
         return $this;
     }
