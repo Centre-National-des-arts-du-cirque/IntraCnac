@@ -1,43 +1,35 @@
 <?php
 
-namespace App\Form;
+namespace App\Form\Ticket;
 
 use App\Entity\ItTicket;
-use Composer\Semver\Constraint\Constraint;
-use Doctrine\ORM\Mapping\Entity;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\NotBlank;
+use App\Entity\ErrorType;
 
-class ItTickerFormType extends AbstractType
+class ItTicketFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title',TextType::class,[
-                'constraint ' => [
-                    new NotBlank([
-                        'message' => 'Veuillez mettre un titre a votre ticket',
-                    ]),
-                ]
-            ])
-            ->add('description',TextType::class,[
-                'constraint ' => [
-                    new NotBlank([
-                        'message' => 'Veuillez mettre une description a votre ticket',
-                    ]),
-                ]
-            ])
+            ->add('title',TextType::class)
+            ->add('description',TextType::class)
 
-            ->add('pcName',TextType::class)
-            ->add('errorCode',TextType::class)
+            ->add('pcName',TextType::class,[
+                'required'=> false,
+            ])
+            ->add('errorCode',TextType::class,[
+                'required'=> false,
+            ])
             ->add('Localisation',ChoiceType::class,[
                 'choices' => [
                     'Cirque Historique' =>'Cirque Historique',
                     'Ecole national superieur du cirque' =>'Ecole national superieur du cirque',
+                    'distanciel' =>'distanciel',
                 ],
             ])
            
