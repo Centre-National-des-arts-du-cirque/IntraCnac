@@ -34,6 +34,7 @@ class TicketController extends AbstractController
        if ($form->isSubmitted() && $form->isValid()) {
             $itTicket->setCreateBy($user);
             $itTicket->setSolved(false);
+            
 
 
             $this->em->persist($itTicket);

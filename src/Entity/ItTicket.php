@@ -10,7 +10,7 @@ class ItTicket extends Ticket
 {
 
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255,nullable: true)]
     private ?string $pcName = null;
 
     #[ORM\Column(length: 255, nullable: true)]
