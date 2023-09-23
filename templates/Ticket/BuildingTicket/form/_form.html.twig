@@ -1,0 +1,29 @@
+<div class="form__container">
+    {{ form_start(BuildingTicketForm, { attr: { class: "form_login" }}) }}
+
+    <div class="form__header">
+        <h1 class="form__title">Soumettre un ticket</h1>
+    </div>
+
+    <div class="form__name inline_row">
+        <div class="field">
+            {{ form_label(BuildingTicketForm.title, "Titre") }}
+            {{ form_widget(BuildingTicketForm.title, { attr: { placeholder: "Titre du ticket" }}) }}
+        </div>
+        <div class="field">
+            {{ form_label(BuildingTicketForm.description, "Description") }}
+            {{ form_widget(BuildingTicketForm.description, { attr: { placeholder: "Description du probleme" }}) }}
+        </div>
+    </div>
+
+
+    <div class="field">
+        {{ form_label(BuildingTicketForm.Localisation, "Localisation") }}
+        {{ form_widget(BuildingTicketForm.Localisation, { attr: { placeholder: "Lieu ou se trouve le probleme" }}) }}
+    </div>
+
+    <div class="field">
+        {{ form_label(BuildingTicketForm.site, "site") }}
+        {{ form_widget(BuildingTicketForm.site, { attr: { placeholder: "lieu precis ou se trouve le probleme" }}) }}
+    </div>
+   

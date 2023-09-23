@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controller;
+use App\Entity\BuildingTicket;
 use App\Entity\ItTicket;
+use App\Form\Ticket\BuildingTicketFormType;
 use App\Form\Ticket\ItTicketFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -42,8 +44,25 @@ class TicketController extends AbstractController
 
             return $this->redirectToRoute('app_login');
         }
-        return $this->render('ticket/index.html.twig', [
+        return $this->render('ticket/ItTicket/index.html.twig', [
             'ItTicketForm' => $form->createView(),
         ]);
     }
+    #[Route('/BuildingTicket', name: 'app_BuildingTicket')]
+    public function BuildingTicket(Request $request): Response
+    {   
+       $user = $this->tokenStorage->getToken()->getUser();
+
+       $BuildingTicket = new BuildingTicket();
+       $form = $this->createForm(BuildingTicketFormType::class, $BuildingTicket);
+        
+       $form->handleRequest($request);
+       if ($form->isSubmitted() && $form->isValid()) {
+            $BuildingTicket->setCreateBy($user);
+            $BuildingTicket->setSolved(false);
+    }
+    return $this->render('ticket/BuildingTicket/index.html.twig', [
+        'BuildingTicketForm' => $form->createView(),
+    ]);
+}
 }
