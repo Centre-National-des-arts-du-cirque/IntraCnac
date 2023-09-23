@@ -60,6 +60,10 @@ class TicketController extends AbstractController
        if ($form->isSubmitted() && $form->isValid()) {
             $BuildingTicket->setCreateBy($user);
             $BuildingTicket->setSolved(false);
+            $this->em->persist($BuildingTicket);
+            $this->em->flush();
+
+            return $this->redirectToRoute('app_login');
     }
     return $this->render('ticket/BuildingTicket/index.html.twig', [
         'BuildingTicketForm' => $form->createView(),
