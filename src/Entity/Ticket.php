@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\TicketRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: TicketRepository::class)]
 #[ORM\InheritanceType("JOINED")]
@@ -24,10 +25,15 @@ class Ticket
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[Gedmo\Timestampable(on: 'create')]
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column]
     private ?bool $solved = null;
+
+    #[ORM\ManyToOne(inversedBy: 'tickets')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $createBy = null;
 
     public function getId(): ?int
     {
@@ -78,6 +84,18 @@ class Ticket
     public function setSolved(bool $solved): static
     {
         $this->solved = $solved;
+
+        return $this;
+    }
+
+    public function getCreateBy(): ?User
+    {
+        return $this->createBy;
+    }
+
+    public function setCreateBy(?User $createBy): static
+    {
+        $this->createBy = $createBy;
 
         return $this;
     }

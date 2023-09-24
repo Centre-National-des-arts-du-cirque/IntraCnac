@@ -6,14 +6,11 @@ use App\Repository\ItTicketRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ItTicketRepository::class)]
-class ItTicket
+class ItTicket extends Ticket
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+
+    #[ORM\Column(length: 255,nullable: true)]
     private ?string $pcName = null;
 
     #[ORM\Column(length: 255, nullable: true)]
