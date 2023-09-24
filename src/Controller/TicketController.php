@@ -7,6 +7,7 @@ use App\Entity\ItTicket;
 use App\Entity\VehicleTicket;
 use App\Form\Ticket\BuildingTicketFormType;
 use App\Form\Ticket\ItTicketFormType;
+use App\Form\Ticket\VehicleTicketFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -84,6 +85,7 @@ class TicketController extends AbstractController
         $VehicleTicket = new VehicleTicket();
         $form = $this->createForm(VehicleTicketFormType::class, $VehicleTicket);
 
+        $error = 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $VehicleTicket->setCreateBy($user);
@@ -96,6 +98,7 @@ class TicketController extends AbstractController
 
         return $this->render('ticket/VehicleTicket/index.html.twig', [
             'VehicleTicketForm' => $form->createView(),
+            
         ]);
     }
 }
