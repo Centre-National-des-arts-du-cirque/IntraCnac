@@ -3,6 +3,7 @@
 namespace App\Form\Ticket;
 
 use App\Entity\BuildingTicket;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\AbstractType;
@@ -15,7 +16,7 @@ class BuildingTicketFormType extends AbstractType
     {
         $builder
         ->add('title',TextType::class)
-        ->add('description',TextType::class)
+        ->add('description',TextareaType::class)
 
         ->add('Localisation',ChoiceType::class,[
             'choices' => [
