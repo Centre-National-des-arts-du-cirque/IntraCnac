@@ -12,8 +12,6 @@ class VehicleTicket extends Ticket
     #[ORM\Column(length: 10)]
     private ?string $immatriculation = null;
 
-    #[ORM\Column(length: 10)]
-    private ?string $immat = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Brand = null;
@@ -35,17 +33,7 @@ class VehicleTicket extends Ticket
         return $this;
     }
 
-    public function getImmat(): ?string
-    {
-        return $this->immat;
-    }
 
-    public function setImmat(string $immat): static
-    {
-        $this->immat = $immat;
-
-        return $this;
-    }
 
     public function getBrand(): ?string
     {
