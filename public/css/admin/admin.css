@@ -1,8 +1,10 @@
-body {
-    font-family: Arial, sans-serif;
+body, html {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    height: 100vh;
+    overflow: hidden;
 }
 
 nav {
@@ -37,22 +39,34 @@ nav ul li a:hover {
 }
 
 .central {
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #fff;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* max-height: calc(100vh - 60px); */
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: center;
+    height: 100%;
+}
+
+.table-container {
+
+display: flex;
+
+max-height: 25%;
+
+overflow-y: auto;
+
+justify-content: center;
 }
 
 table {
-    width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    width: max-content;
 }
 
 table, th, td {
-    border: 2px solid #e0e0e0;
+    border: 1px solid #e0e0e0;
 }
 
 th, td {
@@ -65,21 +79,61 @@ th {
 }
 
 tr:nth-child(even) {
-    background-color: #a1a1a1;
+    background-color: #f2f2f2;
 }
 
-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.3s;
-    margin: 0 5px;
+.ticket-info-card{
+    display: flex;
+    border: #555 solid 1px;
+    /* align-items: center; */
+    width: auto;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    overflow-x: hidden;
+    justify-content: space-around;
+    width: 100%;
+    height: 40%;
 }
 
-button:focus {
-    outline: none;
+.left-info-card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.card-info{
+    display: flex;
+    /* margin-bottom: 20px; */
+    justify-content: space-evenly;
+    width: 100%;
+    overflow-y: hidden;
+    height: 100%;
+    /* overflow: auto; */
 }
 
-button:hover {
-    opacity: 0.7;
+.action-buttons {
+    display: flex;
+    justify-content: start;
+    margin-right: 10px;
+}
+
+.description-info{
+    width: 75%;
+    height: 100%;
+}
+.ticket-description{
+    padding: 5px;
+    border: black solid 1px;
+    width: 70%;
+    height: 50%;
+    overflow-y: auto;
+}
+
+.right-info-card{
+    
+    border-left: black solid 1px;
+    flex-grow: 2;
+}
+.card-info-left{
+    flex-grow: 1;
 }
