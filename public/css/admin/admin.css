@@ -90,8 +90,8 @@ tr:nth-child(even) {
     margin-bottom: 20px;
     margin-top: 40px;
     overflow-x: hidden;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: center;
+    width: 80%;
     height: 40%;
 }
 
