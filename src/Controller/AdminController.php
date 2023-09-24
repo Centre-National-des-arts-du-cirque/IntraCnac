@@ -21,7 +21,7 @@ class AdminController extends AbstractController
     {   
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
-        $tickets = $tr->findBy([],['date' => 'DESC']);
+        $tickets = $tr->findBy([],['date' => 'DESC', 'solved' => 'ASC']);
         return $this->render('admin/index.html.twig', [
             'tickets' => $tickets,
         ]);

@@ -14,20 +14,53 @@
 
     <nav>
         <ul>
-            <li><a href="#graphique">Graphique</a></li>
-            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#dashboard">Dashboard <i class="fa fa-desktop" aria-hidden="true"></i></a></li>
+            <li><a href="#graphique">Graphique <i class="fas fa-chart-bar"></i></a></li>
         </ul>
     </nav>
 
     <div class="central">
-        <h2>Tickets en cours</h2>
-        <div class="ticket">
-            <h3>Titre du Ticket</h3>
-            {% for ticket in tickets %}
-            <p>{{ticket.title}}</p>
-           
-            {% endfor %}
-        </div>
+    
+    <h2>Tickets en cours</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Type</th>
+                    <th>Date de création</th>
+                    <th>Résolu</th>
+                    <th>Créé par</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                {% set date = ticket.date|date("d/M/Y") %}
+                <tr>
+                    <td>{{ticket.title}}</td>
+                    <td>{% if ticket.className == "ItTicket" %}
+                            Informatique
+                        {% elseif ticket.className == "BuildingTicket" %}
+                            Bâtiment
+                        {% elseif ticket.className == "VehicleTicket" %}
+                            Véhicule
+                        {% endif %}
+                    </td>
+                    <td>{{date}}</td>
+                    <td>{{ticket.solved ? 'Oui' : 'Non'}}</td>
+                    <td>{{ticket.createBy.name}} {{ticket.createBy.lastName}}</td>
+                    <td>
+                         <button class="info-btn" title="Plus d'infos"><i class="fas fa-info"></i></button>
+                        <button class="resolve-btn" title="Marquer comme résolu"><i class="fas fa-check"></i></button>
+                        <button class="delete-btn" title="Supprimer"><i class="fas fa-trash"></i></button>
+                    </td>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        
     </div>
 
 {% endblock %}
