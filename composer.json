@@ -1,8 +1,8 @@
 {
-    "name": "symfony/skeleton",
+    "name": "cnac/supportwebsite",
     "type": "project",
     "license": "MIT",
-    "description": "A minimal Symfony project recommended to create bare bones applications",
+    "description": "A symfony project for the CNAC to help his members when they have an issue on different subjects",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
