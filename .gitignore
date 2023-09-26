@@ -15,3 +15,6 @@
 ###< friendsofphp/php-cs-fixer ###
 node_modules/
 ```
+###> symfony/asset-mapper ###
+/public/assets/
+###< symfony/asset-mapper ###
