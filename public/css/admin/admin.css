@@ -1,0 +1,139 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    height: 100vh;
+    overflow: hidden;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+.central {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    /* max-height: calc(100vh - 60px); */
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: center;
+    height: 100%;
+}
+
+.table-container {
+
+display: flex;
+
+max-height: 25%;
+
+overflow-y: auto;
+
+justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: max-content;
+}
+
+table, th, td {
+    border: 1px solid #e0e0e0;
+}
+
+th, td {
+    padding: 8px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.ticket-info-card{
+    display: flex;
+    border: #555 solid 1px;
+    /* align-items: center; */
+    width: auto;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    overflow-x: hidden;
+    justify-content: center;
+    width: 80%;
+    height: 40%;
+}
+
+.left-info-card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.card-info{
+    display: flex;
+    /* margin-bottom: 20px; */
+    justify-content: space-evenly;
+    width: 100%;
+    overflow-y: hidden;
+    height: 100%;
+    /* overflow: auto; */
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: start;
+    margin-right: 10px;
+}
+
+.description-info{
+    width: 75%;
+    height: 100%;
+}
+.ticket-description{
+    padding: 5px;
+    border: black solid 1px;
+    width: 70%;
+    height: 50%;
+    overflow-y: auto;
+}
+
+.right-info-card{
+    
+    border-left: black solid 1px;
+    flex-grow: 2;
+}
+.card-info-left{
+    flex-grow: 1;
+}
