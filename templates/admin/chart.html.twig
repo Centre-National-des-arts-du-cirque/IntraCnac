@@ -5,13 +5,14 @@
         {% block stylesheets %}
             {{ ux_controller_link_tags() }}
             <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+            <link rel="stylesheet" href="{{ asset('styles/admin/chart.css') }}">
         {% endblock %}
       
         {% block javascripts %}
             {{ importmap() }}
         {% endblock %}
 {% block body %}
-    <div styles="width:200px;height:200px; ">
-    {{ render_chart(chart,{'class':'my-chart'}) }}
+    <div class='my-chart' >
+    {{ render_chart(chart) }}
     </div>
 {% endblock %}
