@@ -20,6 +20,17 @@ class TicketRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Ticket::class);
     }
+    public function countByDate(\DateTime $start , \DateTime $end): int
+    {   
+        
+        $qb = $this->createQueryBuilder('ticket')
+        ->select('count(ticket.id)')
+        ->where('ticket.date BETWEEN :start and :end' )
+        ->setParameter('start', $start)
+        ->setParameter('end', $end);
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
 
 //    /**
 //     * @return Ticket[] Returns an array of Ticket objects
