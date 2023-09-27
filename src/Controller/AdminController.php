@@ -35,14 +35,27 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/chart/{year}', name: 'app_admin_chart' , requirements: ['year' => '\d{4}'])]
-    public function chart(ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepository , BuildingTicketRepository $buildingTicketRepository , VehicleTicketRepository $vehicleTicketRepository, int $year): Response
+    public function chart(ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepository , BuildingTicketRepository $buildingTicketRepository , VehicleTicketRepository $vehicleTicketRepository, int $year , TicketRepository $ticketRepository): Response
     {   
 
         $start = new \DateTime($year . '-01-01');
         $end = new \DateTime($year . '-12-31');
-        $chart = $chartBuilder->createChart(Chart::TYPE_PIE);
+        $allTicketByTypechart = $chartBuilder->createChart(Chart::TYPE_PIE);
+        $allTicketByService = $chartBuilder->createChart(Chart::TYPE_PIE);
+        $allTicketByService->setData([
+            'labels' =>['Direction','Comptabilité','Ressources Humaines','Service Technique','Communication','Accueil','Centre de ressource','Autre'],
+            'datasets'=>[
+                [
+                    'label' => 'My First dataset',
+                    'backgroundColor'=> ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)','rgb(153, 102, 255)','rgb(255, 159, 64)','rgb(255, 99, 132)','rgb(54, 162, 235)'],
+                    'borderColor' => 'rgb(255, 99, 132)',
+                    'data' => [$ticketRepository->CountByServiceAndDate('Direction' , $start , $end),$ticketRepository->CountByServiceAndDate('Comptabilité' , $start , $end),$ticketRepository->CountByServiceAndDate('Ressources Humaines' , $start , $end),$ticketRepository->CountByServiceAndDate('Technique' , $start , $end),$ticketRepository->CountByServiceAndDate('Communication' , $start , $end),$ticketRepository->CountByServiceAndDate('Accueil' , $start , $end),$ticketRepository->CountByServiceAndDate('Centre de ressource' , $start , $end),$ticketRepository->CountByServiceAndDate('Autre' , $start , $end)]    
+                ]
+            ]
 
-        $chart->setData([
+            
+        ]);
+        $allTicketByTypechart->setData([
             'labels' => ['IT', 'Building', 'Vehicle'],
             'datasets' => [
                 [
@@ -58,7 +71,8 @@ class AdminController extends AbstractController
        
 
         return $this->render('admin/chart.html.twig', [
-            'chart' => $chart,
+            'chart' => $allTicketByTypechart,
+            'chart2'=> $allTicketByService,
         ]);
     }
 }
