@@ -34,14 +34,32 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/chart/{year}', name: 'app_admin_chart' , requirements: ['year' => '\d{4}'])]
-    public function chart(ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepository , BuildingTicketRepository $buildingTicketRepository , VehicleTicketRepository $vehicleTicketRepository, int $year , TicketRepository $ticketRepository): Response
+    #[Route('/admin/chart/{year}/{month}', name: 'app_admin_chart' , requirements: ['year' => '\d{4}','month' => '\d{2}'])]
+    public function chart(ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepository , BuildingTicketRepository $buildingTicketRepository , VehicleTicketRepository $vehicleTicketRepository, int $year ,int $month, TicketRepository $ticketRepository): Response
     {   
+       
+        $startOfActualYear = new \DateTime($year . '-01-01');
+        $endOfActualYear = new \DateTime($year . '-12-31');
 
-        $start = new \DateTime($year . '-01-01');
-        $end = new \DateTime($year . '-12-31');
+        $date = [];
+        if (in_array($month, [1,3,5,7,8,10,12])) {
+           
+           for ($i=1; $i < 32; $i++) { 
+               
+               array_push($date, $i.'-'.$month);
+           }
+        
+        }
+        else {
+            for ($i=1; $i < 31; $i++) { 
+                
+                array_push($date, $i.'-'.$month);
+            }
+        }
+
         $allTicketByTypechart = $chartBuilder->createChart(Chart::TYPE_PIE);
         $allTicketByService = $chartBuilder->createChart(Chart::TYPE_PIE);
+        $allTicketByDate = $chartBuilder->createChart(Chart::TYPE_LINE);
         $allTicketByService->setData([
             'labels' =>['Direction','Comptabilité','Ressources Humaines','Service Technique','Communication','Accueil','Centre de ressource','Autre'],
             'datasets'=>[
@@ -49,7 +67,7 @@ class AdminController extends AbstractController
                     'label' => 'My First dataset',
                     'backgroundColor'=> ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)','rgb(153, 102, 255)','rgb(255, 159, 64)','rgb(255, 99, 132)','rgb(54, 162, 235)'],
                     'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [$ticketRepository->CountByServiceAndDate('Direction' , $start , $end),$ticketRepository->CountByServiceAndDate('Comptabilité' , $start , $end),$ticketRepository->CountByServiceAndDate('Ressources Humaines' , $start , $end),$ticketRepository->CountByServiceAndDate('Technique' , $start , $end),$ticketRepository->CountByServiceAndDate('Communication' , $start , $end),$ticketRepository->CountByServiceAndDate('Accueil' , $start , $end),$ticketRepository->CountByServiceAndDate('Centre de ressource' , $start , $end),$ticketRepository->CountByServiceAndDate('Autre' , $start , $end)]    
+                    'data' => [$ticketRepository->CountByServiceAndDate('Direction' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Comptabilité' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Ressources Humaines' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Technique' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Communication' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Accueil' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Centre de ressource' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Autre' , $startOfActualYear , $endOfActualYear)]    
                 ]
             ]
 
@@ -62,10 +80,54 @@ class AdminController extends AbstractController
                     'label' => 'My First dataset',
                     'backgroundColor' => ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
                     'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [$itTicketRepository->countByDate($start , $end), $buildingTicketRepository->countByDate($start , $end), $vehicleTicketRepository->countByDate($start , $end)],
+                    'data' => [$itTicketRepository->countByDate($startOfActualYear , $endOfActualYear), $buildingTicketRepository->countByDate($startOfActualYear , $endOfActualYear), $vehicleTicketRepository->countByDate($startOfActualYear , $endOfActualYear)],
                 ],
                 
             ],
+        ]);
+        $nbTickets = [];
+        for ($i=0; $i <sizeof($date) ; $i++) { 
+            print($year.'-'.$date[$i]);
+            $startOfActualYear = date_create($date[$i].'-'.$year);
+            $endOfActualYear = date_create($date[$i].'-'.$year);
+            
+            $nbTicket= $ticketRepository->countByDate($startOfActualYear , $endOfActualYear);
+
+            if ($nbTicket == null) {
+                array_push($nbTickets, 0);
+
+            }
+            else{
+                array_push($nbTickets, $nbTicket);
+            }
+        }
+        
+        $allTicketByDate->setData([
+            'labels' => $date,
+            'datasets'=>[
+                [
+                    'label' => 'My First dataset',
+                    'backgroundColor'=> 'rgb(255, 99, 132)',
+                    'borderColor' => 'rgb(255, 99, 132)',
+                    'data' => $nbTickets
+                ]
+            ]
+                ]);
+        $allTicketByDate->setOptions([
+            'scales' => [
+                'yAxes' => [
+                    'ticks' => [
+                        'beginAtZero' => true,
+                    ],
+                ],[
+                    'xAxes' => [
+                        'type' => 'time',
+                        'time' => [
+                            'unit' => 'day'
+                        ]
+                ]
+            ],
+        ],
         ]);
 
        
@@ -73,6 +135,7 @@ class AdminController extends AbstractController
         return $this->render('admin/chart.html.twig', [
             'chart' => $allTicketByTypechart,
             'chart2'=> $allTicketByService,
+            'chart3'=> $allTicketByDate,
         ]);
     }
 }

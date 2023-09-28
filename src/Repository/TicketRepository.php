@@ -48,6 +48,21 @@ class TicketRepository extends ServiceEntityRepository
         return $qb->getQuery()->getSingleScalarResult();
     }
 
+    
+    public function countGroupByDay(\DateTime $start,\DateTime $end):array
+    {   
+
+        $qb = $this->createQueryBuilder('ticket')
+        ->select('count(ticket.id)')
+        ->where('ticket.date BETWEEN :start and :end' )
+            ->groupBy('ticket.date')
+            ->orderBy('ticket.date', 'ASC')
+            ->setParameter('start', $start)
+            ->setParameter('end', $end);
+        return $qb->getQuery()->getResult();
+
+    }
+
 //    /**
 //     * @return Ticket[] Returns an array of Ticket objects
 //     */
