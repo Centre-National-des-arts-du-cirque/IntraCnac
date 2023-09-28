@@ -91,7 +91,7 @@ nav ul li a:hover {
 .rectangle {
     background-color: white;
     width: 80%;
-    height: 130px;
+    height: fit-content;
     border: 1px solid #ccc;
     position: relative; /* Important pour le positionnement des enfants */
     padding: 1em;
