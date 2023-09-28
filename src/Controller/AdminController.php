@@ -60,6 +60,24 @@ class AdminController extends AbstractController
         $allTicketByTypechart = $chartBuilder->createChart(Chart::TYPE_PIE);
         $allTicketByService = $chartBuilder->createChart(Chart::TYPE_PIE);
         $allTicketByDate = $chartBuilder->createChart(Chart::TYPE_LINE);
+        $SolvedAndUnsolvedTicketByDate =$chartBuilder->createChart(Chart::TYPE_DOUGHNUT);
+
+        var_dump($ticketRepository->countSolvedTicket($startOfActualYear , $endOfActualYear), $ticketRepository->countUnsolvedTicket($startOfActualYear , $endOfActualYear));
+
+        $SolvedAndUnsolvedTicketByDate->setData([
+            'labels' => ['Resolu', 'Non Resolu'],
+            'datasets' => [
+                [
+                    'label' => 'My First dataset',
+                    'backgroundColor' => ['rgb(120,190,33)', 'rgb(255, 99, 132)'],
+                    'borderColor' => 'rgb(255, 99, 132)',
+                    'data' => [$ticketRepository->countSolvedTicket($startOfActualYear , $endOfActualYear)[0][1], $ticketRepository->countUnsolvedTicket($startOfActualYear , $endOfActualYear)[0][1]],
+                ],
+                
+            ],
+
+        ]);
+
         $allTicketByService->setData([
             'labels' =>['Direction','Comptabilité','Ressources Humaines','Service Technique','Communication','Accueil','Centre de ressource','Autre'],
             'datasets'=>[
@@ -87,7 +105,7 @@ class AdminController extends AbstractController
         ]);
         $nbTickets = [];
         for ($i=0; $i <sizeof($date) ; $i++) { 
-            print($year.'-'.$date[$i]);
+
             $startOfActualYear = date_create($date[$i].'-'.$year);
             $endOfActualYear = date_create($date[$i].'-'.$year);
             
@@ -136,6 +154,7 @@ class AdminController extends AbstractController
             'chart' => $allTicketByTypechart,
             'chart2'=> $allTicketByService,
             'chart3'=> $allTicketByDate,
+            'chart4' => $SolvedAndUnsolvedTicketByDate
         ]);
     }
 }
