@@ -20,7 +20,18 @@ class VehicleTicketRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, VehicleTicket::class);
     }
+    
+    public function countByDate(\DateTime $start , \DateTime $end): int
+    {   
+        
+        $qb = $this->createQueryBuilder('ticket')
+        ->select('count(ticket.id)')
+        ->where('ticket.date BETWEEN :start and :end' )
+        ->setParameter('start', $start)
+        ->setParameter('end', $end);
 
+        return $qb->getQuery()->getSingleScalarResult();
+    }
 //    /**
 //     * @return VehicleTicket[] Returns an array of VehicleTicket objects
 //     */
