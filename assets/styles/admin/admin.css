@@ -117,6 +117,8 @@ tr:nth-child(even) {
     margin-right: 10px;
 }
 
+
+
 .description-info{
     width: 75%;
     height: 100%;
@@ -136,4 +138,15 @@ tr:nth-child(even) {
 }
 .card-info-left{
     flex-grow: 1;
+}
+
+.siteTitle , .erroCodeTitle , .pcNameTitle , .brandTitle , .immatTitle{
+    display: none;
+}
+
+.left-card-footer{
+    display: none;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
 }

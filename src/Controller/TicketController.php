@@ -125,6 +125,7 @@ class TicketController extends AbstractController
                 'solved' => $ticket->isSolved(),
                 'createByName' => $ticket->getCreateBy()->getName(),
                 'createByFirstName' => $ticket->getCreateBy()->getLastName(),
+                'className'=>$ticket->getClassName()
             ]);
         }
         if ($this->em->getRepository(BuildingTicket::class)->find($ticketId)) {
@@ -138,6 +139,7 @@ class TicketController extends AbstractController
                 'site' => $ticket->getSite(),
                 'createByName' => $ticket->getCreateBy()->getName(),
                 'createByFirstName' => $ticket->getCreateBy()->getLastName(),
+                'className'=>$ticket->getClassName()
             ]);
         }
         if ($this->em->getRepository(VehicleTicket::class)->find($ticketId)) {
@@ -151,6 +153,7 @@ class TicketController extends AbstractController
                 'solved' => $ticket->isSolved(),
                 'createByName' => $ticket->getCreateBy()->getName(),
                 'createByFirstName' => $ticket->getCreateBy()->getLastName(),
+                'className'=>$ticket->getClassName()
             ]);
         }
         
@@ -174,6 +177,7 @@ class TicketController extends AbstractController
                 'solved' => $ticket->isSolved(),
                 'createByName' => $ticket->getCreateBy()->getName(),
                 'createByFirstName' => $ticket->getCreateBy()->getLastName(),
+                'className'=>$ticket->getClassName()
             ]);
         }
         if ($this->em->getRepository(BuildingTicket::class)->find($ticketId)) {
@@ -187,6 +191,7 @@ class TicketController extends AbstractController
                 'site' => $ticket->getSite(),
                 'createByName' => $ticket->getCreateBy()->getName(),
                 'createByFirstName' => $ticket->getCreateBy()->getLastName(),
+                'className' => $ticket->getClassName()
             ]);
         }
         if ($this->em->getRepository(VehicleTicket::class)->find($ticketId)) {
@@ -200,6 +205,7 @@ class TicketController extends AbstractController
                 'solved' => $ticket->isSolved(),
                 'createByName' => $ticket->getCreateBy()->getName(),
                 'createByFirstName' => $ticket->getCreateBy()->getLastName(),
+                'className' => $ticket->getClassName()
             ]);
     }
 }

@@ -22,10 +22,7 @@ class VehicleTicket extends Ticket
     #[ORM\Column(length: 255)]
     private ?string $Brand = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+
 
     public function getImmatriculation(): ?string
     {

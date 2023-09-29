@@ -22,10 +22,7 @@ class ItTicket extends Ticket
     #[ORM\ManyToOne(inversedBy: 'itTickets')]
     private ?ErrorType $ErrorType = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+ 
 
     public function getPcName(): ?string
     {

@@ -8,7 +8,9 @@
  <link rel="stylesheet" href="{{ asset('styles/admin/admin.css') }}">
   
 {% endblock %}
-
+{% block javascripts %}
+<script type="module" src="{{ asset('js/admin/showTicketsAdmin.js') }}"></script>
+{% endblock %}
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -33,7 +35,9 @@
                         {% for ticket in tickets %}
                         {% set date = ticket.date|date("d/M/Y") %}
                         <tr>
+                        
                             <td>{{ticket.title}}</td>
+                            
                             <td>{% if ticket.className == "ItTicket" %}
                                     Informatique
                                 {% elseif ticket.className == "BuildingTicket" %}
@@ -46,8 +50,8 @@
                             <td>{{ticket.solved ? 'Oui' : 'Non'}}</td>
                             <td>{{ticket.createBy.name}} {{ticket.createBy.lastName}}</td>
                             <td>
-                                <div class="action-buttons">
-                                    <button class="info-btn" title="Plus d'infos"><i class="fas fa-info"></i></button>
+                                <div class="action-buttons-card">
+                                    <a href="#" class="ticket-link" data-id="{{ticket.id}}"><button class="info-btn" title="Plus d'infos"><i class="fas fa-info"></i></button></a>
                                     <button class="resolve-btn" title="Marquer comme résolu"><i class="fas fa-check"></i></button>
                                     <button class="delete-btn" title="Supprimer"><i class="fas fa-trash"></i></button>
                                 </div>
@@ -65,7 +69,7 @@
            
             <div class='left-info-card'>
                 <div class='left-card-header'>
-                    <h3 class="ticket-title"> Test test titre</h3>
+                    <h3 class="ticket-title"></h3>
                 </div>
                 <div class='card-info'>
                     <div class='description-info'>
@@ -86,11 +90,13 @@
             </div>
             <div class='right-info-card'>
                 <h3>Informations complémentaires</h3>
-                <p><strong>Créé par:</strong> </p>
-                <p><strong>Localisation:</strong> </p>
-                <p><strong>Site:</strong> </p>
-                <p><strong>Code d'erreur:</strong> </p>
-                <p><strong>Nom du PC:</strong> </p>
+                <p class="createBy"><strong>Créé par:</strong></p>
+                <p class="localisation"><strong>Localisation:</strong>  </p>
+                <p class="site"><strong>Site:</strong></p>
+                <p class="errorCode"><strong>Code d'erreur:</strong> </p></p>
+                <p class="pcName"><strong>Nom du PC:</strong> </p>
+                <p class="brand"><strong>Marque:</strong>  </p>
+                <p class="immat"><strong>Immatriculation</strong></p>
             </div>
     </div>
 

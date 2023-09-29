@@ -17,10 +17,7 @@ class BuildingTicket extends Ticket
     #[ORM\Column(length: 255)]
     private ?string $Localisation = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+ 
 
     public function getSite(): ?string
     {
