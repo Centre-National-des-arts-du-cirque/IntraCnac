@@ -31,6 +31,17 @@ class TicketRepository extends ServiceEntityRepository
 
         return $qb->getQuery()->getSingleScalarResult();
     }
+    public function countByDateAndType(\DateTime $start , \DateTime $end): int
+    {   
+        
+        $qb = $this->createQueryBuilder('ticket')
+        ->select('count(ticket.id)')
+        ->where('ticket.date BETWEEN :start and :end' )
+        ->setParameter('start', $start)
+        ->setParameter('end', $end);
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
 
     public function CountByServiceAndDate(string $service ,\DateTime $start , \DateTime $end): int
     {   

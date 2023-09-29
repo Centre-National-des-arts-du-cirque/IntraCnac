@@ -14,11 +14,22 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method BuildingTicket[]    findAll()
  * @method BuildingTicket[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BuildingTicketRepository extends TicketRepository
+class BuildingTicketRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, BuildingTicket::class);
+    }
+    public function countByDate(\DateTime $start , \DateTime $end): int
+    {   
+        
+        $qb = $this->createQueryBuilder('ticket')
+        ->select('count(ticket.id)')
+        ->where('ticket.date BETWEEN :start and :end' )
+        ->setParameter('start', $start)
+        ->setParameter('end', $end);
+
+        return $qb->getQuery()->getSingleScalarResult();
     }
     
 

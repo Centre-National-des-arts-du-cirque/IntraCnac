@@ -74,7 +74,9 @@ class AdminController extends AbstractController
         $allTicketByService = $chartBuilder->createChart(Chart::TYPE_PIE);
         $allTicketByDate = $chartBuilder->createChart(Chart::TYPE_LINE);
         $SolvedAndUnsolvedTicketByDate =$chartBuilder->createChart(Chart::TYPE_DOUGHNUT);
-
+        $nbOfItTicket = $itTicketRepository->countByDate($startOfActualYear,$endOfActualYear);
+        $nbOfBuildingTicket =$buildingTicketRepository->countByDate($startOfActualYear , $endOfActualYear );
+        $nbOfVehicleTicket =  $vehicleTicketRepository->countByDate($startOfActualYear , $endOfActualYear );
 
         $SolvedAndUnsolvedTicketByDate->setData([
             'labels' => ['Resolu', 'Non Resolu'],
@@ -110,7 +112,7 @@ class AdminController extends AbstractController
                     'label' => 'My First dataset',
                     'backgroundColor' => ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
                     'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [$itTicketRepository->countByDate($startOfActualYear , $endOfActualYear), $buildingTicketRepository->countByDate($startOfActualYear , $endOfActualYear), $vehicleTicketRepository->countByDate($startOfActualYear , $endOfActualYear)],
+                    'data' => [$nbOfItTicket , $nbOfBuildingTicket , $nbOfVehicleTicket],
                 ],
                 
             ],
@@ -161,13 +163,13 @@ class AdminController extends AbstractController
         ]);
 
        
-        $nbTicket = sizeof($ticketRepository->findAll());
+       
         return $this->render('admin/chart.html.twig', [
             'chart' => $allTicketByTypechart,
             'chart2'=> $allTicketByService,
             'chart3'=> $allTicketByDate,
             'chart4' => $SolvedAndUnsolvedTicketByDate,
-            'nbticket' => $nbTicket ,
+            'nbticket' =>  $nbOfItTicket + $nbOfBuildingTicket + $nbOfVehicleTicket,
             'year'=> $year, 
         ]);
     }
