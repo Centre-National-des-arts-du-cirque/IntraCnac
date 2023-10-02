@@ -1,7 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Creation ticket pour un probleme avec un des batiments!{% endblock %}
+{%block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/ticket/buildingTicket.css') }}">
+{% endblock %}
 
 {% block body %}
+    <div class="sidebar">
+        <a href="#" class="profile-link">Profil</a>
+        <a href="#" class="logout-link">Déconnexion</a>
+    </div>
+    
+    <div class="ticket-links">
+        <a href="#" class="ticket-type">Ticket Véhicule</a>
+        <a href="#" class="ticket-type">Ticket Informatique</a>
+        <a href="#" class="ticket-type">Ticket Bâtiment</a>
+    </div>
+   
+
 {% include "Ticket/BuildingTicket/form/_form.html.twig" %}
 {% endblock %}
