@@ -1,40 +1,22 @@
-<div class="form__container">
-    {{ form_start(VehicleTicketForm, { attr: { class: "form_vehicleTicket" }}) }}
+{% extends 'base.html.twig' %}
 
+{% block title %}Creation ticket pour un probleme avec un des batiments!{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/ticket/ticket.css') }}">
+{% endblock %}
 
-    <div class="form__header">
-        <h1 class="form__title">Soumettre un ticket pour un vehicule</h1>
+{% block body %}
+    <div class="sidebar">
+        <a href="/profil" class="profile-link">Profil</a>
+        <a href="/logout" class="logout-link">Déconnexion</a>
     </div>
-
-  
-
-    <div class="form__name inline_row">
-        <div class="field">
-            {{ form_label(VehicleTicketForm.title, "Titre") }}
-            {{ form_widget(VehicleTicketForm.title, { attr: { placeholder: "Titre du ticket" }}) }}
-        </div>
-        <div class="field">
-            {{ form_label(VehicleTicketForm.description, "Description") }}
-            {{ form_widget(VehicleTicketForm.description, { attr: { placeholder: "Description" }}) }}
-        </div>
+    
+    <div class="ticket-links">
+        <a href="#" class="ticket-type">Ticket Véhicule</a>
+        <a href="/ItTicket" class="ticket-type">Ticket Informatique</a>
+        <a href="/BuildingTicket" class="ticket-type">Ticket Bâtiment</a>
     </div>
+   
 
-    <div class="field">
-        {{ form_label(VehicleTicketForm.immatriculation, "immatriculation") }}
-        {{ form_widget(VehicleTicketForm.immatriculation, { attr: { placeholder: "immatriculation du vehicule" }}) }}
-        {% if form_errors(VehicleTicketForm.immatriculation) is not empty %}
-					<div class="alert">{{ form_errors(VehicleTicketForm.immatriculation) }}</div>
-		{% endif %}
-
-    </div>
-
-    <div class="field">
-        {{ form_label(VehicleTicketForm.brand, "marque du vehicule") }}
-        {{ form_widget(VehicleTicketForm.brand, { attr: { placeholder: "marque du vehicule" }}) }}
-    </div>
-
-    </div>
-
-    <button type="submit" class="btn">Envoyez le ticket</button>
-    {{ form_end(VehicleTicketForm) }}
-</div>
+{% include "Ticket/VehicleTicket/form/_form.html.twig" %}
+{% endblock %}
