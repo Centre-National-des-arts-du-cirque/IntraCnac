@@ -22,13 +22,12 @@ class VehicleTicketFormType extends AbstractType
             ->add('brand', ChoiceType::class, [
                 'choices' => [
 
-                    'Audi' => 'Audi',
-                    'BMW' => 'BMW',
+                    'Berlingot' => 'Berlingot',
+                    'Megane' => 'Megane',
                     'Citroën' => 'Citroën',
                     'Dacia' => 'Dacia',
-                    'Fiat' => 'Fiat',
-                    'Ford' => 'Ford',
-                    'Peugeot' => 'Peugeot',
+                    "Citroen" => "Citroen",
+                    'Iveco' => 'Iveco',
                     'Renault' => 'Renault',
                     ]
             ])
