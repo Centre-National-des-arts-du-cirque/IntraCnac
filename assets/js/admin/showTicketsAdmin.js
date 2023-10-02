@@ -60,7 +60,7 @@ InfoSelectors.forEach(link => {
     }
     const date = (new Date(ticketData.date.date).toLocaleDateString('fr-FR', {year: 'numeric', month: 'long', day: 'numeric'}));
     document.querySelector('.ticket-title').innerHTML = ticketData.title;
-    document.querySelector('.description-info').innerHTML = ticketData.description;
+    document.querySelector('.ticket-description').innerHTML = ticketData.description;
     document.querySelector('.ticket-date').innerHTML = date;
     document.querySelector('.ticket-solved').innerHTML = ticketData.solved? "oui":"non";
     document.querySelector('.createBy').innerHTML = ticketData.createByFirstName +' '+ticketData.createByName
