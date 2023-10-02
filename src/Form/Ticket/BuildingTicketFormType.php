@@ -21,7 +21,7 @@ class BuildingTicketFormType extends AbstractType
         ->add('Localisation',ChoiceType::class,[
             'choices' => [
                 'Cirque Historique' =>'Cirque Historique',
-                'Ecole national superieur du cirque' =>'Ecole national superieur du cirque'
+                'Espace chapiteau 34av' =>'Espace chapiteau 34av'
             ],
         ])
             
