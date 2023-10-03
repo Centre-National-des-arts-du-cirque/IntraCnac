@@ -24,7 +24,7 @@ class VehicleTicket extends Ticket
 
     public function getId(): ?int
     {
-        return $this->id;
+        return parent::getId();
     }
 
     public function getImmatriculation(): ?string

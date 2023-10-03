@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/cir_0668.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 350px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1.h3.mb-3.font-weight-normal {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn.btn-lg.btn-primary {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: magenta;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    display: block;           /* Faire du bouton un élément de bloc pour qu'il puisse être centré */
+    margin-left: auto;        /* Centrer le bouton à l'horizontale */
+    margin-right: auto;
+    padding-right: 20px; 
+}
+
+.btn.btn-lg.btn-primary:hover {
+    background-color: #8B008B; /* Une couleur légèrement plus foncée pour l'effet hover */
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.alert-danger {
+    color: white;
+    background-color: #e74c3c;
+    border: 1px solid #c0392b;
+}
+
+/* Ajout d'un peu de style pour le conteneur principal */
+body > form {
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.btn-secondary {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    text-decoration: none;
+    color: magenta; /* Faire du bouton un élément de bloc pour qu'il prenne toute la largeur */
+}
+
+.btn-secondary:hover {
+    text-decoration: underline;
+}
+

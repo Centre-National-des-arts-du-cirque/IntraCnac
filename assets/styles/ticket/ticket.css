@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    height: 100%;
+    margin: 0;
+    overflow-y: auto;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    background-color: magenta;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    padding: 5px;
+}
+
+.form__container {
+    width: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form__header h1.form__title {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.field label {
+    flex: 1;
+    margin-right: 20px;
+}
+
+input[type="text"], textarea {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form__container {
+    width: 400px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px; /* Bords arrondis */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Effet d'ombre en dessous */
+    margin: 20px 0; /* Espacement autour de la boîte pour mettre en valeur l'ombre */
+}
+
+.ticket-links {
+        display: flex;
+        flex-direction: column; /* Organise les liens en colonne */
+        justify-content: center; /* Centre les liens verticalement */
+        align-items: center; /* Centre les liens horizontalement */
+        width: 250px; /* Définit une largeur fixe pour la boîte */
+        margin: 20px auto; /* Centre la boîte horizontalement et ajoute un espace en haut et en bas */
+        border: 2px solid magenta; /* Bordure magenta */
+        padding: 10px; /* Couleur de fond pour le distinguer, si nécessaire */
+        background-color: magenta;
+}
+
+.ticket-type {
+    color: white; /* Texte blanc */
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    margin: 10px 0; /* Espacement entre les liens */
+    padding: 5px 15px; /* Espacement autour du texte */
+    border-radius: 5px; 
+}
+
+.ticket-type:hover {
+    
+        background-color: #b200b2; /* Une couleur légèrement différente pour le hover */
+        border-color: white; /* Soulignement blanc au survol */
+    
+}
+
+.form__container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form__container h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #555;
+}

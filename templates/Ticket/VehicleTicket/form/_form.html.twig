@@ -1,0 +1,37 @@
+<div class="form__container">
+    {{ form_start(VehicleTicketForm, { attr: { class: "form_vehicleTicket" }}) }}
+    <h1>Vehicule</h1> <!-- Ajout du titre -->
+    <h2>Soumettre un ticket</h2> <!-- Ajout du sous-titre -->
+
+  
+
+    <div class="form__name inline_row">
+        <div class="field">
+            {{ form_label(VehicleTicketForm.title, "Titre") }}
+            {{ form_widget(VehicleTicketForm.title, { attr: { placeholder: "Titre du ticket" }}) }}
+        </div>
+        <div class="field">
+            {{ form_label(VehicleTicketForm.description, "Description") }}
+            {{ form_widget(VehicleTicketForm.description, { attr: { placeholder: "Description" }}) }}
+        </div>
+    </div>
+
+    <div class="field">
+        {{ form_label(VehicleTicketForm.immatriculation, "immatriculation") }}
+        {{ form_widget(VehicleTicketForm.immatriculation, { attr: { placeholder: "immatriculation du vehicule" }}) }}
+        {% if form_errors(VehicleTicketForm.immatriculation) is not empty %}
+					<div class="alert">{{ form_errors(VehicleTicketForm.immatriculation) }}</div>
+		{% endif %}
+
+    </div>
+
+    <div class="field">
+        {{ form_label(VehicleTicketForm.brand, "marque du vehicule") }}
+        {{ form_widget(VehicleTicketForm.brand, { attr: { placeholder: "marque du vehicule" }}) }}
+    </div>
+
+    </div>
+
+    <button type="submit" class="btn">Envoyez le ticket</button>
+    {{ form_end(VehicleTicketForm) }}
+</div>

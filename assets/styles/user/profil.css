@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+
+.dashboard {
+    display: flex;
+    
+}
+
+.side-panel {
+    width: 12%;
+    background-color: magenta; /* Rose */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    flex-direction: column; /* Aligner les boutons verticalement */
+    justify-content: space-between; /* Commencer depuis le haut */
+    padding-top: 20px;
+}
+.nav-link {
+    text-decoration: none; /* Supprimer le soulignement */
+    color: white; /* Texte blanc */
+    font-size: 1.1em; /* Taille du texte un peu plus grande */
+    margin-bottom: 50px; /* Espace entre les liens */
+    position: relative; /* Pour le trait sous le texte */
+    transition: all 0.3s ease;
+     /* Pour une transition fluide */
+}
+
+.nav-link:hover::after {
+    content: ""; /* Créer un élément pseudo pour le trait */
+    position: absolute;
+    bottom: -5px; /* Positionner un peu sous le texte */
+    left: 0;
+    width: 100%; /* Largeur complète du texte */
+    height: 2px; /* Epaisseur du trait */
+    background-color: white; /* Couleur du trait */
+}
+
+
+.logout-btn {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #FF69B4; /* Rose vif */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.tickets {
+    width: 90%;
+    padding: 20px;
+    display: flex;           /* Nouveau : Utilisation de flexbox */
+    flex-wrap: nowrap;         /* Nouveau : Autoriser le retour à la ligne si nécessaire */ 
+    flex-direction: column; 
+    overflow-y: auto;
+      /* Ajout de la scrollbar uniquement si nécessaire */
+    height: 90vh; 
+}
+
+.ticket {
+    background-color: white;
+    flex: 1 1 calc(33.33% - 20px);
+    margin-bottom: 20px;
+    border-radius: 5px;
+    flex:none;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ticket:nth-child(even) {
+    background-color: #cac8c8; /* Alternance de gris pour les tickets pairs */
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.view-btn, .delete-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.view-btn {
+    background-color: magenta; /* Vert */
+    color: white;
+}
+
+.delete-btn {
+    background-color: blueviolet; /* Rouge */
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.ticket-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    display: none;
+}
+
+.content-item {
+    flex: 1 1 15%; 
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.content-description {
+    flex: 1 1 100%; 
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}

@@ -1,8 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}S'inscrire{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/security/register.css') }}">
+
+{% endblock %}
 {% block body %}
-    <h1>Register</h1>
     {% include "security/registration/form/_form.html.twig" %}
+
 {% endblock %}

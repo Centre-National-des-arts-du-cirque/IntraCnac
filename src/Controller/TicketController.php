@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\BuildingTicket;
 use App\Entity\ItTicket;
+use App\Entity\Ticket;
 use App\Entity\VehicleTicket;
 use App\Form\Ticket\BuildingTicketFormType;
 use App\Form\Ticket\ItTicketFormType;
@@ -100,5 +101,32 @@ class TicketController extends AbstractController
             'VehicleTicketForm' => $form->createView(),
             
         ]);
+    }
+    #[Route('/ticket/solve/{id}',name:'app_ticket_solved')]
+    public function solveTicket(Ticket $ticket)
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN');
+
+        $ticket->setSolved(true);
+        $this->em->persist($ticket);
+        $this->em->flush();
+
+
+        return $this->redirectToRoute('app_admin');
+    }
+    #[Route('/ticket/delete/{id}',name:'app_ticket_delete')]
+    public function deleteTickt(Ticket $ticket)
+    {
+        $this->denyAccessUnlessGranted('ROLE_USER');
+        
+
+        if($ticket->getCreateBy() != $this->getUser())
+        {
+            return $this->redirectToRoute('app_user_profil');
+        }
+        $this->em->remove($ticket);
+        $this->em->flush();
+
+        return $this->redirectToRoute('app_user_profil');
     }
 }
