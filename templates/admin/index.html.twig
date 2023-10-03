@@ -1,97 +1,68 @@
-{% extends 'admin/base_admin.html.twig' %}
+{% extends 'base.html.twig' %}
 
+{% block title %}Admin Dashboard!{% endblock %}
 
-{% block title %}Hello AdminController!{% endblock %}
-
-{% block body %}
 {% block stylesheets %}
- <link rel="stylesheet" href="{{ asset('styles/admin/admin.css') }}">
-  
+    <link rel="stylesheet" href="{{ asset('styles/user/profil.css') }}">
 {% endblock %}
 
-<!DOCTYPE html>
-<html lang="fr">
+{% block javascripts %}
+    {{ importmap() }}
+    <script type="module" src="{{ asset('js/ticket/show.js') }}"></script>
+{% endblock %}
 
-    
+{% block body %}
 
-    <div class="central">
-         <h2>Tickets en cours</h2>
-        <div class='table-container'>
-           
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Titre</th>
-                            <th>Type</th>
-                            <th>Date de création</th>
-                            <th>Résolu</th>
-                            <th>Créé par</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for ticket in tickets %}
-                        {% set date = ticket.date|date("d/M/Y") %}
-                        <tr>
-                            <td>{{ticket.title}}</td>
-                            <td>{% if ticket.className == "ItTicket" %}
+<div class="dashboard">
+    <div class="side-panel">
+        <button class="logout-btn">Déconnexion</button>
+    </div>
+    <div class="tickets">
+{% for ticket in tickets %}
+    {% set date = ticket.date|date("d/M/Y") %}
+
+        <!-- Exemple de ticket -->
+        <div class="ticket">
+            <div class="ticket-header">
+                <h2>{{ticket.title}}</h2>
+                <span>Date de création: {{date}}</span>
+                <span>Status: {{ticket.solved ? 'Resolu' : 'Non resolu'}}</span>
+                <span>Type : {% if ticket.className == "ItTicket" %}
                                     Informatique
                                 {% elseif ticket.className == "BuildingTicket" %}
                                     Bâtiment
                                 {% elseif ticket.className == "VehicleTicket" %}
                                     Véhicule
                                 {% endif %}
-                            </td>
-                            <td>{{date}}</td>
-                            <td>{{ticket.solved ? 'Oui' : 'Non'}}</td>
-                            <td>{{ticket.createBy.name}} {{ticket.createBy.lastName}}</td>
-                            <td>
-                                <div class="action-buttons">
-                                    <button class="info-btn" title="Plus d'infos"><i class="fas fa-info"></i></button>
-                                    <button class="resolve-btn" title="Marquer comme résolu"><i class="fas fa-check"></i></button>
-                                    <button class="delete-btn" title="Supprimer"><i class="fas fa-trash"></i></button>
-                                </div>
-                            </td>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-
-        
-        </div>
-    
-        <div class="ticket-info-card">
-           
-            <div class='left-info-card'>
-                <div class='left-card-header'>
-                    <h3 class="ticket-title"> Test test titre</h3>
+                </span>
+                <div class="action-button">
+                    <button class="view-btn">Afficher</button>
+                    <button class="delete-btn"><a href="/ticket/{{ticket.getId}}">Supprimer</a></button>
                 </div>
-                <div class='card-info'>
-                    <div class='description-info'>
-                        <p class="ticket-description-title"><strong>Description complète du ticket</strong> </p>
-                        <p class='ticket-description'> </p>
-                    </div>
-                    <div class='card-info-left'>
-                        <p class='ticket-date'><strong>Date de création:</strong> </p>
-                        <p class='ticket-solved'><strong>Resolu:</strong></p>
-                    </div>
             </div>
-                     <div class='left-card-footer'>
-                        <button class="resolve-btn" title="Marquer comme résolu"><i class="fas fa-check"></i></button>
-                        <button class="delete-btn" title="Supprimer"><i class="fas fa-trash"></i></button>
-                    </div>
-               
+            <div class="ticket-content">
+                {% if ticket.className == "ItTicket" %}
+                <div class="content-item"> <strong>Nom du pc : </strong>{{ticket.pcName}} </div>
+                <div class="content-item"> <strong>Code Erreur : </strong>{{ticket.errorCode}}</div>
+                <div class="content-item"><strong>Type :</strong> {{ticket.errorType.lib}}</div>
+                <div class="content-item"><strong>Lieu :</strong> {{ticket.localisation}}</div>
                 
+                {% elseif ticket.className == "BuildingTicket" %}
+                <div class="content-item"><strong>Lieu : </strong>{{ticket.localisation}}</div>
+                <div class="content-item"><strong>Lieu Precis : </strong>{{ticket.site}} </div>
+                {% elseif ticket.className == "VehicleTicket" %}
+                    <div class="content-item"><strong>Immatriculation : </strong>{{ticket.immatriculation}}</div>
+                    <div class="content-item"><strong>Marque : </strong>{{ticket.brand}}</div>
+                {% endif %}
+                <div class="content-description"><strong>Description :</strong> {{ticket.description}}</div>
             </div>
-            <div class='right-info-card'>
-                <h3>Informations complémentaires</h3>
-                <p><strong>Créé par:</strong> </p>
-                <p><strong>Localisation:</strong> </p>
-                <p><strong>Site:</strong> </p>
-                <p><strong>Code d'erreur:</strong> </p>
-                <p><strong>Nom du PC:</strong> </p>
-            </div>
+        </div>
+
+    <!-- Vous pouvez ajouter d'autres tickets comme l'exemple ci-dessus. -->
+    
+{% endfor %}
     </div>
+</div>
+
 
 {% endblock %}
