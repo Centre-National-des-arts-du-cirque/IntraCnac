@@ -110,9 +110,8 @@ class TicketController extends AbstractController
         $ticket->setSolved(true);
         $this->em->persist($ticket);
         $this->em->flush();
-        
 
-        
-        return $this->redirectToRoute('app_user');
+
+        return $this->redirectToRoute('app_admin');
     }
 }
