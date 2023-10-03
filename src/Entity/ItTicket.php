@@ -24,7 +24,7 @@ class ItTicket extends Ticket
 
     public function getId(): ?int
     {
-        return $this->id;
+        return parent::getId();
     }
 
     public function getPcName(): ?string

@@ -9,8 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 class BuildingTicket extends Ticket
 {
 
-
-
     #[ORM\Column(length: 255)]
     private ?string $site = null;
 
@@ -19,7 +17,7 @@ class BuildingTicket extends Ticket
 
     public function getId(): ?int
     {
-        return $this->id;
+        return parent::getId();
     }
 
     public function getSite(): ?string
@@ -45,4 +43,5 @@ class BuildingTicket extends Ticket
 
         return $this;
     }
+
 }
