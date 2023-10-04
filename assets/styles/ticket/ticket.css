@@ -4,18 +4,24 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f4f4f4;
+    background-color: transparent;
     height: 100%;
     margin: 0;
     overflow-y: auto;
 }
-
+html {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/cir_0668.jpg");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 100%; 
+}
 .sidebar {
     position: fixed;
     left: 0;
     top: 0;
     bottom: 0;
-    width: 100px;
+    width: 12%;
     background-color: magenta;
     display: flex;
     flex-direction: column;
@@ -29,6 +35,8 @@ body {
     text-decoration: none;
     margin: 10px;
     padding: 5px;
+    font-size: 135%;
+    
 }
 
 .form__container {
@@ -64,7 +72,7 @@ input[type="text"], textarea {
 
 button {
     padding: 10px 15px;
-    background-color: blue;
+    background-color: magenta;
     color: white;
     border: none;
     border-radius: 5px;
