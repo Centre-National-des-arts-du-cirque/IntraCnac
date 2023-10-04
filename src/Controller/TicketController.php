@@ -18,7 +18,6 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 class TicketController extends AbstractController
 {
-    private $er;
     private $em;
     private $tokenStorage;
 
