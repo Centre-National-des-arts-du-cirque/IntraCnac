@@ -44,7 +44,7 @@ label {
     margin-top: 20px;
     padding: 10px;
     cursor: pointer;
-    background-color: magenta;
+    background-color: #E50C7E;
     border: none;
     border-radius: 5px;
     color: white;
@@ -85,7 +85,7 @@ body > form {
     justify-content: center;
     padding: 10px;
     text-decoration: none;
-    color: magenta; /* Faire du bouton un élément de bloc pour qu'il prenne toute la largeur */
+    color: #E50C7E; /* Faire du bouton un élément de bloc pour qu'il prenne toute la largeur */
 }
 
 .btn-secondary:hover {

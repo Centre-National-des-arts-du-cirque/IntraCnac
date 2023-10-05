@@ -13,7 +13,7 @@ body {
 
 .side-panel {
     width: 12%;
-    background-color: magenta; /* Rose */
+    background-color: #E50C7E; /* Rose */
     height: 100vh;
     display: flex;
     align-items: center;
@@ -46,7 +46,7 @@ body {
 .logout-btn {
     margin-bottom: 10px;
     padding: 10px 20px;
-    background-color: #FF69B4; /* Rose vif */
+    background-color: #E50C7E; /* Rose vif */
     color: white;
     border: none;
     cursor: pointer;
@@ -93,12 +93,12 @@ body {
 }
 
 .view-btn {
-    background-color: magenta; /* Vert */
+    background-color: #E50C7E; /* Vert */
     color: white;
 }
 
 .delete-btn {
-    background-color: blueviolet; /* Rouge */
+    background-color: #E50C7E; /* Rouge */
     color: white;
 }
 
