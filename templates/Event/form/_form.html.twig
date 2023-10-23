@@ -10,22 +10,34 @@
                 {{ form_label(EventForm.lib, "Titre ") }}
                 {{ form_widget(EventForm.lib, { attr: { placeholder: "Titre de l'evenement" }}) }}
             </div>
-           
+            {% if form_errors(EventForm.lib) is not empty %}
+					<div class="alert">{{ form_errors(EventForm.lib) }}</div>
+			{% endif %}
+
         </div>
 
         <div class="field">
             {{ form_label(EventForm.DateBeg, "date de debut") }}
             {{ form_widget(EventForm.DateBeg) }}
+            {% if form_errors(EventForm.DateBeg) is not empty %}
+					<div class="alert">{{ form_errors(EventForm.DateBeg) }}</div>
+			{% endif %}
         </div>
 
         <div class="field">
             {{ form_label(EventForm.DateEnd, "date de fin") }}
             {{ form_widget(EventForm.DateEnd) }}
+            {% if form_errors(EventForm.DateEnd) is not empty %}
+					<div class="alert">{{ form_errors(EventForm.DateEnd) }}</div>
+			{% endif %}
         </div>
 
         <div class="field">
             {{ form_label(EventForm.TypeEvent, "Type Evenement") }}
             {{ form_widget(EventForm.TypeEvent) }}
+            {% if form_errors(EventForm.TypeEvent) is not empty %}
+					<div class="alert">{{ form_errors(EventForm.TypeEvent) }}</div>
+			{% endif %}
         </div>
         
         
