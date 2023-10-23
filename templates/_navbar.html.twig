@@ -13,7 +13,7 @@
             <a href="{{ path('app_events') }}">Accueil</a>
         </li>
         <li class="{{ app.request.attributes.get('_route') == 'app_user' ? 'active' : '' }}">
-            <a href="{{ path('app_user') }}">About</a>
+            <a href="{{ path('app_user') }}">Profil</a>
         </li>
        
         {% if is_granted('ROLE_ADMIN') %}
@@ -37,10 +37,11 @@
             <li class="{{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
                 <a href="#">Contact</a>
             </li>
-            <li>
-                <a href="{{ path('app_logout') }}">Deconnexion</a>
-            </li>
+            
         {% endif %}
+        <li>
+                <a href="{{ path('app_logout') }}">Deconnexion</a>
+        </li>
         
     </ul>
 </nav>
