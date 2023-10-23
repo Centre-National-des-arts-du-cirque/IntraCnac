@@ -1,0 +1,36 @@
+    
+    <div class="form__container">
+        {{ form_start(EventForm, { attr: { class: "form_itTicket" }}) }}
+        <h1>Evenement</h1>
+        <h2>Ajout d'un evenement au calendrier de l'accueil </h2>
+        
+
+        <div class="form__name inline_row">
+            <div class="field">
+                {{ form_label(EventForm.lib, "Titre ") }}
+                {{ form_widget(EventForm.lib, { attr: { placeholder: "Titre de l'evenement" }}) }}
+            </div>
+           
+        </div>
+
+        <div class="field">
+            {{ form_label(EventForm.DateBeg, "date de debut") }}
+            {{ form_widget(EventForm.DateBeg) }}
+        </div>
+
+        <div class="field">
+            {{ form_label(EventForm.DateEnd, "date de fin") }}
+            {{ form_widget(EventForm.DateEnd) }}
+        </div>
+
+        <div class="field">
+            {{ form_label(EventForm.TypeEvent, "Type Evenement") }}
+            {{ form_widget(EventForm.TypeEvent) }}
+        </div>
+        
+        
+    </div>
+    <button type="submit" class="btn">Ajouter l'evenement</button>
+    {{ form_end(EventForm) }}
+</body>
+</html>
