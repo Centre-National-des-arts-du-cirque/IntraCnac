@@ -5,15 +5,7 @@
     <link rel="stylesheet" href="{{ asset('styles/ticket/ticket.css') }}">
 {% endblock %}
 {% block body %}
-    <div class="sidebar">
-        <a href="/profil" class="profile-link">Profil</a>
-        <a href="/logout" class="logout-link">Déconnexion</a>
-    </div>
     
-    <div class="ticket-links">
-        <a href="/VehicleTicket" class="ticket-type">Ticket Véhicule</a>
-        <a href="#" class="ticket-type">Ticket Informatique</a>
-        <a href="/BuildingTicket" class="ticket-type">Ticket Bâtiment</a>
-    </div>
+    
 {% include "Ticket/ItTicket/form/_form.html.twig" %}
 {% endblock %}
