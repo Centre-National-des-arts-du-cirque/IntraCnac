@@ -29,6 +29,9 @@ class EventFormType extends AbstractType
                 'data' => new \DateTime(),
                 'format' => 'dd/MM/yyyy HH:mm',
                 'attr' => ['class' => 'js-datepicker'],
+                'constraints' => [
+                    new NotBlank(),
+                ],
                 ])
             ->add('DateEnd',DateType::class,options:[
                 'label' => 'Choisir une date',
