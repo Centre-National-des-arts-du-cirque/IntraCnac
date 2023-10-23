@@ -1,0 +1,50 @@
+/* Reset default styles for list and anchor elements */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;  /* Use flexbox to layout the list items */
+    justify-content: center;  /* Center list items on the horizontal axis */
+}
+.top {
+    width: 100%;  /* Full width of the display */
+    background-color: magenta;
+    display: flex; /* Transparent background */
+    justify-content: center;
+    margin-bottom: 10px;
+
+
+}
+.top h1 {
+    color: white;
+    font-size: 30px;
+}
+nav {
+    width: 100%;  /* Full width of the display */
+    background-color: transparent; /* Transparent background */
+    display: flex;
+    flex-direction: column;
+}
+
+nav li {
+    border: 1px solid pink;  /* Pink border around each list item */
+    margin: 0 10px;  /* Spacing between list items */
+}
+
+nav a {
+    color: pink;  /* Pink text */
+    text-decoration: none;  /* Remove underline from links */
+    padding: 10px 20px;  /* Padding around text */
+    display: block;  /* Helps with applying padding */
+    text-align: center;  /* Center the text */
+}
+
+/* Styles for active class */
+nav li.active {
+    border-color: white;  /* White border for active list item */
+}
+
+nav li.active a {
+    background-color: pink;  /* Pink background for active link */
+    color: white;  /* White text for active link */
+}
