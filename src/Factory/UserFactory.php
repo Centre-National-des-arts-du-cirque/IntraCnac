@@ -55,7 +55,7 @@ class UserFactory extends ModelFactory
         $lastname = self::faker()->lastName();
 
         return [
-            'email' => transliterator_transliterate('Any-Latin; Latin-ASCII', mb_strtolower($firstname)).'.'.transliterator_transliterate('Any-Latin; Latin-ASCII', mb_strtolower($lastname)).'@cnac.fr',
+            'email' => $firstname.'.'.$lastname.'@cnac.fr',
             'lastname' => $lastname,
             'name' => $firstname,
             'password' => 'test',
