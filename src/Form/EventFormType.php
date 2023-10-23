@@ -27,15 +27,14 @@ class EventFormType extends AbstractType
                 'widget' => 'single_text',
                 'html5' => false,
                 'data' => new \DateTime(),
-                'format' => 'dd/MM/yyyy',
+                'format' => 'dd/MM/yyyy HH:mm',
                 'attr' => ['class' => 'js-datepicker'],
                 ])
             ->add('DateEnd',DateType::class,options:[
                 'label' => 'Choisir une date',
                 'widget' => 'single_text',
                 'html5' => false,
-                'data' => new \DateTime(),
-                'format' => 'dd/MM/yyyy',
+                'format' => 'dd/MM/yyyy HH:mm',
                 'attr' => ['class' => 'js-datepicker2'],
 
             ])
