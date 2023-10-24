@@ -61,6 +61,7 @@ class UserFactory extends ModelFactory
             'password' => 'test',
             'roles' => [],
             'service' => self::faker()->text(255),
+            'post' => self::faker()->text(255),
         ];
     }
 
