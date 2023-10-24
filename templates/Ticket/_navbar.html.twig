@@ -1,0 +1,8 @@
+{% block navbar %}
+    <div class="ticket-links">
+        <h2>CHOISIS TON TICKET</h2>
+        <a href="/VehicleTicket" class="ticket-type {{ app.request.attributes.get('_route') == 'app_VehicleTicket' ? 'active' : '' }}">Ticket Véhicule</a>
+        <a href="/ItTicket" class="ticket-type {{ app.request.attributes.get('_route') == 'app_ItTicket' ? 'active' : '' }}">Ticket Informatique</a>
+        <a href="/BuildingTicket" class="ticket-type {{ app.request.attributes.get('_route') == 'app_BuildingTicket' ? 'active' : '' }}">Ticket Bâtiment</a>
+    </div>
+{% endblock %}

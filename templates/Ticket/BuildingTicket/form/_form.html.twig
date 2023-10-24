@@ -1,14 +1,14 @@
     
     <div class="form__container">
         {{ form_start(BuildingTicketForm, { attr: { class: "form_itTicket" }}) }}
-        <h1>Bâtiments</h1>
-        <h2>Soumettre un ticket </h2>
+        <h1>Soumettre un ticket</h1>
+        <h2>Batiment</h2>
         
 
         <div class="form__name inline_row">
             <div class="field">
-                {{ form_label(BuildingTicketForm.title, "Titre") }}
-                {{ form_widget(BuildingTicketForm.title, { attr: { placeholder: "Titre du ticket" }}) }}
+                {{ form_label(BuildingTicketForm.title, "Objet") }}
+                {{ form_widget(BuildingTicketForm.title, { attr: { placeholder: "Objet du ticket" }}) }}
             </div>
             <div class="field">
                 {{ form_label(BuildingTicketForm.description, "Description") }}
@@ -26,9 +26,12 @@
             {{ form_widget(BuildingTicketForm.site, { attr: { placeholder: "lieu precis ou se trouve le probleme" }}) }}
         </div>
         
-        
-    </div>
+      
+    <div class="center">
     <button type="submit" class="btn">Envoyez le ticket</button>
-    {{ form_end(BuildingTicketForm) }}
+        {{ form_end(BuildintTicketForm) }}
+    </div>
+    </div>
+   
 </body>
 </html>

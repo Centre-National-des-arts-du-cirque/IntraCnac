@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "New Title variable";
+    src: url('fonts/NewTitle_Complete/Fonts/WEB/fonts/NewTitle-Variable.eot');
+    src: url('fonts/NewTitle_Complete/Fonts/WEB/fonts/NewTitle-Variable.eot') format('embedded-opentype'),
+         url('fonts/NewTitle_Complete/Fonts/WEB/fonts/NewTitle-Variable.woff2') format('woff2'),
+         url('fonts/NewTitle_Complete/Fonts/WEB/fonts/NewTitle-Variable.woff') format('woff'),
+         url('fonts/NewTitle_Complete/Fonts/WEB/fonts/NewTitle-Variable.ttf') format('truetype');
+  }
+
+/* Reset default styles for list and anchor elements */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;  /* Use flexbox to layout the list items */
+    justify-content: center;  /* Center list items on the horizontal axis */
+}
+.top {
+    width: 100%;  /* Full width of the display */
+    background-color: #e6007d;
+    display: flex; /* Transparent background */
+    justify-content: center;
+    margin-bottom: 10px;
+
+
+}
+.top h1 {
+    color: white;
+    font-size: 75px;
+    font-family: "New Title variable";
+    margin: 5px;
+}
+nav {
+    width: 100%;  /* Full width of the display */
+    background-color: transparent; /* Transparent background */
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+}
+
+nav li {
+    border: 1px solid #e6007d;  /* Pink border around each list item */
+    margin: 0 10px;  /* Spacing between list items */
+}
+
+nav a {
+    color: #e6007d;  /* Pink text */
+    text-decoration: none;  /* Remove underline from links */
+    padding: 10px 20px;  /* Padding around text */
+    display: block;  /* Helps with applying padding */
+    text-align: center;  /* Center the text */
+}
+
+/* Styles for active class */
+nav li.active {  
+    /* White border for active list item */
+    outline: white solid;
+    outline-offset: -3px;
+    outline-width: 1px;
+}
+
+nav li.active a {
+    background-color: #e6007d;  /* Pink background for active link */
+    color: white;  /* White text for active link */
+}

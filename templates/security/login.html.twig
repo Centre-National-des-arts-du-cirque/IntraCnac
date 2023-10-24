@@ -1,31 +1,37 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_security.html.twig' %}
 
 {% block title %}Se connecter !{% endblock %}
 
 {% block stylesheets %}
-   
     <link rel="stylesheet" href="{{ asset('styles/security/login.css') }}">
-
 {% endblock %}
+
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+<div class="container">
+    <div class="header">
+        <h1 class="cnac">BIENVENUE SUR INTRAC<span style="font-size: 80px;">N</span><span style="font-size: 60px;">A</span>C</h1>
+    </div>
+    <div class="form-container">
+        <form method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Merci de vous connecter !</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        <h1 class="h3 mb-3 font-weight-normal">Merci de vous connecter !</h1>
+        <label for="inputEmail">Email</label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+        <label for="inputPassword">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+        >
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-     <a href="/register" class="btn btn-lg btn-secondary">Pas encore membre?</a>
-</form>
+        <button class="btn btn-lg btn-primary" type="submit">
+           Connexion
+        </button>
+        <a href="/register" class="btn btn-lg btn-secondary">Pas encore membre?</a>
+    </form>
+    </div>
 {% endblock %}
+

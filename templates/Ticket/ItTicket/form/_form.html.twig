@@ -1,12 +1,12 @@
 <div class="form__container">
     {{ form_start(ItTicketForm, { attr: { class: "form_login" }}) }}
-    <h1>Informatique</h1> <!-- Ajout du titre -->
-    <h2>Soumettre un ticket</h2> <!-- Ajout du sous-titre -->
+    <h1>Soumettre un ticket</h1> <!-- Ajout du titre -->
+    <h2>Informatique</h2> <!-- Ajout du sous-titre -->
     
     <div class="form__name inline_row">
         <div class="field">
-            {{ form_label(ItTicketForm.title, "Titre") }}
-            {{ form_widget(ItTicketForm.title, { attr: { placeholder: "Titre du ticket" }}) }}
+            {{ form_label(ItTicketForm.title, "Objet") }}
+            {{ form_widget(ItTicketForm.title, { attr: { placeholder: "Objet du ticket" }}) }}
         </div>
         <div class="field">
             {{ form_label(ItTicketForm.description, "Description") }}
@@ -35,10 +35,11 @@
     </div>
    
     
-  
-
+    <div class="center">
+    <button type="submit" class="btn">Envoyez le ticket</button>
+        {{ form_end(ItTicketForm) }}
+    </div>
     </div>
 
-    <button type="submit" class="btn">Envoyez le ticket</button>
-    {{ form_end(ItTicketForm) }}
+
 </div>
