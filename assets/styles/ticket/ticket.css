@@ -12,10 +12,13 @@ body {
 
 .form__container {
     width: 400px;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 15px; /* Bords arrondis */
+    margin-top: 20px;
 }
 
 .form__header h1.form__title {
@@ -26,7 +29,7 @@ body {
 .field {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .field label {
@@ -50,13 +53,6 @@ button {
     cursor: pointer;
 }
 
-.form__container {
-    width: 400px;
-    background-color: white;
-    border-radius: 15px; /* Bords arrondis */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Effet d'ombre en dessous */
-  margin-top: 20px;
-}
 
 .ticket-links {
         display: flex;
@@ -66,10 +62,17 @@ button {
         width: 250px; /* Définit une largeur fixe pour la boîte */
         margin: 20px auto; /* Centre la boîte horizontalement et ajoute un espace en haut et en bas */
         padding-left: 25px;
+        padding-bottom: 10px;
         padding-right: 25px;
         background-color: white;
         border-radius: 15px; /* Coins arrondis */
         color:black;
+}
+
+.ticket-links h2 {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .ticket-type {
