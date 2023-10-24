@@ -26,8 +26,9 @@ nav ul {
 }
 .top h1 {
     color: white;
-    font-size: 30px;
+    font-size: 75px;
     font-family: "New Title variable";
+    margin: 5px;
 }
 nav {
     width: 100%;  /* Full width of the display */
