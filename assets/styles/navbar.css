@@ -52,8 +52,11 @@ nav a {
 }
 
 /* Styles for active class */
-nav li.active {
-    border-color: white;  /* White border for active list item */
+nav li.active {  
+    /* White border for active list item */
+    outline: white solid;
+    outline-offset: -3px;
+    outline-width: 1px;
 }
 
 nav li.active a {
