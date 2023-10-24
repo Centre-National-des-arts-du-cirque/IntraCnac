@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\User;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,11 +27,11 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez entrez un mot de passe',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => 'votre mot de passe devrai au moins contenir {{ limit }} caractères',
                         // max length allowed by Symfony for security reasons
                         'max' => 50,
                     ]),
@@ -37,6 +39,13 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('name')
             ->add('lastname')
+            ->add('post',TextType::class,[
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Merci d entrer un poste',
+                    ]),
+                ],
+            ])
             ->add('service',ChoiceType::class,[
                 'choices' => [
                     'Direction' => 'Direction',
@@ -48,6 +57,11 @@ class RegistrationFormType extends AbstractType
                     'Communication' => 'Communication',
                     'FTLV' => 'Formation tout au long de la vie',
                     'Autre' => 'Autre',
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Merci d entrer un service',
+                    ]),
                 ],
             ])
             
