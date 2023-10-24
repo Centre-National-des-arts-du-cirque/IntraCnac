@@ -26,6 +26,7 @@ final class Version20231023080455 extends AbstractMigration
         $this->addSql('CREATE INDEX IDX_3BAE0AA7BC08CF77 ON event (type_event_id)');
         $this->addSql('CREATE TABLE type_event (id INT NOT NULL, lib VARCHAR(255) NOT NULL, calendar_color VARCHAR(8) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('ALTER TABLE event ADD CONSTRAINT FK_3BAE0AA7BC08CF77 FOREIGN KEY (type_event_id) REFERENCES type_event (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
+        $this->addSql('ALTER TABLE "user" ADD post VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema): void
@@ -37,5 +38,6 @@ final class Version20231023080455 extends AbstractMigration
         $this->addSql('ALTER TABLE event DROP CONSTRAINT FK_3BAE0AA7BC08CF77');
         $this->addSql('DROP TABLE event');
         $this->addSql('DROP TABLE type_event');
+        $this->addSql('ALTER TABLE "user" DROP post');
     }
 }
