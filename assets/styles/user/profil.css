@@ -1,66 +1,69 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'DM Sans';
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
     overflow-y: hidden;
 }
 
-.dashboard {
+.content{
+    margin-top: 20px;
     display: flex;
-    
+    flex-direction: row;
 }
 
-.side-panel {
-    width: 12%;
-    background-color: magenta; /* Rose */
-    height: 100vh;
+.user{
+    width: 20%;
+    display: flex;
+    flex-grow: 2;
+    justify-content: center;
+    margin: 0px 20px
+
+}
+
+.user-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.profil {
     display: flex;
     align-items: center;
-    padding-bottom: 20px;
-    flex-direction: column; /* Aligner les boutons verticalement */
-    justify-content: space-between; /* Commencer depuis le haut */
-    padding-top: 20px;
-}
-.nav-link {
-    text-decoration: none; /* Supprimer le soulignement */
-    color: white; /* Texte blanc */
-    font-size: 1.1em; /* Taille du texte un peu plus grande */
-    margin-bottom: 50px; /* Espace entre les liens */
-    position: relative; /* Pour le trait sous le texte */
-    transition: all 0.3s ease;
-     /* Pour une transition fluide */
+    flex-direction: column;
 }
 
-.nav-link:hover::after {
-    content: ""; /* Créer un élément pseudo pour le trait */
-    position: absolute;
-    bottom: -5px; /* Positionner un peu sous le texte */
-    left: 0;
-    width: 100%; /* Largeur complète du texte */
-    height: 2px; /* Epaisseur du trait */
-    background-color: white; /* Couleur du trait */
+.profile-picture img {
+    width: 200px; 
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-
-.logout-btn {
-    margin-bottom: 10px;
-    padding: 10px 20px;
-    background-color: #FF69B4; /* Rose vif */
+.user-info { 
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    background-color: #e6007d;
     color: white;
-    border: none;
-    cursor: pointer;
+    font-weight: 200;
+    padding: 15px ;
+}
+
+.user-name, .user-post {
+    
+    display: block;
+    text-align: center;
 }
 
 .tickets {
+    
     width: 90%;
-    padding: 20px;
-    display: flex;           /* Nouveau : Utilisation de flexbox */
-    flex-wrap: nowrap;         /* Nouveau : Autoriser le retour à la ligne si nécessaire */ 
+    height: 700px;
+    padding: 20px 50px 20px 20px;
+    display: flex;           
+    flex-wrap: nowrap;         
     flex-direction: column; 
     overflow-y: auto;
-      /* Ajout de la scrollbar uniquement si nécessaire */
-    height: 90vh; 
 }
 
 .ticket {
@@ -73,16 +76,14 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.ticket:nth-child(even) {
-    background-color: #cac8c8; /* Alternance de gris pour les tickets pairs */
-}
+
 
 .ticket-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2px 10px;
-    border-bottom: 1px solid #e0e0e0;
+    border-radius: 30%;
 }
 
 .view-btn, .delete-btn {
@@ -93,12 +94,12 @@ body {
 }
 
 .view-btn {
-    background-color: magenta; /* Vert */
+    background-color: #ffaccf; 
     color: white;
 }
 
 .delete-btn {
-    background-color: blueviolet; /* Rouge */
+    background-color: #b30000; 
     color: white;
 }
 

@@ -27,11 +27,12 @@ class AdminController extends AbstractController
     public function index(TicketRepository $tr): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
-
+        $user = $this->tokenStorage->getToken()->getUser();
         $tickets = $tr->findBy([], ['solved' => 'ASC', 'date' => 'DESC']);
 
         return $this->render('admin/index.html.twig', [
             'tickets' => $tickets,
+            'user' => $user
         ]);
     }
 
