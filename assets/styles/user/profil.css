@@ -11,6 +11,7 @@ body {
 ::-webkit-scrollbar { /* Remove scrollbar Only working for chrome based web browser!!!! */
     display: none;
 }
+
 .content{
     margin-top: 20px;
     display: flex;
@@ -69,6 +70,7 @@ body {
     flex-wrap: nowrap;         
     flex-direction: column; 
     overflow-y: auto;
+    scrollbar-width: none; /* Remove scrollbar Only working for Firefox based web browser!!!! */
 }
 
 .ticket {
