@@ -1,69 +1,113 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon profil!{% endblock %}
+{% block title %}Mon profil!
+{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/user/profil.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/user/profil.css') }}">
 {% endblock %}
 
 {% block javascripts %}
-    {{ importmap() }}
-    <script type="module" src="{{ asset('js/ticket/show.js') }}"></script>
+	{{ importmap() }}
+	 <script type="module" src="{{ asset('js/ticket/show.js') }}"></script>
 {% endblock %}
 
 {% block body %}
+	<div class="content">
 
-<div class="dashboard">
-    <div class="side-panel">
-       <a class="nav-link" href="/BuildingTicket">Ticket</a>
-       <a class="nav-link" href="/logout">Déconnexion</a>
-    </div>
-    <div class="tickets">
-{% for ticket in tickets %}
-    {% set date = ticket.date|date("d/M/Y") %}
+		<div class="user">
+			<div class="profil">
+				<div class="profile-picture">
+					<img src="{{ asset('img/user.jfif') }}" alt="User's Profile Picture">
+				</div>
 
-        <!-- Exemple de ticket -->
-        <div class="ticket">
-            <div class="ticket-header">
-                <h2>{{ticket.title}}</h2>
-                <span>Date de création: {{date}}</span>
-                <span>Status: {{ticket.solved ? 'Resolu' : 'Non resolu'}}</span>
-                <span>Type : {% if ticket.className == "ItTicket" %}
-                                    Informatique
-                                {% elseif ticket.className == "BuildingTicket" %}
-                                    Bâtiment
-                                {% elseif ticket.className == "VehicleTicket" %}
-                                    Véhicule
-                                {% endif %}
-                </span>
-                <div class="action-button">
-                    <button class="view-btn">Afficher</button>
-                    <button class="delete-btn"><a href="/ticket/delete/{{ticket.getId}}">Supprimer</a></button>
-                </div>
-            </div>
-            <div class="ticket-content">
-                {% if ticket.className == "ItTicket" %}
-                <div class="content-item">{{ticket.pcName}} </div>
-                <div class="content-item"> {{ticket.errorCode}}</div>
-                <div class="content-item">{{ticket.errorType.lib}}</div>
-                <div class="content-item">{{ticket.localisation}}</div>
-                
-                {% elseif ticket.className == "BuildingTicket" %}
-                <div class="content-item">{{ticket.localisation}}</div>
-                <div class="content-item">{{ticket.site}} </div>
-                {% elseif ticket.className == "VehicleTicket" %}
-                    <div class="content-item">{{ticket.immat}}</div>
-                    <div class="content-item">{{ticket.brand}}</div>
-                {% endif %}
-                <div class="content-description">{{ticket.description}}</div>
-            </div>
-        </div>
+				<!-- User name and post -->
+				<div class="user-info">
+					<span class="user-name">
+						<strong>Profil :
+						</strong>
+						{{ user.name |capitalize}}
+						{{user.lastname |capitalize}}</span>
+					<span class="user-post">
+						<strong>Poste :</strong>
+						{{ user.post|capitalize }}
+					</span>
+				</div>
+			</div>
+		</div>
 
-    <!-- Vous pouvez ajouter d'autres tickets comme l'exemple ci-dessus. -->
-    
-{% endfor %}
-    </div>
-</div>
+		<div class="tickets">
+			{% for ticket in tickets %}
+				{% set date = ticket.date|date("d/M/Y") %}
 
+				<div class="ticket">
+					<div class="ticket-header">
+						<h2>{{ticket.title | capitalize}}</h2>
+						<span>Date de création:
+							{{date}}</span>
+						<span>Status:
+							{{ticket.solved ? 'Resolu' : 'Non resolu'}}</span>
+						<span>Type :
+							{% if ticket.className == "ItTicket" %}
+								Informatique
+							{% elseif ticket.className == "BuildingTicket" %}
+								Bâtiment
+							{% elseif ticket.className == "VehicleTicket" %}
+								Véhicule
+							{% endif %}
+						</span>
+						<div class="action-button">
+							<button class="view-btn">Afficher</button>
+							<button class="delete-btn">
+								<a href="/ticket/delete/{{ticket.getId}}">Supprimer</a>
+							</button>
+						</div>
+					</div>
+					<div class="ticket-content">
+						{% if ticket.className == "ItTicket" %}
+							<div class="content-item">
+								<strong>Nom du pc :
+								</strong>
+								{{ticket.pcName}}
+							</div>
+							<div class="content-item">
+								<strong>Code Erreur :
+								</strong>
+								{{ticket.errorCode}}</div>
+							<div class="content-item">
+								<strong>Type :</strong>
+								{{ticket.errorType.lib}}</div>
+							<div class="content-item">
+								<strong>Lieu :</strong>
+								{{ticket.localisation}}</div>
 
+						{% elseif ticket.className == "BuildingTicket" %}
+							<div class="content-item">
+								<strong>Lieu :
+								</strong>
+								{{ticket.localisation}}</div>
+							<div class="content-item">
+								<strong>Lieu Precis :
+								</strong>
+								{{ticket.site}}
+							</div>
+						{% elseif ticket.className == "VehicleTicket" %}
+							<div class="content-item">
+								<strong>Immatriculation :
+								</strong>
+								{{ticket.immatriculation}}</div>
+							<div class="content-item">
+								<strong>Marque :
+								</strong>
+								{{ticket.brand}}</div>
+						{% endif %}
+						<div class="content-description">
+							<strong>Description :</strong>
+							{{ticket.description}}</div>
+					</div>
+				</div>
+
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}
