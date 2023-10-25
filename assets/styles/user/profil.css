@@ -8,7 +8,7 @@ body {
     background-size: cover;
 
 }
-::-webkit-scrollbar {
+::-webkit-scrollbar { /* Remove scrollbar Only working for chrome based web browser!!!! */
     display: none;
 }
 .content{
