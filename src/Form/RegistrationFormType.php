@@ -19,7 +19,7 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email' , EmailType::class)
+            ->add('email', EmailType::class)
             ->add('plainPassword', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -39,23 +39,22 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('name')
             ->add('lastname')
-            ->add('post',TextType::class,[
+            ->add('post', TextType::class, [
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci d entrer un poste',
                     ]),
                 ],
             ])
-            ->add('service',ChoiceType::class,[
+            ->add('service', ChoiceType::class, [
                 'choices' => [
-                    'Direction' => 'Direction',
+                    'Administration' => 'Administration',
                     'Comptabilité' => 'Comptabilité',
-                    'Ressources Humaines' => 'Ressources Humaines',
-                    'Batiment et infrastructure' => 'Technique',
+                    'Batiment et infrastructure' => 'Batiment et infrastructure',
                     'Accueil' => 'Accueil',
                     'Centre de ressources' => 'Centre de ressource',
                     'Communication' => 'Communication',
-                    'FTLV' => 'Formation tout au long de la vie',
+                    'Formations' => 'Formations',
                     'Autre' => 'Autre',
                 ],
                 'constraints' => [
@@ -64,7 +63,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            
+
         ;
     }
 
