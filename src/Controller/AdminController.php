@@ -96,7 +96,7 @@ class AdminController extends AbstractController
                 'title' => [
                     'display' => true,
                     'text' => strtoupper('Nombre de ticket resolu et non resolu'),
-                    'position' => 'bottom',
+                    'position' => 'top',
                     'fontColor' => '#ce1111',
                     'fontSize' => 12
                 ],
@@ -130,7 +130,7 @@ class AdminController extends AbstractController
                     'title' => [
                         'display' => true,
                         'text' => strtoupper('Nombre de ticket par service'),
-                        'position' => 'bottom',
+                        'position' => 'top',
                         'fontColor' => '#ce1111',
                         'fontSize' => 12
                     ],
@@ -187,7 +187,7 @@ class AdminController extends AbstractController
                 'title' => [
                     'display' => true,
                     'text' => strtoupper('Nombre de ticket Informatique par Type'),
-                    'position' => 'bottom',
+                    'position' => 'top',
                     'fontColor' => '#ce1111',
                     'fontSize' => 12
                 ],
@@ -213,7 +213,7 @@ class AdminController extends AbstractController
                 'title' => [
                     'display' => true,
                     'text' => strtoupper('Nombre de ticket par Type'),
-                    'position' => 'bottom',
+                    'position' => 'top',
                     'fontColor' => '#ce1111',
                     'fontSize' => 12
                 ],
@@ -255,7 +255,7 @@ class AdminController extends AbstractController
                 'title' => [
                     'display' => true,
                     'text' => strtoupper('Nombre de ticket par mois et par annee'),
-                    'position' => 'bottom',
+                    'position' => 'top',
                     'fontColor' => '#ce1111',
                     'fontSize' => 12
                 ]
