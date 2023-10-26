@@ -50,7 +50,7 @@ label {
     margin-top: 20px;
     padding: 10px;
     cursor: pointer;
-    background-color: magenta;
+    background-color: #e6007d;
     border: none;
     border-radius: 5px;
     color: white;
@@ -63,7 +63,7 @@ label {
 }
 
 .btn.btn-lg.btn-primary:hover {
-    background-color: #8B008B; /* Une couleur légèrement plus foncée pour l'effet hover */
+    background-color: #d40175; /* Une couleur légèrement plus foncée pour l'effet hover */
 }
 
 .alert {
@@ -91,7 +91,7 @@ body > form {
     justify-content: center;
     padding: 10px;
     text-decoration: none;
-    color: magenta; /* Faire du bouton un élément de bloc pour qu'il prenne toute la largeur */
+    color: #e6007d; /* Faire du bouton un élément de bloc pour qu'il prenne toute la largeur */
 }
 
 .btn-secondary:hover {
@@ -115,8 +115,8 @@ body > form {
 
 .cnac {
     font-size: 72px; /* or whatever base size you prefer */
-    color: white; /* make text white to stand out against background */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* add shadow for readability */
+    color: #e6007d; /* make text white to stand out against background */
+    
 }
 
 .form-container {

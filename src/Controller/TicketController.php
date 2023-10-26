@@ -45,7 +45,7 @@ class TicketController extends AbstractController
             $this->em->persist($itTicket);
             $this->em->flush();
 
-            return $this->redirectToRoute('app_profil');
+            return $this->redirectToRoute('app_user');
         }
 
         return $this->render('ticket/ItTicket/index.html.twig', [
@@ -69,7 +69,7 @@ class TicketController extends AbstractController
             $this->em->persist($BuildingTicket);
             $this->em->flush();
 
-            return $this->redirectToRoute('app_profil');
+            return $this->redirectToRoute('app_user');
         }
 
         return $this->render('ticket/BuildingTicket/index.html.twig', [
@@ -94,7 +94,7 @@ class TicketController extends AbstractController
             $this->em->persist($VehicleTicket);
             $this->em->flush();
 
-            return $this->redirectToRoute('app_profil');
+            return $this->redirectToRoute('app_user');
         }
 
         return $this->render('ticket/VehicleTicket/index.html.twig', [

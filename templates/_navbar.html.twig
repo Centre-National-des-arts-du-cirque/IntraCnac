@@ -1,47 +1,47 @@
-
 {% block navbar %}
-<nav>
-    <div class = "top">
-        <h1 class="titre">INTRACNAC</h1>
-    </div>
-     <ul>
-        <li class="{{ app.request.attributes.get('_route') == 'app_events' ? 'active' : '' }}">
-            <a href="{{ path('app_events') }}">Accueil</a>
-        </li>
-        <li class="{{ app.request.attributes.get('_route') == 'app_user' ? 'active' : '' }}">
-            <a href="{{ path('app_user') }}">Profil</a>
-        </li>
-       
-        {% if is_granted('ROLE_ADMIN') %}
-            <li class="{{ app.request.attributes.get('_route') == 'app_admin' ? 'active' : '' }}">
-                <a href="{{ path('app_admin') }}">Dasboard</a>
-            </li>
-            <li class="{{ app.request.attributes.get('_route') == 'app_admin_chart' ? 'active' : '' }}">
-                <a href="{{ path('app_admin_chart') }}">Graph</a>
-            </li>
-             <li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
-                <a href="{{ path('app_ItTicket') }}">Ticket</a>
-            </li>
-        {% elseif is_granted('ROLE_ADMIN_EVENT') %}
-            <li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
-                <a href="{{ path('app_ItTicket') }}">Tickets </a>
-            </li>
-            <li class="{{ app.request.attributes.get('_route') == 'app_create_event' ? 'active' : '' }}">
-                <a href="{{ path('app_create_event') }}">Event</a>
-            </li>
-        {% else %}
-            <li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
-                <a href="{{ path('app_ItTicket') }}">Ticket</a>
-            </li>
-        {% endif %}
-        <li class="{{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
-            <a href="#">Contact</a>
-        </li>
-        <li>
-            <a href="{{ path('app_logout') }}">Deconnexion</a>
-        </li>
-        
-    </ul>
-</nav>
+	<nav>
+		<div class="top">
+			<h1 class="titre">INTRACNAC</h1>
+		</div>
+		<ul>
+			<li class="{{ app.request.attributes.get('_route') == 'app_events' ? 'active' : '' }}">
+				<a href="{{ path('app_events') }}">Accueil</a>
+			</li>
+			<li class="{{ app.request.attributes.get('_route') == 'app_user_profil'? 'active' : '' }}">
+				<a href="{{ path('app_user_profil') }}">Profil</a>
+			</li>
+
+			{% if is_granted('ROLE_ADMIN') %}
+				<li class="{{ app.request.attributes.get('_route') == 'app_admin' ? 'active' : '' }}">
+					<a href="{{ path('app_admin') }}">Dasboard</a>
+				</li>
+				<li class="{{ app.request.attributes.get('_route') == 'app_admin_chart' ? 'active' : '' }}">
+					<a href="{{ path('app_admin_chart') }}">Graph</a>
+				</li>
+				<li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
+					<a href="{{ path('app_ItTicket') }}">Ticket</a>
+				</li>
+			{% elseif is_granted('ROLE_ADMIN_EVENT') %}
+				<li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
+					<a href="{{ path('app_ItTicket') }}">Tickets
+					</a>
+				</li>
+				<li class="{{ app.request.attributes.get('_route') == 'app_create_event' ? 'active' : '' }}">
+					<a href="{{ path('app_create_event') }}">Event</a>
+				</li>
+			{% else %}
+				<li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
+					<a href="{{ path('app_ItTicket') }}">Ticket</a>
+				</li>
+			{% endif %}
+			<li class="{{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
+				<a href="#">Contact</a>
+			</li>
+			<li>
+				<a href="{{ path('app_logout') }}">Deconnexion</a>
+			</li>
+
+		</ul>
+	</nav>
 
 {% endblock %}
