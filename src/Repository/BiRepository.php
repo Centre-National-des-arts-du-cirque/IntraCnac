@@ -21,7 +21,18 @@ class BiRepository extends ServiceEntityRepository
         parent::__construct($registry, Bi::class);
     }
 
-//    /**
+    public function findByWeek($week): array
+    {
+        return $this->createQueryBuilder('b')
+            ->Where('b.week = :val')
+            ->setParameter('val', $week)
+            ->orderBy('b.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    //    /**
 //     * @return Bi[] Returns an array of Bi objects
 //     */
 //    public function findByExampleField($value): array
@@ -36,7 +47,7 @@ class BiRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Bi
+    //    public function findOneBySomeField($value): ?Bi
 //    {
 //        return $this->createQueryBuilder('b')
 //            ->andWhere('b.exampleField = :val')

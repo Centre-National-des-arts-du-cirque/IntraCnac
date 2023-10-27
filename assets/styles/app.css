@@ -1,4 +1,26 @@
+
 body{
-    font-family: 'DM Sans';
-    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#calendar-holder {
+
+    flex-basis: 60%;
+    overflow: hidden; /* Prevent overflow */
+    padding: 60px 0px 0px 40px;
+}
+
+.BI {
+    flex-grow: 1;
+    max-width: 38%;
+}
+
