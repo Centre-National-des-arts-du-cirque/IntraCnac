@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Creation Bi!
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/ticket/ticket.css') }}">
+{% endblock %}
+{% block body %}
+
+
+	{% include "Bi/form/_form.html.twig" %}
+
+{% endblock %}

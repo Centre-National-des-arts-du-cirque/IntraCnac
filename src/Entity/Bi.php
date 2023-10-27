@@ -7,7 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
-#[Gedmo\Uploadable(path: '/public/var/uploads/bi')]
+#[Gedmo\Uploadable(path: 'var/uploads/bi', filenameGenerator: 'SHA1', allowOverwrite: true, appendNumber: true)]
 #[ORM\Entity(repositoryClass: BiRepository::class)]
 class Bi
 {
@@ -22,7 +22,9 @@ class Bi
     #[ORM\Column(length: 1000)]
     private ?string $description = null;
 
+
     #[ORM\Column(length: 255, nullable: true)]
+    #[Gedmo\UploadableFilePath]
     private ?string $path = null;
 
     #[ORM\Column]
@@ -70,6 +72,7 @@ class Bi
     {
         return $this->path;
     }
+
 
     public function setPath(?string $path): static
     {
