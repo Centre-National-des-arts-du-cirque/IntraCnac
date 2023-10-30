@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Creation ticket pour un probleme avec un des batiments!{% endblock %}
+{% block title %}Ticket Batiments!
+{% endblock %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/ticket/ticket.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/ticket/ticket.css') }}">
 {% endblock %}
 
 {% block body %}
 
 
-{% include "Ticket/_navbar.html.twig" %} 
+	{% include "Ticket/_navbar.html.twig" %}
 
-{% include "Ticket/BuildingTicket/form/_form.html.twig" %}
+	{% include "Ticket/BuildingTicket/form/_form.html.twig" %}
 {% endblock %}

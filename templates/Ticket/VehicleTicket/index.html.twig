@@ -1,12 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ticket Batiments!{% endblock %}
+{% block title %}Ticket Vehicule!
+{% endblock %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('styles/ticket/ticket.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/ticket/ticket.css') }}">
 {% endblock %}
 
 {% block body %}
 
-{% include "Ticket/_navbar.html.twig" %} 
-{% include "Ticket/VehicleTicket/form/_form.html.twig" %}
+	{% include "Ticket/_navbar.html.twig" %}
+	{% include "Ticket/VehicleTicket/form/_form.html.twig" %}
 {% endblock %}
