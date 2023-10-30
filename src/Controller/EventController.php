@@ -32,7 +32,7 @@ class EventController extends AbstractController
 
             $this->em->persist($event);
             $this->em->flush();
-            return $this->redirectToRoute('app_events');
+            return $this->redirectToRoute('app_index');
         }
 
         return $this->render(
