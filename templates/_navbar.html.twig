@@ -20,7 +20,7 @@
 				</li>
 			{% endif %}
 			{% if is_granted('ROLE_ADMIN_EVENT') or  is_granted('ROLE_SUPER_ADMIN')  %}
-				<li class="{{ app.request.attributes.get('_route') == 'app_admi_event' ? 'active' : '' }}">
+				<li class="{{ app.request.attributes.get('_route') == 'app_admin_event' ? 'active' : '' }}">
 					<a href="{{ path('app_admin_event') }}">Event Dasboard</a>
 				</li>
 				<li class="{{ app.request.attributes.get('_route') == 'app_create_event' ? 'active' : '' }}">
