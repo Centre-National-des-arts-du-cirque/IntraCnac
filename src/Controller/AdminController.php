@@ -290,4 +290,12 @@ class AdminController extends AbstractController
             'year' => $year,
         ]);
     }
+
+    #[Route('/admin/event', name: 'app_admin_event')]
+    public function eventIndex(): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN_EVENT');
+
+        return $this->render('admin/event.html.twig');
+    }
 }
