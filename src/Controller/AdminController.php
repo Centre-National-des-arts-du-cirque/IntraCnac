@@ -292,7 +292,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/event', name: 'app_admin_event')]
+    #[Route('/admin/bi', name: 'app_admin_bi')]
     public function eventIndex(BiRepository $biRepository, Request $request): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN_EVENT');

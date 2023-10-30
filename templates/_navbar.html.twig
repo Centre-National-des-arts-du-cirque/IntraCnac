@@ -20,14 +20,14 @@
 				</li>
 			{% endif %}
 			{% if is_granted('ROLE_ADMIN_EVENT') or  is_granted('ROLE_SUPER_ADMIN')  %}
-				<li class="{{ app.request.attributes.get('_route') == 'app_admin_event' ? 'active' : '' }}">
-					<a href="{{ path('app_admin_event') }}">Event Dasboard</a>
+				<li class="{{ app.request.attributes.get('_route') == 'app_admin_bi' ? 'active' : '' }}">
+					<a href="{{ path('app_admin_bi') }}">Event Dasboard</a>
 				</li>
 				<li class="{{ app.request.attributes.get('_route') == 'app_create_event' ? 'active' : '' }}">
 					<a href="{{ path('app_create_event') }}">Event</a>
 				</li>
 				<li class="{{ app.request.attributes.get('_route') == 'app_bi' ? 'active' : '' }}">
-					<a href="{{ path('app_bi') }}">BI</a>
+					<a href="{{ path('app_bi_create') }}">BI</a>
 				</li>
 
 			{% endif %}

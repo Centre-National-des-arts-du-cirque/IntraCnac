@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Form\BiFormType;
+use App\Repository\BiRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Stof\DoctrineExtensionsBundle\Uploadable\UploadableManager;
 
@@ -24,7 +25,7 @@ class BiController extends AbstractController
         $this->tokenStorage = $tokenStorage;
     }
 
-    #[Route('/bi', name: 'app_bi')]
+    #[Route('/bi', name: 'app_bi_create')]
     public function index(Request $request, UploadableManager $uploadableManager): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN_EVENT');
@@ -41,8 +42,27 @@ class BiController extends AbstractController
 
         }
 
-        return $this->render('bi/index.html.twig', [
+        return $this->render('bi/create.html.twig', [
             'BiForm' => $form->createView(),
         ]);
+    }
+    #[Route('/bi/update/{id}', name: 'app_bi_update', requirements: ['id' => '\d+'])]
+    public function update(Request $request, UploadableManager $uploadableManager, BiRepository $biRepository): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN_EVENT');
+        $bi = $biRepository->findBy(['id' => $request->attributes->get('id')]);
+        $form = $this->createForm(BiFormType::class, $bi[0]);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->em->persist($bi[0]);
+            $uploadableManager->markEntityToUpload($bi[0], $form->get('myFile')->getData());
+            $this->em->flush();
+            return $this->redirectToRoute('app_admin_bi');
+        }
+        return $this->render('bi/update.html.twig', [
+            'BiForm' => $form->createView(),
+        ]);
+
     }
 }
