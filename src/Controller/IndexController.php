@@ -25,7 +25,7 @@ class IndexController extends AbstractController
     {
         $week = date("W");
 
-        $BIS = $biRepository->findByWeek(42);
+        $BIS = $biRepository->findByWeek($week);
         return $this->render('index.html.twig', [
             'BIS' => $BIS,
             'nbBIS' => count($BIS),
