@@ -297,7 +297,7 @@ class AdminController extends AbstractController
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN_EVENT');
 
-        return $this->render('admin/event.html.twig', [
+        return $this->render('admin/bi.html.twig', [
             'user' => $this->tokenStorage->getToken()->getUser(),
             'BIS' => $biRepository->findAll(),
         ]);

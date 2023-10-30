@@ -65,4 +65,13 @@ class BiController extends AbstractController
         ]);
 
     }
+    #[Route('/bi/delete/{id}', name: 'app_bi_delete', requirements: ['id' => '\d+'])]
+    public function delete(Request $request, BiRepository $biRepository): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN_EVENT');
+        $bi = $biRepository->findBy(['id' => $request->attributes->get('id')]);
+        $this->em->remove($bi[0]);
+        $this->em->flush();
+        return $this->redirectToRoute('app_admin_bi');
+    }
 }
