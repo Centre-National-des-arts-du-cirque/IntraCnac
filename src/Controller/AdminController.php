@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\BiRepository;
 use App\Repository\BuildingTicketRepository;
 use App\Repository\ItTicketRepository;
 use App\Repository\TicketRepository;
@@ -292,10 +293,14 @@ class AdminController extends AbstractController
     }
 
     #[Route('/admin/event', name: 'app_admin_event')]
-    public function eventIndex(): Response
+    public function eventIndex(BiRepository $biRepository, Request $request): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN_EVENT');
 
-        return $this->render('admin/event.html.twig');
+        return $this->render('admin/event.html.twig', [
+            'user' => $this->tokenStorage->getToken()->getUser(),
+            'BIS' => $biRepository->findAll(),
+        ]);
+
     }
 }

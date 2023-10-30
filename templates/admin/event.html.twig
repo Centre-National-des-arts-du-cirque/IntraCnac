@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Event Dashboard!
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/user/profil.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+	{{ importmap() }}
+	 <script type="module" src="{{ asset('js/ticket/show.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+	<div class="content">
+
+		<div class="user">
+			<div class="profil">
+				<div class="profile-picture">
+					<img src="{{ asset('img/user.jfif') }}" alt="User's Profile Picture">
+				</div>
+
+				<!-- User name and post -->
+				<div class="user-info">
+					<span class="user-name">
+						<strong>Profil :
+						</strong>
+						{{ user.name |capitalize}}
+						{{user.lastname |capitalize}}</span>
+					<span class="user-post">
+						<strong>Poste :</strong>
+						{{ user.post|capitalize }}
+					</span>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
