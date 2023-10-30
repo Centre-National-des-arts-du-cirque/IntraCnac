@@ -4,12 +4,12 @@
 {% endblock %}
 
 {% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('styles/user/profil.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/admin/event/EventDashboard.css') }}">
 {% endblock %}
 
 {% block javascripts %}
 	{{ importmap() }}
-	 <script type="module" src="{{ asset('js/ticket/show.js') }}"></script>
+	 <script type="module" src="{{ asset('js/bi/show.js') }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -35,4 +35,38 @@
 				</div>
 			</div>
 		</div>
-	{% endblock %}
+
+		<div class="bis">
+			{% for BI in BIS %}
+				{% set dateCreation = BI.createAt|date("d/M/Y") %}
+				{% set dateUpdate = BI.updateAt|date("d/M/Y") ? "jamais" %}
+				<div class="bi">
+					<div class="bi-header">
+						<h2>{{BI.title | capitalize}}</h2>
+						<span>Date de création :
+							{{dateCreation}}</span>
+						<span>Date de mise à jour :
+							{{dateUpdate}}</span>
+						<div class="action-button">
+							<button class="view-btn">Afficher</button>
+							<button class="update-btn">
+								<a href="/bi/update/{{BI.getId}}">Modifier</a>
+							</button>
+							<button class="delete-btn">
+								<a href="/ticket/solve/{{BI.getId}}">Supprimer</a>
+							</button>
+						</div>
+					</div>
+					<div class="bi-content">
+						<div class="content-description">
+							<strong>Description:</strong>
+							{{BI.description}}
+						</div>
+
+					</div>
+				</div>
+
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
