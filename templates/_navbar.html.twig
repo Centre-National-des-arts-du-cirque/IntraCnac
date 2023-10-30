@@ -30,9 +30,6 @@
 					<a href="{{ path('app_bi') }}">BI</a>
 				</li>
 
-				{% else %}
-
-
 			{% endif %}
 			<li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
 				<a href="{{ path('app_ItTicket') }}">Ticket</a>
