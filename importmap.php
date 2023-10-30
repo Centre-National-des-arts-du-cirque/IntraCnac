@@ -27,4 +27,7 @@ return [
     'chart.js/auto' => [
         'url' => 'https://cdn.jsdelivr.net/npm/chart.js@3.9.1/auto/+esm',
     ],
+    'bootstrap' => [
+        'url' => 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/+esm',
+    ],
 ];

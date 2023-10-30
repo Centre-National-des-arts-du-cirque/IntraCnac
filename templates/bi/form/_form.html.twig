@@ -1,0 +1,34 @@
+<div class="form__container">
+	{{ form_start(BiForm, { attr: { class: "form_login" }}) }}
+	<h1>Soumettre un ticket</h1>
+	<!-- Ajout du titre -->
+	<h2>Informatique</h2>
+	<!-- Ajout du sous-titre -->
+
+	<div class="form__name inline_row">
+		<div class="field">
+			{{ form_label(BiForm.title, "Objet") }}
+			{{ form_widget(BiForm.title, { attr: { placeholder: "titre du post" }}) }}
+		</div>
+		<div class="field">
+			{{ form_label(BiForm.description, "Description") }}
+			{{ form_widget(BiForm.description, { attr: { placeholder: "Description" }}) }}
+		</div>
+	</div>
+
+	<div class="field">
+		{{ form_label(BiForm.myFile, "Image") }}
+		{{ form_widget(BiForm.myFile, { attr: { placeholder: "Image pour representer le BI" }}) }}
+	</div>
+
+	<div class="field">
+		{{ form_label(BiForm.week, "semaine") }}
+		{{ form_widget(BiForm.week, { attr: { placeholder: "semaine du Bi" }}) }}
+	</div>
+
+
+	<div class="center">
+		<button type="submit" class="btn">Envoyez le ticket</button>
+		{{ form_end(BiForm) }}
+	</div>
+</div></div>

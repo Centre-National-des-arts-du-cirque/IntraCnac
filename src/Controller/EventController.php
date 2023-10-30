@@ -17,22 +17,14 @@ class EventController extends AbstractController
     private $em;
 
 
-    public function __construct( EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
     }
-    #[Route('/', name: 'app_events')]
-    #[IsGranted('ROLE_USER')]
-    public function index(): Response
-    {
-        return $this->render('Event/index.html.twig');
-    }
-
-    
     #[Route('/event/create', name: 'app_create_event')]
     #[IsGranted('ROLE_ADMIN_EVENT')]
     public function create(Request $request): Response
-    {   
+    {
         $event = new Event();
         $form = $this->createForm(EventFormType::class, $event);
         $form->handleRequest($request);
@@ -40,13 +32,15 @@ class EventController extends AbstractController
 
             $this->em->persist($event);
             $this->em->flush();
-            return $this->redirectToRoute('app_events');
+            return $this->redirectToRoute('app_index');
         }
 
-        return $this->render('Event/create.html.twig', 
-        [
-            'EventForm' => $form->createView(),
-        ]);
+        return $this->render(
+            'Event/create.html.twig',
+            [
+                'EventForm' => $form->createView(),
+            ]
+        );
     }
 
-}   
+}
