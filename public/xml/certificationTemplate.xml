@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cpf:flux xmlns:cpf="urn:cdc:cpf:pc5:schema:1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <cpf:idFlux>drama2022</cpf:idFlux>
+    <cpf:horodatage>2020-12-18T14:24:12+01:00</cpf:horodatage>
+    <cpf:emetteur>
+        <cpf:idClient>03BHY312</cpf:idClient>
+        <cpf:certificateurs>
+            <cpf:certificateur>
+                <cpf:idClient>03BHY312</cpf:idClient>
+                <cpf:idContrat>MCFCER000775</cpf:idContrat>
+                <cpf:certifications>
+                    <cpf:certification>
+                        <cpf:type>RS</cpf:type>
+                        <cpf:code>RS5286</cpf:code>
+                        <cpf:natureDeposant>CERTIFICATEUR</cpf:natureDeposant>
+                        <cpf:passageCertifications>
+
+                        </cpf:passageCertifications>
+                    </cpf:certification>
+                </cpf:certifications>
+            </cpf:certificateur>
+        </cpf:certificateurs>
+    </cpf:emetteur>
+
+</cpf:flux>
