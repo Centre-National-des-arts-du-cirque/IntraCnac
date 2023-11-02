@@ -9,13 +9,15 @@ use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class XMLCertificationController extends AbstractController
 {
-    #[Route('/xmlcertification', name: 'app_x_m_l_certification')]
+    #[Route('/xmlcertification', name: 'app_xml_certification')]
+    #[IsGranted('ROLE_ADMIN_CERTIFICATION')]
     public function index(Request $request): Response
     {
+
         $XMLCertification = <<<XML
         <?xml version="1.0" encoding="UTF-8"?>
         <cpf:flux xmlns:cpf="urn:cdc:cpf:pc5:schema:1.0.0"
