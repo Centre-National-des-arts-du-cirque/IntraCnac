@@ -8,7 +8,7 @@
 				<a href="{{ path('app_events') }}">Accueil</a>
 			</li>
 			<li class="{{ app.request.attributes.get('_route') == 'app_user_profil'? 'active' : '' }}">
-				<a href="{{ path('app_user') }}">Profil</a>
+				<a href="{{ path('app_user_profil') }}">Profil</a>
 			</li>
 
 			{% if is_granted('ROLE_ADMIN') %}
