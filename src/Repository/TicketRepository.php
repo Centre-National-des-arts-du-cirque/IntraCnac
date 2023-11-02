@@ -41,6 +41,7 @@ class TicketRepository extends ServiceEntityRepository
         ->where('ticket.date BETWEEN :start and :end' )
         ->andWhere('user.service = :service')
         ->setParameter('service', $service);
+        
         $qb->setParameter('start', $start)
         ->setParameter('end', $end);
     
@@ -57,6 +58,32 @@ class TicketRepository extends ServiceEntityRepository
         ->where('ticket.date BETWEEN :start and :end' )
             ->groupBy('ticket.date')
             ->orderBy('ticket.date', 'ASC')
+            ->setParameter('start', $start)
+            ->setParameter('end', $end);
+        return $qb->getQuery()->getResult();
+
+    }
+
+    public function countSolvedTicket(\DateTime $start,\DateTime $end):array
+    {   
+
+        $qb = $this->createQueryBuilder('ticket')
+        ->select('count(ticket.id)')
+        ->where('ticket.date BETWEEN :start and :end' )
+        ->andWhere('ticket.solved = true')
+            ->setParameter('start', $start)
+            ->setParameter('end', $end);
+        return $qb->getQuery()->getResult();
+
+    }
+
+    public function countUnsolvedTicket(\DateTime $start,\DateTime $end):array
+    {   
+
+        $qb = $this->createQueryBuilder('ticket')
+        ->select('count(ticket.id)')
+        ->where('ticket.date BETWEEN :start and :end' )
+        ->andWhere('ticket.solved = false')
             ->setParameter('start', $start)
             ->setParameter('end', $end);
         return $qb->getQuery()->getResult();
