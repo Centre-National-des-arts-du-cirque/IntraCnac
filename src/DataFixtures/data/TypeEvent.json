@@ -1,0 +1,14 @@
+[
+    {
+        "lib": "Reunion",
+        "CalendarColor": "#00cc66"
+    },
+    {
+        "lib": "Spectacle",
+        "CalendarColor" :"#ff3333"
+    },
+    {
+        "lib":"repas",
+        "CalendarColor":"8080ff"
+    }
+]
