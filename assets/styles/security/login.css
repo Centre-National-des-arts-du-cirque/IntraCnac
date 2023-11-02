@@ -17,7 +17,13 @@ form {
     width: 350px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
-
+.cnac {
+    font-size: 72px; /* or whatever base size you prefer */
+    margin-bottom: 50px; /* increase space below h1 */
+    text-align: center; /* center text */
+    color: white; /* make text white to stand out against background */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* add shadow for readability */
+}
 h1.h3.mb-3.font-weight-normal {
     font-size: 24px;
     text-align: center;
@@ -92,3 +98,29 @@ body > form {
     text-decoration: underline;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    position: absolute;
+    top: 5%; /* Adjust this to move the header up or down */
+    text-align: center;
+    width: 100%;
+}
+
+.cnac {
+    font-size: 72px; /* or whatever base size you prefer */
+    color: white; /* make text white to stand out against background */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* add shadow for readability */
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
