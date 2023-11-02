@@ -29,7 +29,7 @@ class EventController extends AbstractController
     }
 
     
-    #[Route('/event/create', name: 'app_create')]
+    #[Route('/event/create', name: 'app_create_event')]
     #[IsGranted('ROLE_ADMIN_EVENT')]
     public function create(Request $request): Response
     {   
@@ -37,7 +37,7 @@ class EventController extends AbstractController
         $form = $this->createForm(EventFormType::class, $event);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            
+
             $this->em->persist($event);
             $this->em->flush();
             return $this->redirectToRoute('app_events');
