@@ -33,7 +33,7 @@ class UserController extends AbstractController
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
-        $tickets = $ticketRepository->findBy(['createBy'=>$this->getUser()], ['date' => 'DESC', 'solved' => 'ASC']);
+        $tickets = $ticketRepository->findBy(['createBy'=>$this->getUser()], ['date' => 'DESC','solved' => 'ASC']);
         
         return $this->render('user/index.html.twig',[
             'tickets' => $tickets
