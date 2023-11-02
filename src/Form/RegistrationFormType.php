@@ -42,10 +42,11 @@ class RegistrationFormType extends AbstractType
                     'Direction' => 'Direction',
                     'Comptabilité' => 'Comptabilité',
                     'Ressources Humaines' => 'Ressources Humaines',
-                    'Service Technique' => 'Technique',
+                    'Batiment et infrastructure' => 'Technique',
                     'Accueil' => 'Accueil',
-                    'Centre de ressource' => 'Centre de ressource',
+                    'Centre de ressources' => 'Centre de ressource',
                     'Communication' => 'Communication',
+                    'FTLV' => 'Formation tout au long de la vie',
                     'Autre' => 'Autre',
                 ],
             ])
