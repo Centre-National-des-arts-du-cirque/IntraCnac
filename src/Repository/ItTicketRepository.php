@@ -21,18 +21,32 @@ class ItTicketRepository extends ServiceEntityRepository
         parent::__construct($registry, ItTicket::class);
     }
 
-    public function countByDate(\DateTime $start , \DateTime $end): int
-    {   
-        
+    public function countByDate(\DateTime $start, \DateTime $end): int
+    {
+
         $qb = $this->createQueryBuilder('ticket')
-        ->select('count(ticket.id)')
-        ->where('ticket.date BETWEEN :start and :end' )
-        ->setParameter('start', $start)
-        ->setParameter('end', $end);
+            ->select('count(ticket.id)')
+            ->where('ticket.date BETWEEN :start and :end')
+            ->setParameter('start', $start)
+            ->setParameter('end', $end);
 
         return $qb->getQuery()->getSingleScalarResult();
     }
-//    /**
+    public function countByTypeAndDate(string $type, \DateTime $start, \DateTime $end): int
+    {
+
+        $qb = $this->createQueryBuilder('ticket')
+            ->select('count(ticket.id)')
+            ->join('ticket.ErrorType', 'ErrorType')
+            ->where('ticket.date BETWEEN :start and :end')
+            ->andWhere('ErrorType.lib = :type')
+            ->setParameter('start', $start)
+            ->setParameter('end', $end)
+            ->setParameter('type', $type);
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+    //    /**
 //     * @return ItTicket[] Returns an array of ItTicket objects
 //     */
 //    public function findByExampleField($value): array
@@ -47,7 +61,7 @@ class ItTicketRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?ItTicket
+    //    public function findOneBySomeField($value): ?ItTicket
 //    {
 //        return $this->createQueryBuilder('i')
 //            ->andWhere('i.exampleField = :val')
