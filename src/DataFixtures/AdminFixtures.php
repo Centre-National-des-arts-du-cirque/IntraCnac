@@ -5,7 +5,7 @@ namespace App\DataFixtures;
 use App\Factory\AdminFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use App\Factory\UserFactory;
+
 
 class AdminFixtures extends Fixture
 {
