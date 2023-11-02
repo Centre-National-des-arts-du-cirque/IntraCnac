@@ -13,7 +13,8 @@
 
 			{% if is_granted('ROLE_ADMIN') %}
 				<li class="{{ app.request.attributes.get('_route') == 'app_admin' ? 'active' : '' }}">
-					<a href="{{ path('app_admin') }}">Dasboard</a>
+					<a href="{{ path('app_admin') }}">
+						Tickets Dasboard</a>
 				</li>
 				<li class="{{ app.request.attributes.get('_route') == 'app_admin_chart' ? 'active' : '' }}">
 					<a href="{{ path('app_admin_chart') }}">Graph</a>
