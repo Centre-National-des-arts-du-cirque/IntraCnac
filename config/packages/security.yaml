@@ -29,8 +29,10 @@ security:
             custom_authenticator: App\Security\LoginFormAuthenticator
 
     role_hierarchy:
-        ROLE_USER:       ROLE_USER
-        ROLE_ADMIN:      ROLE_ADMIN
+        ROLE_USER:        ROLE_USER
+        ROLE_ADMIN:       ROLE_ADMIN
+        ROLE_ADMIN_EVENT: ROLE_ADMIN_EVENT
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ADMIN_EVENT]
 
             
 
