@@ -1,20 +1,68 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Mon profil!{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/user/profil.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ importmap() }}
+    <script type="module" src="{{ asset('js/ticket/show.js') }}"></script>
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="dashboard">
+    <div class="side-panel">
+        <button class="logout-btn">Déconnexion</button>
+    </div>
+    <div class="tickets">
+{% for ticket in tickets %}
+    {% set date = ticket.date|date("d/M/Y") %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Assistance.info/Desktop/SupportWebsiteFinal/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Assistance.info/Desktop/SupportWebsiteFinal/templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
+        <!-- Exemple de ticket -->
+        <div class="ticket">
+            <div class="ticket-header">
+                <h2>{{ticket.title}}</h2>
+                <span>Date de création: {{date}}</span>
+                <span>Status: {{ticket.solved ? 'Resolu' : 'Non resolu'}}</span>
+                <span>Type : {% if ticket.className == "ItTicket" %}
+                                    Informatique
+                                {% elseif ticket.className == "BuildingTicket" %}
+                                    Bâtiment
+                                {% elseif ticket.className == "VehicleTicket" %}
+                                    Véhicule
+                                {% endif %}
+                </span>
+                <div class="action-button">
+                    <button class="view-btn">Afficher</button>
+                    <button class="delete-btn">Supprimer</button>
+                </div>
+            </div>
+            <div class="ticket-content">
+                {% if ticket.className == "ItTicket" %}
+                <div class="content-item">{{ticket.pcName}} </div>
+                <div class="content-item"> {{ticket.errorCode}}</div>
+                <div class="content-item">{{ticket.errorType.lib}}</div>
+                <div class="content-item">{{ticket.localisation}}</div>
+                
+                {% elseif ticket.className == "BuildingTicket" %}
+                <div class="content-item">{{ticket.localisation}}</div>
+                <div class="content-item">{{ticket.site}} </div>
+                {% elseif ticket.className == "VehicleTicket" %}
+                    <div class="content-item">{{ticket.immat}}</div>
+                    <div class="content-item">{{ticket.brand}}</div>
+                {% endif %}
+                <div class="content-description">{{ticket.description}}</div>
+            </div>
+        </div>
+
+    <!-- Vous pouvez ajouter d'autres tickets comme l'exemple ci-dessus. -->
+    
+{% endfor %}
+    </div>
 </div>
+
+
 {% endblock %}
