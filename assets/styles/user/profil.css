@@ -76,7 +76,12 @@ body {
 }
 
 .delete-btn {
-    background-color: #FF5252; /* Rouge */
+    background-color: blueviolet; /* Rouge */
+    color: white;
+}
+
+a {
+    text-decoration: none;
     color: white;
 }
 
