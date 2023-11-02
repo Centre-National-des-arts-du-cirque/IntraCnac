@@ -14,13 +14,13 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method ItTicket[]    findAll()
  * @method ItTicket[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ItTicketRepository extends ServiceEntityRepository
+class ItTicketRepository extends TicketRepository 
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, ItTicket::class);
     }
-
+    
 //    /**
 //     * @return ItTicket[] Returns an array of ItTicket objects
 //     */

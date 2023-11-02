@@ -14,12 +14,13 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method BuildingTicket[]    findAll()
  * @method BuildingTicket[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BuildingTicketRepository extends ServiceEntityRepository
+class BuildingTicketRepository extends TicketRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, BuildingTicket::class);
     }
+    
 
 //    /**
 //     * @return BuildingTicket[] Returns an array of BuildingTicket objects

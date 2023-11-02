@@ -34,10 +34,14 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/chart', name: 'app_admin_chart')]
-    public function chart(ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepositoryBuild , BuildingTicketRepository $buildingTicketRepository , VehicleTicketRepository $vehicleTicketRepository): Response
-    {
+    #[Route('/admin/chart/{year}', name: 'app_admin_chart' , requirements: ['year' => '\d{4}'])]
+    public function chart(ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepository , BuildingTicketRepository $buildingTicketRepository , VehicleTicketRepository $vehicleTicketRepository, int $year): Response
+    {   
+
+        $start = new \DateTime($year . '-01-01');
+        $end = new \DateTime($year . '-12-31');
         $chart = $chartBuilder->createChart(Chart::TYPE_PIE);
+
         $chart->setData([
             'labels' => ['IT', 'Building', 'Vehicle'],
             'datasets' => [
@@ -45,8 +49,9 @@ class AdminController extends AbstractController
                     'label' => 'My First dataset',
                     'backgroundColor' => ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
                     'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [$itTicketRepositoryBuild->count([]), $buildingTicketRepository->count([]), $vehicleTicketRepository->count([])],
+                    'data' => [$itTicketRepository->countByDate($start , $end), $buildingTicketRepository->countByDate($start , $end), $vehicleTicketRepository->countByDate($start , $end)],
                 ],
+                
             ],
         ]);
 
