@@ -51,7 +51,6 @@ class RegistrationFormType extends AbstractType
                     'Administration' => 'Administration',
                     'Comptabilité' => 'Comptabilité',
                     'Batiment et infrastructure' => 'Batiment et infrastructure',
-                    'Accueil' => 'Accueil',
                     'Centre de ressources' => 'Centre de ressource',
                     'Communication' => 'Communication',
                     'Formations' => 'Formations',

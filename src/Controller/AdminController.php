@@ -112,7 +112,6 @@ class AdminController extends AbstractController
                 'Comptabilité',
                 'Batiment et Infrastructure',
                 'Communication',
-                'Accueil',
                 'Centre de ressources',
                 'Formations'
             ],
@@ -121,7 +120,7 @@ class AdminController extends AbstractController
 
                     'backgroundColor' => ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(153, 102, 255)', 'rgb(255, 159, 64)', 'rgb(255, 99, 132)', 'rgb(54, 162, 235)'],
                     'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [$ticketRepository->CountByServiceAndDate('Administration', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Comptabilité', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Ressources Humaines', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Technique', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Communication', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Accueil', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Centre de ressource', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Formations', $startOfActualYear, $endOfActualYear)]
+                    'data' => [$ticketRepository->CountByServiceAndDate('Administration', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Comptabilité', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Ressources Humaines', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Technique', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Communication', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Centre de ressource', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Formations', $startOfActualYear, $endOfActualYear)]
                 ]
             ]
         ]);
@@ -187,7 +186,7 @@ class AdminController extends AbstractController
             'plugins' => [
                 'title' => [
                     'display' => true,
-                    'text' => strtoupper('Nombre de ticket par Type'),
+                    'text' => strtoupper('Nombre de ticket Informatique par Type'),
                     'position' => 'bottom',
                     'fontColor' => '#ce1111',
                     'fontSize' => 12
