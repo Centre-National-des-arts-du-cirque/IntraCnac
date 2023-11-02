@@ -7,7 +7,7 @@ body {
 
 
 nav {
-    background-color: #333;
+    background-color: magenta;
     color: #fff;
     padding: 10px 0;
     text-align: center;
@@ -34,7 +34,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #555;
+    background-color: whitesmoke;
+    color: magenta;
 }
 
 .container {
