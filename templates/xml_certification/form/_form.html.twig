@@ -1,0 +1,18 @@
+<div class="form__container">
+	{{ form_start(XMLCertification, { attr: { class: "form_itTicket" }}) }}
+	<h1>Generateur XMLCertification</h1>
+
+
+	<div class="form__name inline_row">
+		<div class="field">
+			{{ form_label(XMLCertification.File, "Fichier csv") }}
+			{{ form_widget(XMLCertification.File, { attr: { placeholder: "Fichier csv" }}) }}
+		</div>
+
+		<div class="center">
+			<button type="submit" class="btn">Génerer</button>
+			{{ form_end(XMLCertification) }}
+		</div>
+	</div>
+
+</body></html>
