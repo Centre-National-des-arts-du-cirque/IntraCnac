@@ -1,15 +1,22 @@
-document.getElementById("monthSelector").addEventListener("change", function() {
-    const selectedMonth = this.value;
-    const currentYear = getParameterByName('year') || '2023'; // Si l'année n'est pas dans l'URL, cela prendra '2023' comme valeur par défaut
-    window.location.href = window.location.pathname + "?year=" + currentYear + "&month=" + selectedMonth;
-});
+// Initialise les variables
+const yearSelector = document.getElementById('monthSelector');
+const monthSelector = document.getElementById('yearSelector');
 
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
-    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+// Ajoute un écouteur d'événement à chaque élément <select>
+yearSelector.addEventListener('change', updateUrl);
+monthSelector.addEventListener('change', updateUrl);
+
+// Fonction pour mettre à jour l'URL
+function updateUrl() {
+  // Obtient la valeur actuelle du sélecteur
+  const value = this.value;
+
+  // Crée un objet URL
+  const url = new URL(window.location.href);
+
+  // Met à jour le paramètre d'URL correspondant
+  url.searchParams.set(this.id, value);
+
+  // Met à jour l'URL de la page
+  window.location.href = url.toString();
 }

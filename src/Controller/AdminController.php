@@ -38,17 +38,17 @@ class AdminController extends AbstractController
     #[Route('/admin/chart/', name: 'app_admin_chart')]
     public function chart(Request $request,ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepository , BuildingTicketRepository $buildingTicketRepository , VehicleTicketRepository $vehicleTicketRepository, TicketRepository $ticketRepository,): Response
     {   
-       if($request->query->get('year') == null){
+       if($request->query->get('yearSelector') == null or $request->query->get('yearSelector') == 'now'){
             $year = date('Y');
         }
         else{
-            $year = $request->query->get('year');
+            $year = $request->query->get('yearSelector');
         }
-        if($request->query->get('month') == null){
+        if($request->query->get('monthSelector') == null or $request->query->get('monthSelector') == 'now'){
             $month = date('m');
         }
         else{
-            $month = $request->query->get('month');
+            $month = $request->query->get('monthSelector');
         }
 
         $startOfActualYear = new \DateTime($year . '-01-01');
