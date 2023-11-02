@@ -35,9 +35,6 @@
 			<li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
 				<a href="{{ path('app_ItTicket') }}">Ticket</a>
 			</li>
-			<li class="{{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
-				<a href="#">Contact</a>
-			</li>
 			<li>
 				<a href="{{ path('app_logout') }}">Deconnexion</a>
 			</li>
