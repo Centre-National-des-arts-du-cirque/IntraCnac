@@ -16,10 +16,32 @@ body {
     background-color: magenta; /* Rose */
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: flex-end; /* Ceci déplace le contenu vers le bas */
+    align-items: center;
     padding-bottom: 20px;
+    flex-direction: column; /* Aligner les boutons verticalement */
+    justify-content: space-between; /* Commencer depuis le haut */
+    padding-top: 20px;
 }
+.nav-link {
+    text-decoration: none; /* Supprimer le soulignement */
+    color: white; /* Texte blanc */
+    font-size: 1.1em; /* Taille du texte un peu plus grande */
+    margin-bottom: 50px; /* Espace entre les liens */
+    position: relative; /* Pour le trait sous le texte */
+    transition: all 0.3s ease;
+     /* Pour une transition fluide */
+}
+
+.nav-link:hover::after {
+    content: ""; /* Créer un élément pseudo pour le trait */
+    position: absolute;
+    bottom: -5px; /* Positionner un peu sous le texte */
+    left: 0;
+    width: 100%; /* Largeur complète du texte */
+    height: 2px; /* Epaisseur du trait */
+    background-color: white; /* Couleur du trait */
+}
+
 
 .logout-btn {
     margin-bottom: 10px;
