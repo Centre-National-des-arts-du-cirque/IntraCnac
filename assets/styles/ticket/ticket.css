@@ -64,7 +64,7 @@ input[type="text"], textarea {
 
 button {
     padding: 10px 15px;
-    background-color: blue;
+    background-color: magenta;
     color: white;
     border: none;
     border-radius: 5px;
@@ -87,13 +87,14 @@ button {
         align-items: center; /* Centre les liens horizontalement */
         width: 250px; /* Définit une largeur fixe pour la boîte */
         margin: 20px auto; /* Centre la boîte horizontalement et ajoute un espace en haut et en bas */
-        border: 2px solid magenta; /* Bordure magenta */
         padding: 10px; /* Couleur de fond pour le distinguer, si nécessaire */
-        background-color: magenta;
+        background-color: white;
+        border-radius: 15px; /* Coins arrondis */
+        color:black;
 }
 
 .ticket-type {
-    color: white; /* Texte blanc */
+    color: black; /* Texte blanc */
     text-decoration: none;
     border-bottom: 2px solid transparent;
     transition: border-color 0.3s ease;
@@ -101,7 +102,10 @@ button {
     padding: 5px 15px; /* Espacement autour du texte */
     border-radius: 5px; 
 }
-
+.center {
+    display: flex;
+    justify-content:center;
+}
 .ticket-type:hover {
     
         background-color: #b200b2; /* Une couleur légèrement différente pour le hover */
