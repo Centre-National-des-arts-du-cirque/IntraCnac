@@ -30,11 +30,14 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+    flex-wrap: wrap;  /* Allows content to wrap onto the next line */
+    align-items: flex-start;
 }
 
 .field label {
     flex: 1;
     margin-right: 20px;
+    margin-bottom: 5px;
 }
 
 input[type="text"], textarea {
@@ -42,6 +45,7 @@ input[type="text"], textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 100%; /* Ensures that the input takes up the full width of its container */
 }
 
 button {
@@ -104,4 +108,11 @@ button {
 a.active {
     background-color: #e6007d;
     color: white;
+}
+
+.alert {
+    font-size: 16px;
+    color: red;
+    width: 100%; /* Ensures that the error takes up the full width of the .field container */
+    margin-top: 5px;
 }
