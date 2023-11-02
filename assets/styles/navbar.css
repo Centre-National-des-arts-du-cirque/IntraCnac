@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "New Title variable";
+    src: url('fonts/NewTitle_Complete/Fonts/WEB/fonts/NewTitle-Variable.eot');
+    src: url('fonts/NewTitle_Complete/Fonts/WEB/fonts/NewTitle-Variable.eot') format('embedded-opentype'),
+         url('fonts/NewTitle_Complete/Fonts/WEB/fonts/NewTitle-Variable.woff2') format('woff2'),
+         url('fonts/NewTitle_Complete/Fonts/WEB/fonts/NewTitle-Variable.woff') format('woff'),
+         url('fonts/NewTitle_Complete/Fonts/WEB/fonts/NewTitle-Variable.ttf') format('truetype');
+  }
+
 /* Reset default styles for list and anchor elements */
 nav ul {
     list-style-type: none;
@@ -8,7 +17,7 @@ nav ul {
 }
 .top {
     width: 100%;  /* Full width of the display */
-    background-color: magenta;
+    background-color: #e6007d;
     display: flex; /* Transparent background */
     justify-content: center;
     margin-bottom: 10px;
@@ -18,21 +27,23 @@ nav ul {
 .top h1 {
     color: white;
     font-size: 30px;
+    font-family: "New Title variable";
 }
 nav {
     width: 100%;  /* Full width of the display */
     background-color: transparent; /* Transparent background */
     display: flex;
     flex-direction: column;
+    margin: 0px;
 }
 
 nav li {
-    border: 1px solid pink;  /* Pink border around each list item */
+    border: 1px solid #e6007d;  /* Pink border around each list item */
     margin: 0 10px;  /* Spacing between list items */
 }
 
 nav a {
-    color: pink;  /* Pink text */
+    color: #e6007d;  /* Pink text */
     text-decoration: none;  /* Remove underline from links */
     padding: 10px 20px;  /* Padding around text */
     display: block;  /* Helps with applying padding */
@@ -45,6 +56,6 @@ nav li.active {
 }
 
 nav li.active a {
-    background-color: pink;  /* Pink background for active link */
+    background-color: #e6007d;  /* Pink background for active link */
     color: white;  /* White text for active link */
 }

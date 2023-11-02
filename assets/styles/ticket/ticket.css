@@ -1,5 +1,4 @@
 body {
-    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,26 +9,6 @@ body {
     overflow-y: auto;
 }
 
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 100px;
-    background-color: magenta;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-}
-
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    margin: 10px;
-    padding: 5px;
-}
 
 .form__container {
     width: 400px;
@@ -64,7 +43,7 @@ input[type="text"], textarea {
 
 button {
     padding: 10px 15px;
-    background-color: magenta;
+    background-color: #e6007d;
     color: white;
     border: none;
     border-radius: 5px;
@@ -73,11 +52,10 @@ button {
 
 .form__container {
     width: 400px;
-    padding: 30px;
     background-color: white;
     border-radius: 15px; /* Bords arrondis */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Effet d'ombre en dessous */
-    margin: 20px 0; /* Espacement autour de la boîte pour mettre en valeur l'ombre */
+  margin-top: 20px;
 }
 
 .ticket-links {
@@ -87,7 +65,8 @@ button {
         align-items: center; /* Centre les liens horizontalement */
         width: 250px; /* Définit une largeur fixe pour la boîte */
         margin: 20px auto; /* Centre la boîte horizontalement et ajoute un espace en haut et en bas */
-        padding: 10px; /* Couleur de fond pour le distinguer, si nécessaire */
+        padding-left: 25px;
+        padding-right: 25px;
         background-color: white;
         border-radius: 15px; /* Coins arrondis */
         color:black;
@@ -98,19 +77,12 @@ button {
     text-decoration: none;
     border-bottom: 2px solid transparent;
     transition: border-color 0.3s ease;
-    margin: 10px 0; /* Espacement entre les liens */
     padding: 5px 15px; /* Espacement autour du texte */
     border-radius: 5px; 
 }
 .center {
     display: flex;
     justify-content:center;
-}
-.ticket-type:hover {
-    
-        background-color: #b200b2; /* Une couleur légèrement différente pour le hover */
-        border-color: white; /* Soulignement blanc au survol */
-    
 }
 
 .form__container h1 {
@@ -124,4 +96,9 @@ button {
     margin-bottom: 20px;
     text-align: center;
     color: #555;
+}
+
+a.active {
+    background-color: #e6007d;
+    color: white;
 }
