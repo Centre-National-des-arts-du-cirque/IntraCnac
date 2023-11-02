@@ -1,0 +1,8 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+
+{% block title %}Hello chart!{% endblock %}
+
+{% block body %}
+    {{ render_chart(chart,{'class':'my-chart'}) }}
+{% endblock %}
