@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 50px;
+    overflow-y: auto;
+}
+
+
+.container {
+    width: 500px; /* Agrandir le conteneur principal */
+    padding: 30px; /* Ajouter plus d'espacement à l'intérieur du conteneur */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: magenta;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.redirect-link {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.redirect-link a {
+    text-decoration: none;
+    color: magenta;
+}
+
+.redirect-link a:hover {
+    text-decoration: underline;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px; /* Augmenter le padding pour que les champs soient plus grands */
+    font-size: 16px;
+}
+
+.form__container h1, .form__container h2 {
+    font-size: 28px; /* Augmenter la taille des titres pour remplir plus d'espace */
+    color: magenta;
+    }
+
+.form__header{
+    display: flex;
+    justify-content: center;
+}
