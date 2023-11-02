@@ -19,7 +19,7 @@ class IndexController extends AbstractController
     {
         $this->em = $em;
     }
-    #[Route('/', name: 'app_events')]
+    #[Route('/', name: 'app_index')]
     #[IsGranted('ROLE_USER')]
     public function index(BiRepository $biRepository): Response
     {

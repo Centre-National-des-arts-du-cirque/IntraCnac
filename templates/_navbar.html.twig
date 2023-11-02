@@ -4,8 +4,8 @@
 			<h1 class="titre">INTRACNAC</h1>
 		</div>
 		<ul>
-			<li class="{{ app.request.attributes.get('_route') == 'app_events' ? 'active' : '' }}">
-				<a href="{{ path('app_events') }}">Accueil</a>
+			<li class="{{ app.request.attributes.get('_route') == 'app_index' ? 'active' : '' }}">
+				<a href="{{ path('app_index') }}">Accueil</a>
 			</li>
 			<li class="{{ app.request.attributes.get('_route') == 'app_user_profil'? 'active' : '' }}">
 				<a href="{{ path('app_user_profil') }}">Profil</a>
@@ -28,6 +28,9 @@
 				</li>
 				<li class="{{ app.request.attributes.get('_route') == 'app_create_event' ? 'active' : '' }}">
 					<a href="{{ path('app_create_event') }}">Event</a>
+				</li>
+				<li class="{{ app.request.attributes.get('_route') == 'app_bi' ? 'active' : '' }}">
+					<a href="{{ path('app_bi') }}">BI</a>
 				</li>
 			{% else %}
 				<li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">

@@ -36,7 +36,7 @@ class BiController extends AbstractController
             $this->em->persist($bi);
             $uploadableManager->markEntityToUpload($bi, $form->get('myFile')->getData());
             $this->em->flush();
-            return $this->redirectToRoute('app_user');
+            return $this->redirectToRoute('app_index');
 
 
         }
