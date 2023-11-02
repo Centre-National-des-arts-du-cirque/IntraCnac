@@ -26,6 +26,10 @@
                 {{ form_label(registrationForm.service, "Service") }}
                 {{ form_widget(registrationForm.service, { attr: { placeholder: "Service" }}) }}
             </div>
+            <div class="field">
+                {{ form_label(registrationForm.post, "poste") }}
+                {{ form_widget(registrationForm.post, { attr: { placeholder: "Poste occupé au cnac" }}) }}
+            </div>
 
             <div class="inline_row">
                 <div class="field">
@@ -37,6 +41,7 @@
                     {{ form_label(registrationForm.plainPassword.second, "Répétez le mot de passe") }}
                     {{ form_widget(registrationForm.plainPassword.second, { attr: { placeholder: "Répétez le mot de passe" }}) }}			
                 </div>
+                
             </div>
             <button type="submit" class="btn">S'inscrire</button>
             {{ form_end(registrationForm) }}

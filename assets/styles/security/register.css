@@ -1,5 +1,4 @@
 body {
-    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
@@ -10,7 +9,7 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/cir_0668.jpg");
     background-size: cover;
 
-    background-repeat: no-repeat;
+
 }
 
 
@@ -47,7 +46,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 button {
     width: 100%;
     padding: 10px;
-    background-color: magenta;
+    background-color: #e6007d;
     color: white;
     border: none;
     border-radius: 5px;
@@ -66,7 +65,7 @@ button:hover {
 
 .redirect-link a {
     text-decoration: none;
-    color: magenta;
+    color: #e6007d;
 }
 
 .redirect-link a:hover {
@@ -93,7 +92,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 
 .form__container h1, .form__container h2 {
     font-size: 28px; /* Augmenter la taille des titres pour remplir plus d'espace */
-    color: magenta;
+    color: #e6007d;
     }
 
 .form__header{
