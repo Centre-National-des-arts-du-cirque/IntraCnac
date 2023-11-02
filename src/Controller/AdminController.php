@@ -38,6 +38,7 @@ class AdminController extends AbstractController
     #[Route('/admin/chart/', name: 'app_admin_chart')]
     public function chart(Request $request,ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepository , BuildingTicketRepository $buildingTicketRepository , VehicleTicketRepository $vehicleTicketRepository, TicketRepository $ticketRepository,): Response
     {   
+       $this->denyAccessUnlessGranted('ROLE_ADMIN');
        if($request->query->get('yearSelector') == null or $request->query->get('yearSelector') == 'now'){
             $year = date('Y');
         }
