@@ -19,7 +19,7 @@
 
 - [🔍 Table of Contents](#-table-of-contents)
 - [💻 Stack](#-stack)
-- [📝 Project Summary](#-project-summary)
+- [📝 Project Summary:](#-project-summary)
 - [⚙️ Setting Up](#️-setting-up)
     - [Your Environment Variable](#your-environment-variable)
 - [🚀 Run Locally](#-run-locally)
@@ -36,8 +36,12 @@
 - [symfony/validator](https://symfony.com/doc/current/validation.html): Provides a set of validators for data validation.
 - [doctrine/doctrine-fixtures-bundle](https://github.com/doctrine/DoctrineFixturesBundle): Offers tools for loading test data into the database for testing or development purposes.
 - [symfony/maker-bundle](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html): Provides code generation commands to speed up development.
+- [symfony/ux-chart.js](https://symfony.com/bundles/ux-chartjs/current/index.html): Integrate chart.js but in php.
+- [symfony/asset-mapper](https://symfony.com/doc/current/frontend/asset_mapper.html): Provide mapping and assets versionnings
 
-## 📝 Project Summary
+## 📝 Project Summary:
+
+INTRACNAC is a intranet created for the Centre nationales des arts du cirque to  communicate and centralise collaborative tools developed specifically for Cnac's needs. In the long term, it will reduce the need to send emails, facilitate the organisation of different activities and automate certain tasks.
 
 - [**src**](src): Contains the main PHP source code files for the project.
 - [**public**](public): Holds the publicly accessible files, such as the entry point for the application.
@@ -76,6 +80,12 @@ composer install
 
 ```bash
  docker compose build --no-cache
+```
+
+4.Start the database:
+
+```bash
+docker compose up --pull -d --wait
 ```
 
 3.Start the development mode:
