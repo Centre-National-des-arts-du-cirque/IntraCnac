@@ -11,5 +11,7 @@
             {{ importmap() }}
         {% endblock %}
 {% block body %}
+    <div styles="width:200px;height:200px; ">
     {{ render_chart(chart,{'class':'my-chart'}) }}
+    </div>
 {% endblock %}
