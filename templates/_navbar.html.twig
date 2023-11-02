@@ -1,7 +1,3 @@
-{% block stylesheets %}
-     <link rel="stylesheet" href="{{ asset('styles/navbar.css') }}">
-{% endblock %}
-
 
 {% block navbar %}
 <nav>
@@ -18,14 +14,17 @@
        
         {% if is_granted('ROLE_ADMIN') %}
             <li class="{{ app.request.attributes.get('_route') == 'app_admin' ? 'active' : '' }}">
-                <a href="{{ path('app_admin') }}">Ticket</a>
+                <a href="{{ path('app_admin') }}">Dasboard</a>
             </li>
             <li class="{{ app.request.attributes.get('_route') == 'app_admin_chart' ? 'active' : '' }}">
                 <a href="{{ path('app_admin_chart') }}">Graph</a>
             </li>
+             <li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
+                <a href="{{ path('app_ItTicket') }}">Ticket</a>
+            </li>
         {% elseif is_granted('ROLE_ADMIN_EVENT') %}
             <li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
-                <a href="{{ path('app_ItTicket') }}">Ticket</a>
+                <a href="{{ path('app_ItTicket') }}">Tickets </a>
             </li>
             <li class="{{ app.request.attributes.get('_route') == 'app_create_event' ? 'active' : '' }}">
                 <a href="{{ path('app_create_event') }}">Event</a>
@@ -34,13 +33,12 @@
             <li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
                 <a href="{{ path('app_ItTicket') }}">Ticket</a>
             </li>
-            <li class="{{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
-                <a href="#">Contact</a>
-            </li>
-            
         {% endif %}
+        <li class="{{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
+            <a href="#">Contact</a>
+        </li>
         <li>
-                <a href="{{ path('app_logout') }}">Deconnexion</a>
+            <a href="{{ path('app_logout') }}">Deconnexion</a>
         </li>
         
     </ul>
