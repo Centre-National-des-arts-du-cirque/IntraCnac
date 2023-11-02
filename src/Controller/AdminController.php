@@ -7,6 +7,7 @@ use App\Repository\ItTicketRepository;
 use App\Repository\TicketRepository;
 use App\Repository\VehicleTicketRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -34,10 +35,22 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/chart/{year}/{month}', name: 'app_admin_chart' , requirements: ['year' => '\d{4}','month' => '\d{2}'])]
-    public function chart(ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepository , BuildingTicketRepository $buildingTicketRepository , VehicleTicketRepository $vehicleTicketRepository, int $year ,int $month, TicketRepository $ticketRepository): Response
+    #[Route('/admin/chart/', name: 'app_admin_chart')]
+    public function chart(Request $request,ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepository , BuildingTicketRepository $buildingTicketRepository , VehicleTicketRepository $vehicleTicketRepository, TicketRepository $ticketRepository,): Response
     {   
-       
+       if($request->query->get('year') == null){
+            $year = date('Y');
+        }
+        else{
+            $year = $request->query->get('year');
+        }
+        if($request->query->get('month') == null){
+            $month = date('m');
+        }
+        else{
+            $month = $request->query->get('month');
+        }
+
         $startOfActualYear = new \DateTime($year . '-01-01');
         $endOfActualYear = new \DateTime($year . '-12-31');
 
@@ -62,7 +75,6 @@ class AdminController extends AbstractController
         $allTicketByDate = $chartBuilder->createChart(Chart::TYPE_LINE);
         $SolvedAndUnsolvedTicketByDate =$chartBuilder->createChart(Chart::TYPE_DOUGHNUT);
 
-        var_dump($ticketRepository->countSolvedTicket($startOfActualYear , $endOfActualYear), $ticketRepository->countUnsolvedTicket($startOfActualYear , $endOfActualYear));
 
         $SolvedAndUnsolvedTicketByDate->setData([
             'labels' => ['Resolu', 'Non Resolu'],
@@ -79,13 +91,13 @@ class AdminController extends AbstractController
         ]);
 
         $allTicketByService->setData([
-            'labels' =>['Direction','Comptabilité','Ressources Humaines','Service Technique','Communication','Accueil','Centre de ressource','Autre'],
+            'labels' =>['Direction','Comptabilité','Ressources Humaines','Batiment et Infrastructure','Communication','Accueil','Centre de ressources','FTLV'],
             'datasets'=>[
                 [
                     'label' => 'My First dataset',
                     'backgroundColor'=> ['rgb(255, 99, 132)','rgb(54, 162, 235)','rgb(255, 205, 86)','rgb(75, 192, 192)','rgb(153, 102, 255)','rgb(255, 159, 64)','rgb(255, 99, 132)','rgb(54, 162, 235)'],
                     'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [$ticketRepository->CountByServiceAndDate('Direction' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Comptabilité' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Ressources Humaines' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Technique' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Communication' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Accueil' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Centre de ressource' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Autre' , $startOfActualYear , $endOfActualYear)]    
+                    'data' => [$ticketRepository->CountByServiceAndDate('Direction' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Comptabilité' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Ressources Humaines' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Technique' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Communication' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Accueil' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('Centre de ressource' , $startOfActualYear , $endOfActualYear),$ticketRepository->CountByServiceAndDate('FTLV' , $startOfActualYear , $endOfActualYear)]    
                 ]
             ]
 
@@ -149,12 +161,14 @@ class AdminController extends AbstractController
         ]);
 
        
-
+        $nbTicket = sizeof($ticketRepository->findAll());
         return $this->render('admin/chart.html.twig', [
             'chart' => $allTicketByTypechart,
             'chart2'=> $allTicketByService,
             'chart3'=> $allTicketByDate,
-            'chart4' => $SolvedAndUnsolvedTicketByDate
+            'chart4' => $SolvedAndUnsolvedTicketByDate,
+            'nbticket' => $nbTicket ,
+            'year'=> $year, 
         ]);
     }
 }

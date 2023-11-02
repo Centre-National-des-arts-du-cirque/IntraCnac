@@ -10,18 +10,51 @@
       
         {% block javascripts %}
             {{ importmap() }}
+            <script type="module" src="{{ asset('js/admin/admin.js') }}"></script>
+            
         {% endblock %}
 {% block body %}
-    <div class='my-chart' >
-        {{ render_chart(chart) }}
+    <nav>
+        
+        <ul>
+            <li><a href="#dashboard">Dashboard <i class="fa fa-desktop" aria-hidden="true"></i></a></li>
+            <li><a href="/admin/chart">Graphique <i class="fas fa-chart-bar"></i></a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="big_square">{{render_chart(chart)}}</div>
+        <div class="big_square">{{render_chart(chart2)}}</div>
+        <div class="square">
+            <div class="title">Sélectionnez une année</div>
+            <select id="yearSelector">
+                <option value="2023">Année</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+            </select>
+        </div>
+        <div class="big_square">{{render_chart(chart4)}}</div>
+        <div class="square"><div class="title">Nombre de ticket de l'année {{year}}</div>{{nbticket}}</div>
+        <div class="rectangle">
+            <select id="monthSelector">
+                <option>mois</option>
+                <option value="01">Janvier</option>
+                <option value="02">Février</option>
+                <option value="03">Mars</option>
+                <option value="04">Avril</option>
+                <option value="05">Mai</option>
+                <option value="06">Juin</option>
+                <option value="07">Juillet</option>
+                <option value="08">Août</option>
+                <option value="09">Septembre</option>
+                <option value="10">Octobre</option>
+                <option value="11">Novembre</option>
+                <option value="12">Décembre</option>
+             </select>
+            {{render_chart(chart3)}}
+        </div>
     </div>
-    <div class='my-chart' >
-        {{ render_chart(chart2) }}
-    </div>
-    <div class='my-chart' >
-        {{ render_chart(chart3) }}
-    </div>
-    <div class='my-chart' >
-        {{ render_chart(chart4) }}
+
     
 {% endblock %}
