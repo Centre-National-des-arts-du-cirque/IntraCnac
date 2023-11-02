@@ -48,6 +48,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'createBy', targetEntity: Ticket::class)]
     private Collection $tickets;
 
+    #[ORM\Column(length: 255)]
+    private ?string $post = null;
+
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
@@ -185,6 +188,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $ticket->setCreateBy(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPost(): ?string
+    {
+        return $this->post;
+    }
+
+    public function setPost(string $post): static
+    {
+        $this->post = $post;
 
         return $this;
     }
