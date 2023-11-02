@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[IsGranted('ROLE_USER')]
+
 class EventController extends AbstractController
 {
     private $em;
@@ -22,6 +22,7 @@ class EventController extends AbstractController
         $this->em = $em;
     }
     #[Route('/', name: 'app_events')]
+    #[IsGranted('ROLE_USER')]
     public function index(): Response
     {
         return $this->render('Event/index.html.twig');
@@ -36,6 +37,7 @@ class EventController extends AbstractController
         $form = $this->createForm(EventFormType::class, $event);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $this->em->persist($event);
             $this->em->flush();
             return $this->redirectToRoute('app_events');
