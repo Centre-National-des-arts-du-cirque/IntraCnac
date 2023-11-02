@@ -109,7 +109,7 @@ class AdminController extends AbstractController
             'labels' => ['IT', 'Building', 'Vehicle'],
             'datasets' => [
                 [
-                    'label' => 'My First dataset',
+                    'label' => 'Nombre de ticket en fonction du type',
                     'backgroundColor' => ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
                     'borderColor' => 'rgb(255, 99, 132)',
                     'data' => [$nbOfItTicket , $nbOfBuildingTicket , $nbOfVehicleTicket],
@@ -138,7 +138,7 @@ class AdminController extends AbstractController
             'labels' => $date,
             'datasets'=>[
                 [
-                    'label' => 'My First dataset',
+                    'label' => 'nombre de ticket par jour du mois',
                     'backgroundColor'=> 'rgb(255, 99, 132)',
                     'borderColor' => 'rgb(255, 99, 132)',
                     'data' => $nbTickets
