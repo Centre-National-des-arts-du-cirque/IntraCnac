@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.1.0/main.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.1.0/main.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.1.0/main.min.css">
+	<link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/global.scss') }}">
+{% endblock %}
+
+{% block javascripts %} <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.1.0/main.min.js"></script>
+	 <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.1.0/main.min.js"></script>
+	 <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.1.0/main.min.js"></script>
+	 <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.1.0/main.min.js"></script>
+	 <script type="text/javascript">
+																		    document.addEventListener('DOMContentLoaded', () => {
+																			var calendarEl = document.getElementById('calendar-holder');
+																			var calendar = new FullCalendar.Calendar(calendarEl, {
+																				defaultView: 'timeGridWeek',
+																				editable: true,
+																				aspectRatio: 1.42,
+																				eventSources: [
+																	                {
+																	                    url: "{{ path('fc_load_events') }}",
+																	                    method: "POST",
+																	                    extraParams: {
+																	                        filters: JSON.stringify({})
+																	                    },
+																	                    failure: () => {
+																	                    // alert("There was an error while fetching FullCalendar!");
+																	                    },
+																	                },
+																				],
+																				header: {
+																				    left: 'prev,next today',
+																					center: 'title',
+																					right: 'dayGridMonth,timeGridWeek,timeGridDay',
+																			    },
+																				plugins: [ 'interaction', 'dayGrid', 'timeGrid' ], // https://fullcalendar.io/docs/plugin-index
+																				timeZone: 'UTC',
+																				minTime: '08:30:00',
+																				maxTime: '19:00:00',
+																				weekends: false,
+																				editable: false,
+																				locale: 'fr'
+																		    });
+																												calendar.render();
+																			    });
+																			
+																	</script>
+{% endblock %}
+
+{% block title %}
+	Accueil
+{% endblock %}
+
+{% block body %}
+	<div class="content">
+		<div id="calendar-holder"></div>
+		<div class="BI">
+			<div id="carouselExampleIndicators" class="carousel slide">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner">
+					{% for BI in BIS %}
+						{% if loop.first %}
+							<div class="carousel-item active">
+								<img src={{BI.path}} class="d-block w-100" alt="...">
+							</div>
+						{% endif %}
+					{% else %}
+						<div class="carousel-item">
+							<img src={{BI.path}} class="d-block w-100" alt="...">
+						</div>
+					{% endfor %}
+
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
