@@ -43,7 +43,7 @@ class AdminController extends AbstractController
             'datasets' => [
                 [
                     'label' => 'My First dataset',
-                    'backgroundColor' => 'rgb(255, 99, 132)',
+                    'backgroundColor' => ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
                     'borderColor' => 'rgb(255, 99, 132)',
                     'data' => [$itTicketRepositoryBuild->count([]), $buildingTicketRepository->count([]), $vehicleTicketRepository->count([])],
                 ],
