@@ -1,54 +1,53 @@
- <div class="container">
-        <div class="form__container">
-            {{ form_start(registrationForm, { attr: { class: "form_login" }}) }}
+<div class="container">
+	<div class="form__container">
+		{{ form_start(registrationForm, { attr: { class: "form_login" }}) }}
 
-            <div class="form__header">
-                <h1 class="form__title">Inscription</h1>
-            </div>
+		<div class="form__header">
+			<h1 class="form__title">Inscription</h1>
+		</div>
 
-            <div class="form__name inline_row">
-                <div class="field">
-                    {{ form_label(registrationForm.name, "Prénom") }}
-                    {{ form_widget(registrationForm.name, { attr: { placeholder: "Prénom" }}) }}
-                </div>
-                <div class="field">
-                    {{ form_label(registrationForm.lastname, "Nom") }}
-                    {{ form_widget(registrationForm.lastname, { attr: { placeholder: "Nom" }}) }}
-                </div>
-            </div>
+		<div class="form__name inline_row">
+			<div class="field">
+				{{ form_label(registrationForm.name, "Prénom") }}
+				{{ form_widget(registrationForm.name, { attr: { placeholder: "Prénom" }}) }}
+			</div>
+			<div class="field">
+				{{ form_label(registrationForm.lastname, "Nom") }}
+				{{ form_widget(registrationForm.lastname, { attr: { placeholder: "Nom" }}) }}
+			</div>
+		</div>
 
-            <div class="field">
-                {{ form_label(registrationForm.email, "E-mail") }}
-                {{ form_widget(registrationForm.email, { attr: { placeholder: "E-mail" }}) }}
-            </div>
+		<div class="field">
+			{{ form_label(registrationForm.email, "E-mail") }}
+			{{ form_widget(registrationForm.email, { attr: { placeholder: "E-mail" }}) }}
+		</div>
 
-            <div class="field">
-                {{ form_label(registrationForm.service, "Service") }}
-                {{ form_widget(registrationForm.service, { attr: { placeholder: "Service" }}) }}
-            </div>
-            <div class="field">
-                {{ form_label(registrationForm.post, "poste") }}
-                {{ form_widget(registrationForm.post, { attr: { placeholder: "Poste occupé au cnac" }}) }}
-            </div>
+		<div class="field">
+			{{ form_label(registrationForm.service, "Pole") }}
+			{{ form_widget(registrationForm.service, { attr: { placeholder: "Service" }}) }}
+		</div>
+		<div class="field">
+			{{ form_label(registrationForm.post, "poste") }}
+			{{ form_widget(registrationForm.post, { attr: { placeholder: "Poste occupé au cnac" }}) }}
+		</div>
 
-            <div class="inline_row">
-                <div class="field">
-                    {{ form_label(registrationForm.plainPassword.first, "Mot de passe") }}
-                    {{ form_widget(registrationForm.plainPassword.first, { attr: { placeholder: "Mot de passe" }}) }}
-                </div>
+		<div class="inline_row">
+			<div class="field">
+				{{ form_label(registrationForm.plainPassword.first, "Mot de passe") }}
+				{{ form_widget(registrationForm.plainPassword.first, { attr: { placeholder: "Mot de passe" }}) }}
+			</div>
 
-                <div class="field">
-                    {{ form_label(registrationForm.plainPassword.second, "Répétez le mot de passe") }}
-                    {{ form_widget(registrationForm.plainPassword.second, { attr: { placeholder: "Répétez le mot de passe" }}) }}			
-                </div>
-                
-            </div>
-            <button type="submit" class="btn">S'inscrire</button>
-            {{ form_end(registrationForm) }}
-        </div>
-        
-        <div class="redirect-link">
-            <a href="/">Déjà inscrit ?</a>
-        </div>
-    </div>
+			<div class="field">
+				{{ form_label(registrationForm.plainPassword.second, "Répétez le mot de passe") }}
+				{{ form_widget(registrationForm.plainPassword.second, { attr: { placeholder: "Répétez le mot de passe" }}) }}
+			</div>
 
+		</div>
+		<button type="submit" class="btn">S'inscrire</button>
+		{{ form_end(registrationForm) }}
+	</div>
+
+	<div class="redirect-link">
+		<a href="/">Déjà inscrit ?</a>
+	</div>
+</div>
