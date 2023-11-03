@@ -51,6 +51,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $post = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $ProfilPicture = null;
+
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
@@ -200,6 +203,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPost(string $post): static
     {
         $this->post = $post;
+
+        return $this;
+    }
+
+    public function getProfilPicture(): ?string
+    {
+        return $this->ProfilPicture;
+    }
+
+    public function setProfilPicture(?string $ProfilPicture): static
+    {
+        $this->ProfilPicture = $ProfilPicture;
 
         return $this;
     }
