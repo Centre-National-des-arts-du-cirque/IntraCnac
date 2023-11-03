@@ -30,7 +30,7 @@ class TicketController extends AbstractController
 
     #[Route('/ItTicket', name: 'app_ItTicket')]
     public function ittTicket(Request $request): Response
-    {   
+    {
         $this->denyAccessUnlessGranted('ROLE_USER');
         $user = $this->tokenStorage->getToken()->getUser();
 
@@ -55,7 +55,7 @@ class TicketController extends AbstractController
 
     #[Route('/BuildingTicket', name: 'app_BuildingTicket')]
     public function BuildingTicket(Request $request): Response
-    {   
+    {
         $this->denyAccessUnlessGranted('ROLE_USER');
         $user = $this->tokenStorage->getToken()->getUser();
 
@@ -86,7 +86,7 @@ class TicketController extends AbstractController
         $VehicleTicket = new VehicleTicket();
         $form = $this->createForm(VehicleTicketFormType::class, $VehicleTicket);
 
-        $error = 
+        $error =
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $VehicleTicket->setCreateBy($user);
@@ -99,10 +99,10 @@ class TicketController extends AbstractController
 
         return $this->render('ticket/VehicleTicket/index.html.twig', [
             'VehicleTicketForm' => $form->createView(),
-            
         ]);
     }
-    #[Route('/ticket/solve/{id}',name:'app_ticket_solved')]
+
+    #[Route('/ticket/solve/{id}', name: 'app_ticket_solved')]
     public function solveTicket(Ticket $ticket)
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
@@ -111,17 +111,15 @@ class TicketController extends AbstractController
         $this->em->persist($ticket);
         $this->em->flush();
 
-
         return $this->redirectToRoute('app_admin');
     }
-    #[Route('/ticket/delete/{id}',name:'app_ticket_delete')]
+
+    #[Route('/ticket/delete/{id}', name: 'app_ticket_delete')]
     public function deleteTicket(Ticket $ticket)
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
-        
 
-        if($ticket->getCreateBy() != $this->getUser())
-        {
+        if ($ticket->getCreateBy() != $this->getUser()) {
             return $this->redirectToRoute('app_user_profil');
         }
         $this->em->remove($ticket);

@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Bi;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -21,8 +20,7 @@ class BiFormType extends AbstractType
             ->add('title', TextType::class, [
                 'constraints' => [
                     new NotBlank(),
-                ]
-
+                ],
             ])
             ->add('myFile', FileType::class, [
                 'mapped' => false,
@@ -35,20 +33,19 @@ class BiFormType extends AbstractType
                             'image/png',
                         ],
                         'mimeTypesMessage' => 'Veuillez rentrez une image valide',
-                    ])
-                ]
+                    ]),
+                ],
             ])
             ->add('description', TextType::class, [
                 'constraints' => [
                     new NotBlank(),
-                ]
+                ],
             ])
-
 
             ->add('week', IntegerType::class, [
                 'constraints' => [
                     new NotBlank(),
-                ]
+                ],
             ])
         ;
     }

@@ -23,8 +23,8 @@ class XMLCertificationType extends AbstractType
                             'text/csv',
                         ],
                         'mimeTypesMessage' => 'Veuillez rentrez un fichier CSV valide',
-                    ])
-                ]
+                    ]),
+                ],
             ])
         ;
     }

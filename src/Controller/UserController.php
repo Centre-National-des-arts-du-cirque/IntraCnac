@@ -16,6 +16,7 @@ class UserController extends AbstractController
     {
         $this->tokenStorage = $tokenStorage;
     }
+
     #[Route('/profil', name: 'app_user')]
     public function redirection(): Response
     {
@@ -23,22 +24,21 @@ class UserController extends AbstractController
 
         if ($this->isGranted('ROLE_ADMIN')) {
             return $this->redirectToRoute('app_admin');
-        }
-        else {
+        } else {
             return $this->redirectToRoute('app_user_profil');
         }
     }
-    #[Route('/monprofil',name:'app_user_profil')]
+
+    #[Route('/monprofil', name: 'app_user_profil')]
     public function index(TicketRepository $ticketRepository): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
         $user = $this->tokenStorage->getToken()->getUser();
-        $tickets = $ticketRepository->findBy(['createBy'=>$this->getUser()], ['date' => 'DESC','solved' => 'ASC']);
-        
-        return $this->render('user/index.html.twig',[
+        $tickets = $ticketRepository->findBy(['createBy' => $this->getUser()], ['date' => 'DESC', 'solved' => 'ASC']);
+
+        return $this->render('user/index.html.twig', [
             'tickets' => $tickets,
-            'user' => $user
+            'user' => $user,
         ]);
     }
-
 }

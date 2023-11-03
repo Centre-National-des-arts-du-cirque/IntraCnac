@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Form\XMLCertificationType;
-use SimpleXMLElement;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +16,6 @@ class XMLCertificationController extends AbstractController
     #[IsGranted('ROLE_ADMIN_CERTIFICATION')]
     public function index(Request $request): Response
     {
-
         $XMLCertification = <<<XML
         <?xml version="1.0" encoding="UTF-8"?>
         <cpf:flux xmlns:cpf="urn:cdc:cpf:pc5:schema:1.0.0"
@@ -39,7 +37,6 @@ class XMLCertificationController extends AbstractController
                             
         XML;
 
-
         $form = $this->createForm(XMLCertificationType::class);
         $form->handleRequest($request);
 
@@ -49,7 +46,7 @@ class XMLCertificationController extends AbstractController
             $csv->auto($csvFile);
 
             foreach ($csv->data as $rowData) {
-                $passageCertifications = new SimpleXMLElement('xml/certificationTemplate.xml', dataIsURL: true);
+                $passageCertifications = new \SimpleXMLElement('xml/certificationTemplate.xml', dataIsURL: true);
                 $passageCertifications->registerXPathNamespace('cpf', 'urn:cdc:cpf:pc5:schema:1.0.0');
                 $passageCertifications->xpath('//cpf:passageCertifications');
                 $newPassageCertification = $passageCertifications->addChild('cpf:passageCertification');
