@@ -42,7 +42,7 @@
 
 ## 📝 Project Summary:
 
-INTRACNAC is a intranet created for the Centre nationales des arts du cirque to  communicate and centralise collaborative tools developed specifically for Cnac's needs. In the long term, it will reduce the need to send emails, facilitate the organisation of different activities and automate certain tasks.
+INTRACNAC is a intranet created for the Centre nationale des arts du cirque to  communicate and centralise collaborative tools developed specifically for Cnac's needs. In the long term, it will reduce the need to send emails, facilitate the organisation of different activities and automate certain tasks.
 
 - [**src**](src): Contains the main PHP source code files for the project.
 - [**public**](public): Holds the publicly accessible files, such as the entry point for the application.
