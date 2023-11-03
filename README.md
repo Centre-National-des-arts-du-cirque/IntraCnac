@@ -38,6 +38,7 @@
 - [symfony/maker-bundle](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html): Provides code generation commands to speed up development.
 - [symfony/ux-chart.js](https://symfony.com/bundles/ux-chartjs/current/index.html): Integrate chart.js but in php.
 - [symfony/asset-mapper](https://symfony.com/doc/current/frontend/asset_mapper.html): Provide mapping and assets versionnings
+- []
 
 ## 📝 Project Summary:
 
@@ -105,7 +106,7 @@ symfony serve
         </a>
         <br />
         <a href="https://github.com/Centre-National-des-arts-du-cirque/SupportWebsiteFinal/commits?author=tomStory9" title="Contributions" spellcheck="false">
-          34 contributions
+          150 contributions
         </a>
       </td></table>
 
