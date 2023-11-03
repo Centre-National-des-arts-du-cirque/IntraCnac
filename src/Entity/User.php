@@ -8,10 +8,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Doctrine\ORM\Mapping\InheritanceType;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+#[Gedmo\Uploadable(path: 'var/uploads/userProfilPicture', filenameGenerator: 'SHA1', allowOverwrite: true, appendNumber: true)]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[InheritanceType('SINGLE_TABLE')]
 #[ORM\Table(name: '`user`')]
@@ -52,6 +54,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $post = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Gedmo\UploadableFilePath]
     private ?string $ProfilPicture = null;
 
     public function __construct()
