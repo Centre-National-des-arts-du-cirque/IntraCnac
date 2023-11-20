@@ -16,11 +16,15 @@ class XMLCertificationController extends AbstractController
     #[IsGranted('ROLE_ADMIN_CERTIFICATION')]
     public function index(Request $request): Response
     {
-        $XMLCertification = <<<XML
+        $form = $this->createForm(XMLCertificationType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $idFlux = $form->get('idFlux')->getData();
+            $XMLCertification = <<<XML
         <?xml version="1.0" encoding="UTF-8"?>
-        <cpf:flux xmlns:cpf="urn:cdc:cpf:pc5:schema:1.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <cpf:idFlux>drama2022</cpf:idFlux>
+        <cpf:flux xmlns:cpf="urn:cdc:cpf:pc5:schema:1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <cpf:idFlux>$idFlux</cpf:idFlux>
         <cpf:horodatage>2020-12-18T14:24:12+01:00</cpf:horodatage>
         <cpf:emetteur>
         <cpf:idClient>03BHY312</cpf:idClient>
@@ -36,11 +40,6 @@ class XMLCertificationController extends AbstractController
                         <cpf:passageCertifications>
                             
         XML;
-
-        $form = $this->createForm(XMLCertificationType::class);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
             $csvFile = $form->get('File')->getData()->getPathname();
             $csv = new \ParseCsv\Csv();
             $csv->auto($csvFile);
