@@ -9,7 +9,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
-use App\Factory\UserFactory;
+
 /**
  * @extends ModelFactory<Admin>
  *
@@ -52,7 +52,7 @@ final class AdminFactory extends UserFactory
     protected function getDefaults(): array
     {
         return array_merge(parent::getDefaults(), [
-            'roles' => ['ROLE_ADMIN']
+            'roles' => ['ROLE_ADMIN'],
         ]);
     }
 
@@ -67,8 +67,6 @@ final class AdminFactory extends UserFactory
             })
         ;
     }
-
-
 
     protected static function getClass(): string
     {

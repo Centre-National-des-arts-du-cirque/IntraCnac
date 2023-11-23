@@ -32,40 +32,36 @@ class AdminController extends AbstractController
 
         return $this->render('admin/index.html.twig', [
             'tickets' => $tickets,
-            'user' => $user
+            'user' => $user,
         ]);
     }
 
     #[Route('/admin/chart/', name: 'app_admin_chart')]
-    public function chart(Request $request, ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepository, BuildingTicketRepository $buildingTicketRepository, VehicleTicketRepository $vehicleTicketRepository, TicketRepository $ticketRepository, ): Response
+    public function chart(Request $request, ChartBuilderInterface $chartBuilder, ItTicketRepository $itTicketRepository, BuildingTicketRepository $buildingTicketRepository, VehicleTicketRepository $vehicleTicketRepository, TicketRepository $ticketRepository): Response
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
-        if ($request->query->get('yearSelector') == null or $request->query->get('yearSelector') == 'now') {
+        if (null == $request->query->get('yearSelector') or 'now' == $request->query->get('yearSelector')) {
             $year = date('Y');
         } else {
             $year = $request->query->get('yearSelector');
         }
-        if ($request->query->get('monthSelector') == null or $request->query->get('monthSelector') == 'now') {
+        if (null == $request->query->get('monthSelector') or 'now' == $request->query->get('monthSelector')) {
             $month = date('m');
         } else {
             $month = $request->query->get('monthSelector');
         }
 
-        $startOfActualYear = new \DateTime($year . '-01-01');
-        $endOfActualYear = new \DateTime($year . '-12-31');
+        $startOfActualYear = new \DateTime($year.'-01-01');
+        $endOfActualYear = new \DateTime($year.'-12-31');
 
         $date = [];
         if (in_array($month, [1, 3, 5, 7, 8, 10, 12])) {
-
-            for ($i = 1; $i < 32; $i++) {
-
-                array_push($date, $i . '-' . $month);
+            for ($i = 1; $i < 32; ++$i) {
+                array_push($date, $i.'-'.$month);
             }
-
         } else {
-            for ($i = 1; $i < 31; $i++) {
-
-                array_push($date, $i . '-' . $month);
+            for ($i = 1; $i < 31; ++$i) {
+                array_push($date, $i.'-'.$month);
             }
         }
 
@@ -82,14 +78,11 @@ class AdminController extends AbstractController
             'labels' => ['Resolu', 'Non Resolu'],
             'datasets' => [
                 [
-
                     'backgroundColor' => ['rgb(120,190,33)', 'rgb(255, 99, 132)'],
                     'borderColor' => 'rgb(255, 99, 132)',
                     'data' => [$ticketRepository->countSolvedTicket($startOfActualYear, $endOfActualYear)[0][1], $ticketRepository->countUnsolvedTicket($startOfActualYear, $endOfActualYear)[0][1]],
                 ],
-
             ],
-
         ]);
         $SolvedAndUnsolvedTicketByDate->setOptions([
             'plugins' => [
@@ -98,12 +91,12 @@ class AdminController extends AbstractController
                     'text' => strtoupper('Nombre de ticket resolu et non resolu'),
                     'position' => 'top',
                     'fontColor' => '#ce1111',
-                    'fontSize' => 12
+                    'fontSize' => 12,
                 ],
                 'legend' => [
                     'position' => 'right',
-                ]
-            ]
+                ],
+            ],
         ]);
 
         $allTicketByService->setData([
@@ -113,16 +106,15 @@ class AdminController extends AbstractController
                 'Batiment et Infrastructure',
                 'Communication',
                 'Centre de ressources',
-                'Formations'
+                'Formations',
             ],
             'datasets' => [
                 [
-
                     'backgroundColor' => ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)', 'rgb(153, 102, 255)', 'rgb(255, 159, 64)', 'rgb(255, 99, 132)', 'rgb(54, 162, 235)'],
                     'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [$ticketRepository->CountByServiceAndDate('Administration', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Comptabilité', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Ressources Humaines', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Technique', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Communication', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Centre de ressource', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Formations', $startOfActualYear, $endOfActualYear)]
-                ]
-            ]
+                    'data' => [$ticketRepository->CountByServiceAndDate('Administration', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Comptabilité', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Ressources Humaines', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Technique', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Communication', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Centre de ressource', $startOfActualYear, $endOfActualYear), $ticketRepository->CountByServiceAndDate('Formations', $startOfActualYear, $endOfActualYear)],
+                ],
+            ],
         ]);
         $allTicketByService->setOptions(
             [
@@ -132,18 +124,17 @@ class AdminController extends AbstractController
                         'text' => strtoupper('Nombre de ticket par service'),
                         'position' => 'top',
                         'fontColor' => '#ce1111',
-                        'fontSize' => 12
+                        'fontSize' => 12,
                     ],
                     'legend' => [
                         'position' => 'right',
                         'labels' => [
-
                             'font' => [
-                                'size' => 12
-                            ]
-                        ]
-                    ]
-                ]
+                                'size' => 12,
+                            ],
+                        ],
+                    ],
+                ],
             ]
         );
 
@@ -162,7 +153,7 @@ class AdminController extends AbstractController
                         'rgb(0, 255, 0)',
                         'rgb(0, 0, 255)',
                         'rgb(128, 128, 128)',
-                        'rgb(255, 255, 0)'
+                        'rgb(255, 255, 0)',
                     ],
                     'borderColor' => 'rgb(255, 99, 132)',
                     'data' => [
@@ -177,10 +168,9 @@ class AdminController extends AbstractController
                         $itTicketRepository->countByTypeAndDate('Spaiectacle', $startOfActualYear, $endOfActualYear),
                         $itTicketRepository->countByTypeAndDate('Logiciels Autres', $startOfActualYear, $endOfActualYear),
                         $itTicketRepository->countByTypeAndDate('Autres', $startOfActualYear, $endOfActualYear),
-                    ]
-                ]
-
-            ]
+                    ],
+                ],
+            ],
         ]);
         $allItTicketByTypeChart->setOptions([
             'plugins' => [
@@ -189,23 +179,21 @@ class AdminController extends AbstractController
                     'text' => strtoupper('Nombre de ticket Informatique par Type'),
                     'position' => 'top',
                     'fontColor' => '#ce1111',
-                    'fontSize' => 12
+                    'fontSize' => 12,
                 ],
                 'legend' => [
                     'position' => 'right',
-                ]
-            ]
+                ],
+            ],
         ]);
         $allTicketByTypechart->setData([
             'labels' => ['Informatique', 'Batiment', 'Vehicule'],
             'datasets' => [
                 [
-
                     'backgroundColor' => ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
                     'borderColor' => 'rgb(255, 99, 132)',
                     'data' => [$nbOfItTicket, $nbOfBuildingTicket, $nbOfVehicleTicket],
                 ],
-
             ],
         ]);
         $allTicketByTypechart->setOptions([
@@ -215,24 +203,22 @@ class AdminController extends AbstractController
                     'text' => strtoupper('Nombre de ticket par Type'),
                     'position' => 'top',
                     'fontColor' => '#ce1111',
-                    'fontSize' => 12
+                    'fontSize' => 12,
                 ],
                 'legend' => [
                     'position' => 'right',
-                ]
-            ]
+                ],
+            ],
         ]);
         $nbTickets = [];
-        for ($i = 0; $i < sizeof($date); $i++) {
-
-            $startOfActualYear = date_create($date[$i] . '-' . $year);
-            $endOfActualYear = date_create($date[$i] . '-' . $year);
+        for ($i = 0; $i < sizeof($date); ++$i) {
+            $startOfActualYear = date_create($date[$i].'-'.$year);
+            $endOfActualYear = date_create($date[$i].'-'.$year);
 
             $nbTicket = $ticketRepository->countByDate($startOfActualYear, $endOfActualYear);
 
-            if ($nbTicket == null) {
+            if (null == $nbTicket) {
                 array_push($nbTickets, 0);
-
             } else {
                 array_push($nbTickets, $nbTicket);
             }
@@ -245,20 +231,19 @@ class AdminController extends AbstractController
                     'label' => 'nombre de ticket ',
                     'backgroundColor' => 'rgb(255, 99, 132)',
                     'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => $nbTickets
-                ]
-            ]
+                    'data' => $nbTickets,
+                ],
+            ],
         ]);
         $allTicketByDate->setOptions([
-
             'plugins' => [
                 'title' => [
                     'display' => true,
                     'text' => strtoupper('Nombre de ticket par mois et par annee'),
                     'position' => 'top',
                     'fontColor' => '#ce1111',
-                    'fontSize' => 12
-                ]
+                    'fontSize' => 12,
+                ],
             ],
 
             'scales' => [
@@ -271,14 +256,12 @@ class AdminController extends AbstractController
                     'xAxes' => [
                         'type' => 'time',
                         'time' => [
-                            'unit' => 'day'
-                        ]
-                    ]
+                            'unit' => 'day',
+                        ],
+                    ],
                 ],
             ],
         ]);
-
-
 
         return $this->render('admin/chart.html.twig', [
             'chart' => $allTicketByTypechart,

@@ -38,10 +38,11 @@
 - [symfony/maker-bundle](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html): Provides code generation commands to speed up development.
 - [symfony/ux-chart.js](https://symfony.com/bundles/ux-chartjs/current/index.html): Integrate chart.js but in php.
 - [symfony/asset-mapper](https://symfony.com/doc/current/frontend/asset_mapper.html): Provide mapping and assets versionnings
+- []
 
 ## 📝 Project Summary:
 
-INTRACNAC is a intranet created for the Centre nationales des arts du cirque to  communicate and centralise collaborative tools developed specifically for Cnac's needs. In the long term, it will reduce the need to send emails, facilitate the organisation of different activities and automate certain tasks.
+INTRACNAC is a intranet created for the Centre nationale des arts du cirque to  communicate and centralise collaborative tools developed specifically for Cnac's needs. In the long term, it will reduce the need to send emails, facilitate the organisation of different activities and automate certain tasks.
 
 - [**src**](src): Contains the main PHP source code files for the project.
 - [**public**](public): Holds the publicly accessible files, such as the entry point for the application.
@@ -105,7 +106,7 @@ symfony serve
         </a>
         <br />
         <a href="https://github.com/Centre-National-des-arts-du-cirque/SupportWebsiteFinal/commits?author=tomStory9" title="Contributions" spellcheck="false">
-          34 contributions
+          150 contributions
         </a>
       </td></table>
 

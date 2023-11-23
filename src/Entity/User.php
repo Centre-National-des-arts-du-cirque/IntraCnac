@@ -8,15 +8,17 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Doctrine\ORM\Mapping\InheritanceType;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+#[Gedmo\Uploadable(path: 'var/uploads/userProfilPicture', filenameGenerator: 'SHA1', allowOverwrite: true, appendNumber: true)]
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[InheritanceType('SINGLE_TABLE')]
 #[ORM\Table(name: '`user`')]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
-#[DiscriminatorMap(['admin' => Admin::class ,'user' => User::class])]
+#[DiscriminatorMap(['admin' => Admin::class, 'user' => User::class])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -50,6 +52,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $post = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Gedmo\UploadableFilePath]
+    private ?string $ProfilPicture = null;
 
     public function __construct()
     {
@@ -200,6 +206,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPost(string $post): static
     {
         $this->post = $post;
+
+        return $this;
+    }
+
+    public function getProfilPicture(): ?string
+    {
+        return $this->ProfilPicture;
+    }
+
+    public function setProfilPicture(?string $ProfilPicture): static
+    {
+        $this->ProfilPicture = $ProfilPicture;
 
         return $this;
     }

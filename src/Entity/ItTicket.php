@@ -8,9 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ItTicketRepository::class)]
 class ItTicket extends Ticket
 {
-
-
-    #[ORM\Column(length: 255,nullable: true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $pcName = null;
 
     #[ORM\Column(length: 255, nullable: true)]

@@ -81,6 +81,12 @@ button:hover {
     box-sizing: border-box;
 }
 
+.alert {
+    font-size: 16px;
+    align-self: center;
+    color: red;
+  }
+  
 
 input[type="text"], input[type="email"], input[type="password"], textarea {
     width: 100%; 

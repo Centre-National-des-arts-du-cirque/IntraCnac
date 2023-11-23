@@ -31,6 +31,7 @@ use Zenstruck\Foundry\RepositoryProxy;
 class UserFactory extends ModelFactory
 {
     private $passwordHasher;
+
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services
      *
@@ -42,7 +43,6 @@ class UserFactory extends ModelFactory
 
         $this->passwordHasher = $passwordHasher;
     }
-
 
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories
@@ -70,14 +70,12 @@ class UserFactory extends ModelFactory
      */
     protected function initialize(): self
     {
-      
         return $this
             ->afterInstantiate(function (User $user) {
                 $user->setPassword($this->passwordHasher->hashPassword($user, $user->getPassword()));
             })
         ;
     }
-
 
     protected static function getClass(): string
     {

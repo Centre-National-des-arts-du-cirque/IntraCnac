@@ -16,13 +16,13 @@ class EventFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('lib',TextType::class , options:[
+            ->add('lib', TextType::class, options: [
                 'empty_data' => '',
                 'constraints' => [
                     new NotBlank(),
-                ]
+                ],
             ])
-            ->add('DateBeg',DateType::class , options:[
+            ->add('DateBeg', DateType::class, options: [
                 'label' => 'Choisir une date',
                 'widget' => 'single_text',
                 'html5' => false,
@@ -33,19 +33,18 @@ class EventFormType extends AbstractType
                     new NotBlank(),
                 ],
                 ])
-            ->add('DateEnd',DateType::class,options:[
+            ->add('DateEnd', DateType::class, options: [
                 'label' => 'Choisir une date',
                 'widget' => 'single_text',
                 'html5' => false,
                 'format' => 'dd/MM/yyyy HH:mm',
                 'attr' => ['class' => 'js-datepicker2'],
-
             ])
-            ->add('TypeEvent', EntityType::class,[
-                'class'=>'App\Entity\TypeEvent',
-                'choice_label'=>'lib',
-                'multiple'=>false,
-                'expanded'=>false,
+            ->add('TypeEvent', EntityType::class, [
+                'class' => 'App\Entity\TypeEvent',
+                'choice_label' => 'lib',
+                'multiple' => false,
+                'expanded' => false,
             ])
         ;
     }

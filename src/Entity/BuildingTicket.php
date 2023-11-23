@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: BuildingTicketRepository::class)]
 class BuildingTicket extends Ticket
 {
-
     #[ORM\Column(length: 255)]
     private ?string $site = null;
 
@@ -43,5 +42,4 @@ class BuildingTicket extends Ticket
 
         return $this;
     }
-
 }

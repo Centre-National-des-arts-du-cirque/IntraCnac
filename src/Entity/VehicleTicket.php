@@ -3,16 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\VehicleTicketRepository;
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: VehicleTicketRepository::class)]
 class VehicleTicket extends Ticket
 {
-
     #[ORM\Column(length: 10)]
     private ?string $immatriculation = null;
-
 
     #[ORM\Column(length: 255)]
     private ?string $Brand = null;
@@ -33,8 +30,6 @@ class VehicleTicket extends Ticket
 
         return $this;
     }
-
-
 
     public function getBrand(): ?string
     {
