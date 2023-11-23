@@ -14,5 +14,6 @@ class AdminFixtures extends Fixture
         AdminFactory::createOne(['name' => 'Marcello', 'lastname' => 'Parisse', 'email' => 'marcello.parisse@cnac.fr', 'service' => 'Technique', 'roles' => ['ROLE_SUPER_ADMIN'], 'post' => 'Directeur technique']);
         AdminFactory::createOne(['name' => 'Assistance', 'lastname' => 'Informatique', 'email' => 'assistance.informatique@cnac.fr', 'service' => 'Technique', 'roles' => ['ROLE_SUPER_ADMIN'], 'post' => 'alternant informatique']);
         AdminFactory::createOne(['name' => 'Claire', 'lastname' => 'Rossi', 'email' => 'claire.rossi@cnac.fr', 'service' => 'Communication', 'roles' => ['ROLE_ADMIN_EVENT'], 'post' => 'Responsable de communication']);
+        AdminFactory::createOne(['name' => 'mikael', 'lastname' => 'millero', 'email' => 'mikael.millero@cnac.fr', 'service' => 'FTLV', 'roles' => ['ROLE_ADMIN_CERTIFICATION'], 'post' => 'Chargée de formation']);
     }
 }
