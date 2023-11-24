@@ -8,9 +8,14 @@
 
 	<div class="form__name inline_row">
 		<div class="field">
+			{{ form_label(XMLCertification.idFlux, "identifiant flux") }}
+			{{ form_widget(XMLCertification.idFlux, { attr: { placeholder: "identifiant flux" }}) }}
+		</div>
+		<div class="field">
 			{{ form_label(XMLCertification.File, "Fichier csv") }}
 			{{ form_widget(XMLCertification.File, { attr: { placeholder: "Fichier csv" }}) }}
 		</div>
+
 
 		<div class="center">
 			<button type="submit" class="btn">Génerer</button>

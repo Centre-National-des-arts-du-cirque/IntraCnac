@@ -1,0 +1,13 @@
+version: "3.4"
+
+# Production environment override
+services:
+    php:
+        build:
+            context: .
+            target: frankenphp_prod
+        environment:
+            APP_SECRET: ${APP_SECRET}
+            MERCURE_PUBLISHER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
+            MERCURE_SUBSCRIBER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
+            DATABASE_URL: postgresql://${POSTGRES_USER:-app}:${POSTGRES_PASSWORD:-!ChangeMe!}@database:5432/${POSTGRES_DB:-app}?serverVersion=${POSTGRES_VERSION:-15}&charset=${POSTGRES_CHARSET:-utf8}

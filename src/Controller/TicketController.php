@@ -29,7 +29,7 @@ class TicketController extends AbstractController
     }
 
     #[Route('/ItTicket', name: 'app_ItTicket')]
-    public function ittTicket(Request $request): Response
+    public function itTicket(Request $request): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
         $user = $this->tokenStorage->getToken()->getUser();
