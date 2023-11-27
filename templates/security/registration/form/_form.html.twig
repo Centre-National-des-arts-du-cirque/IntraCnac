@@ -24,7 +24,7 @@
 
 		<div class="field">
 			{{ form_label(registrationForm.service, "Pole") }}
-			{{ form_widget(registrationForm.service, { attr: { placeholder: "Service" }}) }}
+			{{ form_widget(registrationForm.service, { attr: { placeholder: "Pole" }}) }}
 		</div>
 		<div class="field">
 			{{ form_label(registrationForm.post, "poste") }}
@@ -35,6 +35,13 @@
 			<div class="field">
 				{{ form_label(registrationForm.plainPassword.first, "Mot de passe") }}
 				{{ form_widget(registrationForm.plainPassword.first, { attr: { placeholder: "Mot de passe" }}) }}
+			</div>
+			<div class="field">
+				{{ form_label(registrationForm.file, "Photo de profil") }}
+				{{ form_widget(registrationForm.file, { attr: { placeholder: "Photo de profil" }}) }}
+				{% if form_errors(registrationForm.file) is not empty %}
+					<div class="alert">{{ form_errors(registrationForm.file) }}</div>
+				{% endif %}
 			</div>
 
 			<div class="field">

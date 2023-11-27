@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Xml Certification Generator
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/ticket/ticket.css') }}">
+{% endblock %}
+
+{% block body %}
+
+	{% include "xml_certification/form/_form.html.twig" %}
+{% endblock %}

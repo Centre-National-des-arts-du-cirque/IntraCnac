@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: TicketRepository::class)]
-#[ORM\InheritanceType("JOINED")]
-#[ORM\DiscriminatorColumn(name: "type", type: Types::STRING)]
-#[ORM\DiscriminatorMap(["ticket" => Ticket::class, "building"=>BuildingTicket::class , "it"=>ItTicket::class, "vehicle"=>VehicleTicket::class])]
+#[ORM\InheritanceType('JOINED')]
+#[ORM\DiscriminatorColumn(name: 'type', type: Types::STRING)]
+#[ORM\DiscriminatorMap(['ticket' => Ticket::class, 'building' => BuildingTicket::class, 'it' => ItTicket::class, 'vehicle' => VehicleTicket::class])]
 class Ticket
 {
     #[ORM\Id]
@@ -99,6 +99,7 @@ class Ticket
 
         return $this;
     }
+
     public function getClassName()
     {
         return (new \ReflectionClass($this))->getShortName();

@@ -3,16 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Bi;
-
+use App\Form\BiFormType;
+use App\Repository\BiRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Stof\DoctrineExtensionsBundle\Uploadable\UploadableManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Doctrine\ORM\EntityManagerInterface;
-use App\Form\BiFormType;
-use App\Repository\BiRepository;
-use Symfony\Component\HttpFoundation\Request;
-use Stof\DoctrineExtensionsBundle\Uploadable\UploadableManager;
 
 class BiController extends AbstractController
 {
@@ -33,19 +32,18 @@ class BiController extends AbstractController
         $form = $this->createForm(BiFormType::class, $bi);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
             $this->em->persist($bi);
             $uploadableManager->markEntityToUpload($bi, $form->get('myFile')->getData());
             $this->em->flush();
+
             return $this->redirectToRoute('app_index');
-
-
         }
 
         return $this->render('bi/create.html.twig', [
             'BiForm' => $form->createView(),
         ]);
     }
+
     #[Route('/bi/update/{id}', name: 'app_bi_update', requirements: ['id' => '\d+'])]
     public function update(Request $request, UploadableManager $uploadableManager, BiRepository $biRepository): Response
     {
@@ -54,17 +52,18 @@ class BiController extends AbstractController
         $form = $this->createForm(BiFormType::class, $bi[0]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
             $this->em->persist($bi[0]);
             $uploadableManager->markEntityToUpload($bi[0], $form->get('myFile')->getData());
             $this->em->flush();
+
             return $this->redirectToRoute('app_admin_bi');
         }
+
         return $this->render('bi/update.html.twig', [
             'BiForm' => $form->createView(),
         ]);
-
     }
+
     #[Route('/bi/delete/{id}', name: 'app_bi_delete', requirements: ['id' => '\d+'])]
     public function delete(Request $request, BiRepository $biRepository): Response
     {
@@ -72,6 +71,7 @@ class BiController extends AbstractController
         $bi = $biRepository->findBy(['id' => $request->attributes->get('id')]);
         $this->em->remove($bi[0]);
         $this->em->flush();
+
         return $this->redirectToRoute('app_admin_bi');
     }
 }

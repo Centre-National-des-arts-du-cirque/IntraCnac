@@ -1,0 +1,26 @@
+<div class="form__container">
+	{{ form_start(XMLCertification, { attr: { class: "form_itTicket" }}) }}
+	<h1>Generateur fichier XML
+	</h1>
+	<h2>
+		Generateur de fichier XML pour la certification
+	</h2>
+
+	<div class="form__name inline_row">
+		<div class="field">
+			{{ form_label(XMLCertification.idFlux, "identifiant flux") }}
+			{{ form_widget(XMLCertification.idFlux, { attr: { placeholder: "identifiant flux" }}) }}
+		</div>
+		<div class="field">
+			{{ form_label(XMLCertification.File, "Fichier csv") }}
+			{{ form_widget(XMLCertification.File, { attr: { placeholder: "Fichier csv" }}) }}
+		</div>
+
+
+		<div class="center">
+			<button type="submit" class="btn">Génerer</button>
+			{{ form_end(XMLCertification) }}
+		</div>
+	</div>
+
+</body></html>

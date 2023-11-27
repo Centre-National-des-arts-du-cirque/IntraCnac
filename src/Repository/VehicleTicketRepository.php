@@ -20,40 +20,39 @@ class VehicleTicketRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, VehicleTicket::class);
     }
-    
-    public function countByDate(\DateTime $start , \DateTime $end): int
-    {   
-        
+
+    public function countByDate(\DateTime $start, \DateTime $end): int
+    {
         $qb = $this->createQueryBuilder('ticket')
         ->select('count(ticket.id)')
-        ->where('ticket.date BETWEEN :start and :end' )
+        ->where('ticket.date BETWEEN :start and :end')
         ->setParameter('start', $start)
         ->setParameter('end', $end);
 
         return $qb->getQuery()->getSingleScalarResult();
     }
-//    /**
-//     * @return VehicleTicket[] Returns an array of VehicleTicket objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('v')
-//            ->andWhere('v.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('v.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    //    /**
+    //     * @return VehicleTicket[] Returns an array of VehicleTicket objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('v')
+    //            ->andWhere('v.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('v.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
 
-//    public function findOneBySomeField($value): ?VehicleTicket
-//    {
-//        return $this->createQueryBuilder('v')
-//            ->andWhere('v.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    public function findOneBySomeField($value): ?VehicleTicket
+    //    {
+    //        return $this->createQueryBuilder('v')
+    //            ->andWhere('v.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

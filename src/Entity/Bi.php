@@ -22,7 +22,6 @@ class Bi
     #[ORM\Column(length: 900)]
     private ?string $description = null;
 
-
     #[ORM\Column(length: 255, nullable: true)]
     #[Gedmo\UploadableFilePath]
     private ?string $path = null;
@@ -37,7 +36,6 @@ class Bi
 
     #[ORM\Column]
     private ?int $week = null;
-
 
     public function getId(): ?int
     {
@@ -72,7 +70,6 @@ class Bi
     {
         return $this->path;
     }
-
 
     public function setPath(?string $path): static
     {
@@ -116,5 +113,4 @@ class Bi
 
         return $this;
     }
-
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cpf:flux xmlns:cpf="urn:cdc:cpf:pc5:schema:1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <cpf:idFlux>drama2022</cpf:idFlux>
+    <cpf:horodatage>2020-12-18T14:24:12+01:00</cpf:horodatage>
+    <cpf:emetteur>
+        <cpf:idClient>03BHY312</cpf:idClient>
+        <cpf:certificateurs>
+            <cpf:certificateur>
+                <cpf:idClient>03BHY312</cpf:idClient>
+                <cpf:idContrat>MCFCER000775</cpf:idContrat>
+                <cpf:certifications>
+                    <cpf:certification>
+                        <cpf:type>RS</cpf:type>
+                        <cpf:code>RS5286</cpf:code>
+                        <cpf:natureDeposant>CERTIFICATEUR</cpf:natureDeposant>
+                        <cpf:passageCertifications>
+                            <cpf:passageCertification>
+                                <cpf:idTechnique>drama2022-11</cpf:idTechnique>
+                                <cpf:obtentionCertification>PAR_SCORING</cpf:obtentionCertification>
+                                <cpf:donneeCertifiee>true</cpf:donneeCertifiee>
+                                <cpf:dateDebutValidite>2022-02-14</cpf:dateDebutValidite>
+                                <cpf:dateFinValidite nil="true"/>
+                                <cpf:presenceNiveauLangueEuro>false</cpf:presenceNiveauLangueEuro>
+                                <cpf:presenceNiveauNumeriqueEuro>false</cpf:presenceNiveauNumeriqueEuro>
+                                <cpf:scoring xsi:nil="true"/>
+                                <cpf:mentionValidee>nill</cpf:mentionValidee>
+                                <cpf:modalitesInscription>
+                                    <cpf:modaliteAcces>FORMATION_CONTINUE_HORS_CONTRAT_DE_PROFESSIONNALISATION</cpf:modaliteAcces>
+                                </cpf:modalitesInscription>
+                                <cpf:identificationTitulaire>
+                                    <cpf:titulaire>
+                                        <cpf:nomNaissance>SCHNEIDER</cpf:nomNaissance>
+                                        <cpf:nomUsage xsi:nil="true"/>
+                                        <cpf:prenom1>Verena</cpf:prenom1>
+                                        <cpf:anneeNaissance>1987</cpf:anneeNaissance>
+                                        <cpf:moisNaissance>9</cpf:moisNaissance>
+                                        <cpf:jourNaissance>20</cpf:jourNaissance>
+                                        <cpf:sexe>F</cpf:sexe>
+                                        <cpf:codeInsee>99110</cpf:codeInsee>
+                                    </cpf:titulaire>
+                                </cpf:identificationTitulaire>
+                            </cpf:passageCertification>
+                        </cpf:passageCertifications>
+                    </cpf:certification>
+                </cpf:certifications>
+            </cpf:certificateur>
+        </cpf:certificateurs>
+    </cpf:emetteur>
+
+</cpf:flux>

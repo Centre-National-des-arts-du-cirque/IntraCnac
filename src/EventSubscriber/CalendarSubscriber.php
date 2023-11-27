@@ -14,8 +14,8 @@ class CalendarSubscriber implements EventSubscriberInterface
     public function __construct(
         private EventRepository $EventRepository,
         private UrlGeneratorInterface $router
-    )
-    {}
+    ) {
+    }
 
     public static function getSubscribedEvents()
     {
@@ -39,8 +39,8 @@ class CalendarSubscriber implements EventSubscriberInterface
         ->setParameter('end', $end->format('Y-m-d H:i:s'))
         ->getQuery()
         ->getResult()
-    ;
-        
+        ;
+
         foreach ($events as $eventCnac) {
             // this create the events with your data (here booking data) to fill calendar
             $CalendarEvent = new Event(
@@ -57,10 +57,9 @@ class CalendarSubscriber implements EventSubscriberInterface
              */
 
             $CalendarEvent->setOptions([
-                'backgroundColor' =>$eventCnac->getTypeEvent()->getCalendarColor(),
+                'backgroundColor' => $eventCnac->getTypeEvent()->getCalendarColor(),
                 'borderColor' => $eventCnac->getTypeEvent()->getCalendarColor(),
             ]);
-            
 
             // finally, add the event to the CalendarEvent to fill the calendar
             $calendar->addEvent($CalendarEvent);

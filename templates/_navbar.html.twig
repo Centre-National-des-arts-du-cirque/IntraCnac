@@ -13,13 +13,15 @@
 
 			{% if is_granted('ROLE_ADMIN') %}
 				<li class="{{ app.request.attributes.get('_route') == 'app_admin' ? 'active' : '' }}">
-					<a href="{{ path('app_admin') }}">Ticket Dasboard</a>
+					<a href="{{ path('app_admin') }}">
+						Tickets Dasboard</a>
 				</li>
 				<li class="{{ app.request.attributes.get('_route') == 'app_admin_chart' ? 'active' : '' }}">
 					<a href="{{ path('app_admin_chart') }}">Graph</a>
 				</li>
+
 			{% endif %}
-			{% if is_granted('ROLE_ADMIN_EVENT') or  is_granted('ROLE_SUPER_ADMIN')  %}
+			{% if is_granted('ROLE_ADMIN_EVENT') %}
 
 				<li class="{{ app.request.attributes.get('_route') == 'app_create_event' ? 'active' : '' }}">
 					<a href="{{ path('app_create_event') }}">Event</a>
@@ -30,10 +32,19 @@
 				<li class="{{ app.request.attributes.get('_route') == 'app_bi' ? 'active' : '' }}">
 					<a href="{{ path('app_bi_create') }}">BI</a>
 				</li>
+			{% endif %}
+			{% if is_granted('ROLE_ADMIN_CERTIFICATION')  %}
+				<li class="{{app.request.attributes.get('_route') == 'app_xml_certification' }}">
+					<a href="{{ path('app_xml_certification') }}">Certification</a>
+				</li>
+
 
 			{% endif %}
 			<li class="{{ app.request.attributes.get('_route') in ['app_ItTicket', 'app_BuildingTicket', 'app_VehicleTicket'] ? 'active' : '' }}">
-				<a href="{{ path('app_ItTicket') }}">Ticket</a>
+				<a href="{{ path('app_ItTicket') }}">Tickets</a>
+			</li>
+			<li class="{{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
+				<a href="#">Contact</a>
 			</li>
 			<li>
 				<a href="{{ path('app_logout') }}">Deconnexion</a>
