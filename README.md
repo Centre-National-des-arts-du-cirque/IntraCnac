@@ -19,10 +19,11 @@
 
 - [🔍 Table of Contents](#-table-of-contents)
 - [💻 Stack](#-stack)
-- [📝 Project Summary:](#-project-summary)
+- [📝 Project Summary](#-project-summary)
 - [⚙️ Setting Up](#️-setting-up)
     - [Your Environment Variable](#your-environment-variable)
 - [🚀 Run Locally](#-run-locally)
+- [📈 Future Features](#-future-features)
 - [🙌 Contributors](#-contributors)
 - [📄 License](#-license)
 
@@ -40,7 +41,7 @@
 - [symfony/asset-mapper](https://symfony.com/doc/current/frontend/asset_mapper.html): Provide mapping and assets versionnings
 - []
 
-## 📝 Project Summary:
+## 📝 Project Summary
 
 INTRACNAC is a intranet created for the Centre nationale des arts du cirque to  communicate and centralise collaborative tools developed specifically for Cnac's needs. In the long term, it will reduce the need to send emails, facilitate the organisation of different activities and automate certain tasks.
 
@@ -71,29 +72,31 @@ INTRACNAC is a intranet created for the Centre nationale des arts du cirque to  
 git clone https://github.com/Centre-National-des-arts-du-cirque/SupportWebsiteFinal
 ```
 
-2.Install the dependencies with one of the package managers listed below:
-
-```bash
-composer install
-```
-
-3.Build fresh docker images:
+2.Build fresh docker images:
 
 ```bash
  docker compose build --no-cache
 ```
 
-4.Start the database:
+3.Start the project:
 
 ```bash
 docker compose up --pull -d --wait
 ```
 
-3.Start the development mode:
+## 📈 Future Features
 
-```bash
-symfony serve
-```
+  Not all following features will nescessary be implemented they are just proof of concept
+
+- Mobile first design
+- Restrict /register acces if not on local network
+- Outlook api to calendar
+- Request to use vehicle
+- Occupation of school classroom
+- Application to join the school
+- Implemente newsletters to replace brevo
+- Implemente phone book to replace eudonet
+- Add Erasmus+  
 
 ## 🙌 Contributors
 
@@ -106,7 +109,7 @@ symfony serve
         </a>
         <br />
         <a href="https://github.com/Centre-National-des-arts-du-cirque/SupportWebsiteFinal/commits?author=tomStory9" title="Contributions" spellcheck="false">
-          150 contributions
+          285 contributions
         </a>
       </td></table>
 

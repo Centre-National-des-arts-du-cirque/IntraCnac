@@ -39,23 +39,7 @@ class RegistrationFormType extends AbstractType
                 ],
                 ],
             )
-            ->add('plainPassword', RepeatedType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
-                'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez entrez un mot de passe',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'votre mot de passe devrai au moins contenir {{ limit }} caractères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 50,
-                    ]),
-                ],
-            ])
+
             ->add('name')
             ->add('lastname')
             ->add('post', TextType::class, [
@@ -78,6 +62,23 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Merci d entrer un service',
+                    ]),
+                ],
+            ])
+            ->add('plainPassword', RepeatedType::class, [
+                // instead of being set onto the object directly,
+                // this is read and encoded in the controller
+                'mapped' => false,
+                'attr' => ['autocomplete' => 'new-password'],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Veuillez entrez un mot de passe',
+                    ]),
+                    new Length([
+                        'min' => 6,
+                        'minMessage' => 'votre mot de passe devrai au moins contenir {{ limit }} caractères',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 50,
                     ]),
                 ],
             ])
