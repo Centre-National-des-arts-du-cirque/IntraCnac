@@ -42,7 +42,17 @@ nav li {
     border: 1px solid #e6007d;  /* Pink border around each list item */
     margin: 0 10px;  /* Spacing between list items */
 }
-
+/* Styles for active class */
+nav li.active {  
+    /* White border for active list item */
+    outline: white solid;
+    outline-offset: -3px;
+    outline-width: 1px;
+    background-color: #e6007d;  /* Pink background for active link */
+}
+nav li.active a {
+    color: white;  /* White text for active link */
+}
 nav a {
     color: #e6007d;  /* Pink text */
     text-decoration: none;  /* Remove underline from links */
@@ -51,15 +61,4 @@ nav a {
     text-align: center;  /* Center the text */
 }
 
-/* Styles for active class */
-nav li.active {  
-    /* White border for active list item */
-    outline: white solid;
-    outline-offset: -3px;
-    outline-width: 1px;
-}
 
-nav li.active a {
-    background-color: #e6007d;  /* Pink background for active link */
-    color: white;  /* White text for active link */
-}
