@@ -19,7 +19,7 @@ class Bi
     #[ORM\Column(length: 100)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 900)]
+    #[ORM\Column(length: 5000)]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]
