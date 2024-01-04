@@ -49,10 +49,9 @@ body{
 
 .bi p {
     overflow-y: auto;
-    height: 48vh;
+    height: 42.5vh;
     text-align: justify;
 }
-
 
 .bi img {
     width: 700px;
@@ -66,5 +65,11 @@ body{
     align-items: center;
     padding: 5px 20px;
     font-family: 'DM Sans';
+}
+
+@media screen and (max-height: 900px) {
+    .bi p {
+        height: 48vh;
+    }
 }
 
