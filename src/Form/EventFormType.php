@@ -26,7 +26,7 @@ class EventFormType extends AbstractType
                 'label' => 'Choisir une date',
                 'widget' => 'single_text',
                 'html5' => false,
-                'data' => new \DateTime(),
+                'data' => (new \DateTime())->setTime(8, 30),
                 'format' => 'dd/MM/yyyy HH:mm',
                 'attr' => ['class' => 'js-datepicker'],
                 'constraints' => [
@@ -37,6 +37,7 @@ class EventFormType extends AbstractType
                 'label' => 'Choisir une date',
                 'widget' => 'single_text',
                 'html5' => false,
+                'data' => (new \DateTime())->setTime(20, 0),
                 'format' => 'dd/MM/yyyy HH:mm',
                 'attr' => ['class' => 'js-datepicker2'],
             ])
