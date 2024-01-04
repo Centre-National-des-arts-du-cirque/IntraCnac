@@ -14,7 +14,7 @@ body {
 
 
 .container {
-    width: 500px; /* Agrandir le conteneur principal */
+    width: 30%; /* Agrandir le conteneur principal */
     padding: 0px 30px 30px 30px;
      /* Ajouter plus d'espacement à l'intérieur du conteneur */
     background-color: white;
@@ -100,6 +100,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 .form__container h1, .form__container h2 {
     font-size: 30px; /* Augmenter la taille des titres pour remplir plus d'espace */
     color: #e6007d;
+    font-weight: bold;
     }
 
 .form__header{
@@ -107,3 +108,39 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
     justify-content: center;
 }
 
+@media screen and (max-height: 900px) {
+    body {
+        font-size: 12px; /* Réduire la taille de la police */
+    }
+
+    .container {
+        width: 30%; /* Ajuster la largeur du conteneur principal */
+        padding: 10px; /* Réduire l'espacement à l'intérieur du conteneur */
+    }
+
+    h2 {
+        font-size: 20px; /* Réduire la taille du titre */
+        margin-bottom: 10px; /* Réduire la marge inférieure */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        padding: 8px; /* Réduire le rembourrage des champs de saisie */
+        font-size: 14px; /* Réduire la taille de la police des champs de saisie */
+    }
+
+    button {
+        padding: 8px; /* Réduire le rembourrage du bouton */
+    }
+
+    .alert {
+        font-size: 14px; /* Réduire la taille de la police de l'alerte */
+    }
+
+    .form__container h1,
+    .form__container h2 {
+        font-size: 24px; /* Réduire la taille des titres du formulaire */
+    }
+}
