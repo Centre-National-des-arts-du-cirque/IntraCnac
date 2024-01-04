@@ -14,7 +14,7 @@
 			{% if is_granted('ROLE_ADMIN') %}
 				<li class="{{ app.request.attributes.get('_route') == 'app_admin' ? 'active' : '' }}">
 					<a href="{{ path('app_admin') }}">
-						Tickets Dasboard</a>
+						Tickets Dashboard</a>
 				</li>
 				<li class="{{ app.request.attributes.get('_route') == 'app_admin_chart' ? 'active' : '' }}">
 					<a href="{{ path('app_admin_chart') }}">Graph</a>
@@ -27,7 +27,7 @@
 					<a href="{{ path('app_create_event') }}">Event</a>
 				</li>
 				<li class="{{ app.request.attributes.get('_route') == 'app_admin_bi' ? 'active' : '' }}">
-					<a href="{{ path('app_admin_bi') }}">BI Dasboard</a>
+					<a href="{{ path('app_admin_bi') }}">BI Dashboard</a>
 				</li>
 				<li class="{{ app.request.attributes.get('_route') == 'app_bi' ? 'active' : '' }}">
 					<a href="{{ path('app_bi_create') }}">BI</a>
