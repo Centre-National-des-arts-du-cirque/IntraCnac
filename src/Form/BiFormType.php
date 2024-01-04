@@ -6,6 +6,7 @@ use App\Entity\Bi;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -36,13 +37,14 @@ class BiFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'constraints' => [
                     new NotBlank(),
                 ],
             ])
 
             ->add('week', IntegerType::class, [
+                'data' => date('W'),
                 'constraints' => [
                     new NotBlank(),
                 ],

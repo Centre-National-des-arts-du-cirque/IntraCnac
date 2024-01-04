@@ -14,6 +14,7 @@ nav ul {
     padding: 0;
     display: flex;  /* Use flexbox to layout the list items */
     justify-content: center;  /* Center list items on the horizontal axis */
+    
 }
 .top {
     width: 100%;  /* Full width of the display */
@@ -24,11 +25,13 @@ nav ul {
 
 
 }
+
 .top h1 {
     color: white;
     font-size: 75px;
     font-family: "New Title variable";
     margin: 5px;
+    
 }
 nav {
     width: 100%;  /* Full width of the display */
@@ -41,8 +44,21 @@ nav {
 nav li {
     border: 1px solid #e6007d;  /* Pink border around each list item */
     margin: 0 10px;  /* Spacing between list items */
+    
+    font-weight: bold;
+    
 }
-
+/* Styles for active class */
+nav li.active {  
+    /* White border for active list item */
+    outline: white solid;
+    outline-offset: -3px;
+    outline-width: 1px;
+    background-color: #e6007d;  /* Pink background for active link */
+}
+nav li.active a {
+    color: white;  /* White text for active link */
+}
 nav a {
     color: #e6007d;  /* Pink text */
     text-decoration: none;  /* Remove underline from links */
@@ -51,15 +67,4 @@ nav a {
     text-align: center;  /* Center the text */
 }
 
-/* Styles for active class */
-nav li.active {  
-    /* White border for active list item */
-    outline: white solid;
-    outline-offset: -3px;
-    outline-width: 1px;
-}
 
-nav li.active a {
-    background-color: #e6007d;  /* Pink background for active link */
-    color: white;  /* White text for active link */
-}

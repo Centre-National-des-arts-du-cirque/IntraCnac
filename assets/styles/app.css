@@ -8,23 +8,29 @@ body{
     background-size: cover;
     background-position: center;
     font-family: 'DM Sans';
+   
 }
 
 
 .content {
+    
     display: flex;
     justify-content: space-between;
-    height: 80vh;
+    height: 100%;
 
+}
+.calendar{
+    
+    border-radius: 5px;
+    
+    width: 60%;
 }
 
 #calendar-holder {
-
-    flex-basis: 60%;
-    overflow: hidden; /* Prevent overflow */
-    margin: 60px 0px 0px 40px;
-    border-radius: 5px;
+ /* smaller page size is 660px deal with it */ 
+    margin: 60px 40px 0px 40px;
     background-color: white;
+    height: fit-content;
 }
 
 .BI {
@@ -33,15 +39,18 @@ body{
     max-width: 38%;
     background-color: white;
     border-radius: 5px;
+    height: fit-content;
+}
+
+.bi h2{
+    margin-top: 5px;
 }
 
 
-
-.bi-title-underline {
-    width: 40%;
-    height: 2px;
-    margin: 10px auto;
-    background-color: black;
+.bi p {
+    overflow-y: auto;
+    height: 42.5vh;
+    text-align: justify;
 }
 
 .bi img {
@@ -57,3 +66,10 @@ body{
     padding: 5px 20px;
     font-family: 'DM Sans';
 }
+
+@media screen and (max-height: 900px) {
+    .bi p {
+        height: 48vh;
+    }
+}
+

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Event Dashboard!
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/admin/event/EventDashboard.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+	{{ importmap() }}
+	 <script type="module" src="{{ asset('js/bi/show.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+	<div class="content">
+
+		<div class="user">
+			<div class="profil">
+				<div class="profile-picture">
+					<img src="{{ asset('img/user.jfif') }}" alt="User's Profile Picture">
+				</div>
+
+				<!-- User name and post -->
+				<div class="user-info">
+					<span class="user-name">
+						<strong>Profil :
+						</strong>
+						{{ user.name |capitalize}}
+						{{user.lastname |capitalize}}</span>
+					<span class="user-post">
+						<strong>Poste :</strong>
+						{{ user.post|capitalize }}
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="bis">
+			{% for BI in BIS %}
+				{% set dateCreation = BI.createAt|date("d/M/Y") %}
+				{% set dateUpdate = BI.updateAt|date("d/M/Y") ? "jamais" %}
+				<div class="bi">
+					<div class="bi-header">
+						<h2>{{BI.title | capitalize}}</h2>
+						<span>Date de création :
+							{{dateCreation}}</span>
+						<span>Date de mise à jour :
+							{{dateUpdate}}</span>
+						<div class="action-button">
+							<button class="view-btn">Afficher</button>
+							<button class="update-btn">
+								<a href="/bi/update/{{BI.getId}}">Modifier</a>
+							</button>
+							<button class="delete-btn">
+								<a href="/ticket/delete/{{BI.getId}}">Supprimer</a>
+							</button>
+						</div>
+					</div>
+					<div class="bi-content">
+						<div class="content-description">
+							<strong>Description:</strong>
+							{{BI.description}}
+						</div>
+
+					</div>
+				</div>
+
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

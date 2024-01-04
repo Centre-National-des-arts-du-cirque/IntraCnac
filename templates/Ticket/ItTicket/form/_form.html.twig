@@ -1,45 +1,44 @@
 <div class="form__container">
-    {{ form_start(ItTicketForm, { attr: { class: "form_login" }}) }}
-    <h1>Soumettre un ticket</h1> <!-- Ajout du titre -->
-    <h2>Informatique</h2> <!-- Ajout du sous-titre -->
-    
-    <div class="form__name inline_row">
-        <div class="field">
-            {{ form_label(ItTicketForm.title, "Objet") }}
-            {{ form_widget(ItTicketForm.title, { attr: { placeholder: "Objet du ticket" }}) }}
-        </div>
-        <div class="field">
-            {{ form_label(ItTicketForm.description, "Description") }}
-            {{ form_widget(ItTicketForm.description, { attr: { placeholder: "Description" }}) }}
-        </div>
-    </div>
+	{{ form_start(ItTicketForm, { attr: { class: "form_login" }}) }}
+	<h1>Soumettre un ticket</h1>
+	<!-- Ajout du titre -->
+	<h2>Informatique</h2>
+	<!-- Ajout du sous-titre -->
 
-    <div class="field">
-        {{ form_label(ItTicketForm.pcName, "pcName") }}
-        {{ form_widget(ItTicketForm.pcName, { attr: { placeholder: "nom du pc " }}) }}
-    </div>
+	<div class="form__name inline_row">
+		<div class="field">
+			{{ form_label(ItTicketForm.title, "Objet") }}
+			{{ form_widget(ItTicketForm.title, { attr: { placeholder: "Objet du ticket" }}) }}
+		</div>
+		<div class="field">
+			{{ form_label(ItTicketForm.description, "Description") }}
+			{{ form_widget(ItTicketForm.description, { attr: { placeholder: "Description" }}) }}
+		</div>
+	</div>
 
-    <div class="field">
-        {{ form_label(ItTicketForm.errorCode, "Errorcode") }}
-        {{ form_widget(ItTicketForm.errorCode, { attr: { placeholder: "code erreur si possible" }}) }}
-    </div>
+	<div class="field">
+		{{ form_label(ItTicketForm.pcName, "Nom du pc") }}
+		{{ form_widget(ItTicketForm.pcName, { attr: { placeholder: "nom du pc " }}) }}
+	</div>
 
-    <div class="field">
-        {{ form_label(ItTicketForm.Localisation, "Localisation") }}
-        {{ form_widget(ItTicketForm.Localisation, { attr: { placeholder: "Lieu ou se trouve le pc" }}) }}
-    </div>
+	<div class="field">
+		{{ form_label(ItTicketForm.errorCode, "Code Erreur ") }}
+		{{ form_widget(ItTicketForm.errorCode, { attr: { placeholder: "code erreur si possible" }}) }}
+	</div>
 
-    <div class="field">
-        {{ form_label(ItTicketForm.ErrorType, "type d'erreur") }}
-        {{ form_widget(ItTicketForm.ErrorType, { attr: { placeholder: "type d'erreur que vous rencontrez" }}) }}
-    </div>
-   
-    
-    <div class="center">
-    <button type="submit" class="btn">Envoyez le ticket</button>
-        {{ form_end(ItTicketForm) }}
-    </div>
-    </div>
+	<div class="field">
+		{{ form_label(ItTicketForm.Localisation, "Localisation") }}
+		{{ form_widget(ItTicketForm.Localisation, { attr: { placeholder: "Lieu ou se trouve le pc" }}) }}
+	</div>
+
+	<div class="field">
+		{{ form_label(ItTicketForm.ErrorType, "type d'erreur") }}
+		{{ form_widget(ItTicketForm.ErrorType, { attr: { placeholder: "type d'erreur que vous rencontrez" }}) }}
+	</div>
 
 
-</div>
+	<div class="center">
+		<button type="submit" class="btn">Envoyez le ticket</button>
+		{{ form_end(ItTicketForm) }}
+	</div>
+</div></div>

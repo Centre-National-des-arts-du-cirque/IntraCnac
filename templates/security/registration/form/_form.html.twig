@@ -23,35 +23,30 @@
 		</div>
 
 		<div class="field">
-			{{ form_label(registrationForm.service, "Service") }}
-			{{ form_widget(registrationForm.service, { attr: { placeholder: "Service" }}) }}
+			{{ form_label(registrationForm.service, "Pole") }}
+			{{ form_widget(registrationForm.service, { attr: { placeholder: "Pole" }}) }}
 		</div>
 		<div class="field">
 			{{ form_label(registrationForm.post, "poste") }}
 			{{ form_widget(registrationForm.post, { attr: { placeholder: "Poste occupé au cnac" }}) }}
 		</div>
-		<div class="field">
-			{{ form_label(registrationForm.file, "Photo de profil") }}
-			{{ form_widget(registrationForm.file, { attr: { placeholder: "Photo de profil" }}) }}
-			{% if form_errors(registrationForm.file) is not empty %}
-				<div class="alert">{{ form_errors(registrationForm.file) }}</div>
-			{% endif %}
-		</div>
+
 		<div class="inline_row">
 			<div class="field">
 				{{ form_label(registrationForm.plainPassword.first, "Mot de passe") }}
 				{{ form_widget(registrationForm.plainPassword.first, { attr: { placeholder: "Mot de passe" }}) }}
-				{% if form_errors(registrationForm.plainPassword.first) is not empty %}
-					<div class="alert">{{ form_errors(registrationForm.plainPassword.first) }}</div>
+			</div>
+			<div class="field">
+				{{ form_label(registrationForm.file, "Photo de profil") }}
+				{{ form_widget(registrationForm.file, { attr: { placeholder: "Photo de profil" }}) }}
+				{% if form_errors(registrationForm.file) is not empty %}
+					<div class="alert">{{ form_errors(registrationForm.file) }}</div>
 				{% endif %}
 			</div>
 
 			<div class="field">
 				{{ form_label(registrationForm.plainPassword.second, "Répétez le mot de passe") }}
 				{{ form_widget(registrationForm.plainPassword.second, { attr: { placeholder: "Répétez le mot de passe" }}) }}
-				{% if form_errors(registrationForm.plainPassword.second) is not empty %}
-					<div class="alert">{{ form_errors(registrationForm.plainPassword.second) }}</div>
-				{% endif %}
 			</div>
 
 		</div>
