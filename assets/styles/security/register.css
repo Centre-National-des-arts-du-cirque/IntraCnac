@@ -115,7 +115,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 
     .container {
         width: 30%; /* Ajuster la largeur du conteneur principal */
-        padding: 10px; /* Réduire l'espacement à l'intérieur du conteneur */
+        padding: 5px 15px 10px 15px; /* Réduire l'espacement à l'intérieur du conteneur */
     }
 
     h2 {
